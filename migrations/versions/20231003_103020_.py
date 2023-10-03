@@ -57,7 +57,6 @@ def upgrade():
     if environment == "production":
         op.execute(f"ALTER TABLE businesses SET SCHEMA {SCHEMA};")
 
-
     op.create_table('featured_items',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('business_id', sa.Integer(), nullable=False),
