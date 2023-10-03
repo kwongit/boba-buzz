@@ -19,6 +19,7 @@ class Business(db.Model):
     open_hours = db.Column(db.String, nullable=False)
     close_hours = db.Column(db.String, nullable=False)
     image_url = db.Column(db.String)
+    description = db.Column(db.String, nullable=False)
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
     updated_at = db.Column(db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
 
@@ -40,6 +41,7 @@ class Business(db.Model):
             'open_hours': self.open_hours,
             'close_hours': self.close_hours,
             'image_url': self.image_url,
+            'description': self.description,
             'created_at': self.created_at,
             'updated_at': self.updated_at
         }
