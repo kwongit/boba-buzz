@@ -1,13 +1,12 @@
 """empty message
 
-Revision ID: 0cef8d3438a4
+Revision ID: f9b599dacb17
 Revises:
-Create Date: 2023-10-03 10:30:20.724837
+Create Date: 2023-10-03 13:53:29.529945
 
 """
 from alembic import op
 import sqlalchemy as sa
-
 
 import os
 environment = os.getenv("FLASK_ENV")
@@ -15,7 +14,7 @@ SCHEMA = os.environ.get("SCHEMA")
 
 
 # revision identifiers, used by Alembic.
-revision = '0cef8d3438a4'
+revision = 'f9b599dacb17'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -48,6 +47,7 @@ def upgrade():
     sa.Column('open_hours', sa.String(), nullable=False),
     sa.Column('close_hours', sa.String(), nullable=False),
     sa.Column('image_url', sa.String(), nullable=True),
+    sa.Column('description', sa.String(), nullable=False),
     sa.Column('created_at', sa.DateTime(), nullable=True),
     sa.Column('updated_at', sa.DateTime(), nullable=True),
     sa.ForeignKeyConstraint(['owner_id'], ['users.id'], ondelete='CASCADE'),
@@ -56,7 +56,6 @@ def upgrade():
 
     if environment == "production":
         op.execute(f"ALTER TABLE businesses SET SCHEMA {SCHEMA};")
-
 
     op.create_table('featured_items',
     sa.Column('id', sa.Integer(), nullable=False),
@@ -76,7 +75,7 @@ def upgrade():
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('business_id', sa.Integer(), nullable=False),
     sa.Column('user_id', sa.Integer(), nullable=False),
-    sa.Column('review', sa.String(length=255), nullable=False),
+    sa.Column('review', sa.String(), nullable=False),
     sa.Column('stars', sa.Integer(), nullable=True),
     sa.Column('created_at', sa.DateTime(), nullable=True),
     sa.Column('updated_at', sa.DateTime(), nullable=True),
@@ -87,7 +86,6 @@ def upgrade():
 
     if environment == "production":
         op.execute(f"ALTER TABLE reviews SET SCHEMA {SCHEMA};")
-
     # ### end Alembic commands ###
 
 
