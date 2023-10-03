@@ -22,7 +22,7 @@ def seed_businesses():
 
         Asha's team members are fiercely dedicated to quality and honesty, and we hope that our passion for tea and what we offer shines through with every sip. If you want to know more, check out these pages: What Makes Asha Different, Where We Source our Teas, How Our Space Came to Be, and a few insights about the Design of our tea house.
         """
-        ),
+        )
 
     # bobaguys business_id=2,
     bobaguys = Business(
@@ -83,7 +83,7 @@ def seed_businesses():
 
         In 2014, Happy Lemon successfully became the world’s most recognized and respected tea culture brand with more than 2,000 locations across 21 countries including the USA, Canada, Australia, United Kingdom, South Korea, Japan, Dubai, Philippines, and many more.
         """
-        ),
+        )
 
     # sunright business_id=5,
     sunright = Business(
