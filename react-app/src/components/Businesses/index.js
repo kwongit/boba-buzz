@@ -18,10 +18,15 @@ export const Businesses = () => {
 
   return (
     <>
+      <h1>BobaBuzz</h1>
       <div className="business-details-container">
-        {businesses.map((business) => (
-          <BusinessList key={business.id} business={business} />
-        ))}
+        <ol>
+          {businesses.map((business) => (
+            <li key={business.id}>
+              <BusinessList business={business} />
+            </li>
+          ))}
+        </ol>
       </div>
     </>
   );

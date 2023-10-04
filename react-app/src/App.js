@@ -8,6 +8,7 @@ import Navigation from "./components/Navigation";
 import { Businesses } from "./components/Businesses";
 import { ManageBusinesses } from "./components/Businesses/ManageBusinesses";
 import { BusinessDetails } from "./components/Businesses/BusinessDetails";
+import { CreateBusiness } from "./components/Businesses/CreateBusiness";
 
 function App() {
   const dispatch = useDispatch();
@@ -29,6 +30,9 @@ function App() {
           </Route>
           <Route exact path="/">
             <Businesses />
+          </Route>
+          <Route exact path="/businesses/new">
+            <CreateBusiness />
           </Route>
           <Route exact path="/businesses/current">
             <ManageBusinesses />
