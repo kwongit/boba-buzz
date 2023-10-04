@@ -1,9 +1,9 @@
 from flask import Blueprint, request
 from flask_login import current_user, login_required
-from datetime import date
-from app.models import Business
+from app.models import Business, Review
 from app.models.db import db
 from app.forms.business_form import BusinessForm
+from app.forms.review_form import ReviewForm
 
 business_routes = Blueprint('business', __name__)
 
@@ -16,7 +16,7 @@ def get_all_businesses():
     businesses = Business.query.all()
     all_business_list = [business.to_dict() for business in businesses]
 
-    return { "businesses": all_business_list}
+    return { "businesses": all_business_list }
 
 
 @business_routes.route('/<int:id>')
@@ -64,14 +64,11 @@ def create_business():
             open_hours=form.data["open_hours"],
             close_hours=form.data["close_hours"],
             image_url=form.data["image_url"],
-            description=form.data["description"],
-            created_at = date.today(),
-            updated_at = date.today()
+            description=form.data["description"]
         )
         db.session.add(new_business)
         db.session.commit()
         return new_business.to_dict(), 201
-
     else:
         print(form.errors)
         return { "errors": form.errors }, 400
@@ -103,6 +100,7 @@ def update_business(businessId):
             db.session.commit()
             return business_to_update.to_dict()
         else:
+            print(form.errors)
             return { "errors": form.errors }, 400
     else:
         return { "message": "FORBIDDEN" }, 403
@@ -125,3 +123,38 @@ def delete_business(businessId):
             return { "message": "FORBIDDEN" }, 403
     else:
         return { "message": "Business not found!" }, 404
+
+
+@business_routes.route('/<int:businessId>/reviews')
+def get_business_reviews(businessId):
+    """
+    Get all reviews by businessId and return businesses dictionary
+    """
+    reviews = Review.query.all()
+    all_reviews_list = [review.to_dict() for review in reviews if review.business_id == businessId]
+
+    return { "reviews": all_reviews_list }
+
+
+@business_routes.route('/<int:businessId>/', methods=["POST"])
+@login_required
+def create_review(businessId):
+    """
+    Route to create a new review by businessId
+    """
+    form = ReviewForm()
+    form["csrf_token"].data = request.cookies["csrf_token"]
+
+    if form.validate_on_submit():
+        new_review = Review(
+            business_id=businessId,
+            user_id=current_user.id,
+            review=form.data["review"],
+            stars=form.data["stars"]
+        )
+        db.session.add(new_review)
+        db.session.commit()
+        return new_review.to_dict(), 201
+    else:
+        print(form.errors)
+        return { "errors": form.errors }, 400
