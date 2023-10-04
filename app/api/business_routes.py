@@ -1,0 +1,127 @@
+from flask import Blueprint, request
+from flask_login import current_user, login_required
+from datetime import date
+from app.models import Business
+from app.models.db import db
+from app.forms.business_form import BusinessForm
+
+business_routes = Blueprint('business', __name__)
+
+
+@business_routes.route('/')
+def get_all_businesses():
+    """
+    Get all businesses and return businesses dictionary
+    """
+    businesses = Business.query.all()
+    all_business_list = [business.to_dict() for business in businesses]
+
+    return { "businesses": all_business_list}
+
+
+@business_routes.route('/<int:id>')
+def get_business_by_id(id):
+    """
+    Get business by business id
+    """
+    business = Business.query.get(id).to_dict()
+    if not business:
+        return { "message": "Business was not found!" }, 404
+
+    return business
+
+
+@business_routes.route('/current')
+@login_required
+def get_owned_businesses():
+    """
+    Get owned businesses by current user and return businesses dictionary
+    """
+    businesses = Business.query.all()
+    owned_businesses = [ business.to_dict() for business in businesses if business.owner_id == current_user.id ]
+
+    return { "businesses": owned_businesses }
+
+
+@business_routes.route('/', methods=["POST"])
+@login_required
+def create_business():
+    """
+    Route to create a new business
+    """
+    form = BusinessForm()
+    form["csrf_token"].data = request.cookies["csrf_token"]
+
+    if form.validate_on_submit():
+        new_business = Business(
+            owner_id=current_user.id,
+            address=form.data["address"],
+            city=form.data["city"],
+            state=form.data["state"],
+            name=form.data["name"],
+            type=form.data["type"],
+            price=form.data["price"],
+            open_hours=form.data["open_hours"],
+            close_hours=form.data["close_hours"],
+            image_url=form.data["image_url"],
+            description=form.data["description"],
+            created_at = date.today(),
+            updated_at = date.today()
+        )
+        db.session.add(new_business)
+        db.session.commit()
+        return new_business.to_dict(), 201
+
+    else:
+        print(form.errors)
+        return { "errors": form.errors }, 400
+
+
+@business_routes.route("/<int:businessId>", methods=["PUT"])
+@login_required
+def update_business(businessId):
+    """
+    Route to update a business
+    """
+    form = BusinessForm()
+    form["csrf_token"].data = request.cookies["csrf_token"]
+
+    business_to_update = Business.query.get(businessId)
+
+    if business_to_update.owner_id == current_user.id:
+        if form.validate_on_submit():
+            business_to_update.address = form.data["address"]
+            business_to_update.city = form.data["city"]
+            business_to_update.state = form.data["state"]
+            business_to_update.name = form.data["name"]
+            business_to_update.type = form.data["type"]
+            business_to_update.price = form.data["price"]
+            business_to_update.open_hours = form.data["open_hours"]
+            business_to_update.close_hours = form.data["close_hours"]
+            business_to_update.image_url = form.data["image_url"]
+            business_to_update.description = form.data["description"]
+            db.session.commit()
+            return business_to_update.to_dict()
+        else:
+            return { "errors": form.errors }, 400
+    else:
+        return { "message": "FORBIDDEN" }, 403
+
+
+@business_routes.route("/<int:businessId>", methods=["DELETE"])
+@login_required
+def delete_business(businessId):
+    """
+    Route to delete a business
+    """
+    business_to_delete = Business.query.get(businessId)
+
+    if business_to_delete:
+        if business_to_delete.owner_id == current_user.id:
+            db.session.delete(business_to_delete)
+            db.session.commit()
+            return { "message": "Delete successful!" }
+        else:
+            return { "message": "FORBIDDEN" }, 403
+    else:
+        return { "message": "Business not found!" }, 404
