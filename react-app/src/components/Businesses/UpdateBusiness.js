@@ -103,7 +103,8 @@ export const UpdateBusiness = ({ business }) => {
       if (updateBusiness.errors) {
         setErrors(combinedErrors);
       } else {
-        history.push(`/businesses/${business.id}`);
+        // history.push(`/businesses/${business.id}`);
+        history.push(`/businesses/current`);
       }
     }
     setIsSubmitting(false);
