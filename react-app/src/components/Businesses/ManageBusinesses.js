@@ -33,39 +33,33 @@ export const ManageBusinesses = () => {
     <div>
       <div className="manage-businesses-container">
         <h1>Manage Businesses</h1>
-        {businessesList && businessesList.length <= 0 ? (
-          <button
-            className="manage-businesses-create-btn"
-            onClick={handleClick}
-          >
-            Create a New Business
-          </button>
-        ) : (
-          ""
-        )}
+        <button className="manage-businesses-create-btn" onClick={handleClick}>
+          Add a New Business
+        </button>
       </div>
       <div className="manage-businesses-list-container">
-        {businessesList.map((business) => (
-          <div key={business.id}>
-            <BusinessList manage={true} business={business} />
-            <div className="manage-businesses-btn-container">
-              <button
-                className="manage-businesses-update-btn"
-                onClick={() => handleUpdateClick(business.id)}
-              >
-                Update
-              </button>
-
-              <OpenModalButton
-                className="manage-businesses-delete-btn"
-                buttonText="Delete"
-                modalComponent={
-                  <DeleteBusinessModal businessId={business.id} />
-                }
-              />
-            </div>
-          </div>
-        ))}
+        <ol>
+          {businessesList.map((business) => (
+            <li key={business.id}>
+              <BusinessList manage={true} business={business} />
+              <div className="manage-businesses-btn-container">
+                <button
+                  className="manage-businesses-update-btn"
+                  onClick={() => handleUpdateClick(business.id)}
+                >
+                  Update
+                </button>
+                <OpenModalButton
+                  className="manage-businesses-delete-btn"
+                  buttonText="Delete"
+                  modalComponent={
+                    <DeleteBusinessModal businessId={business.id} />
+                  }
+                />
+              </div>
+            </li>
+          ))}
+        </ol>
       </div>
     </div>
   );
