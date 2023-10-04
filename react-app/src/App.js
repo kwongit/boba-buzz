@@ -7,6 +7,7 @@ import { authenticate } from "./store/session";
 import Navigation from "./components/Navigation";
 import { Businesses } from "./components/Businesses";
 import { ManageBusinesses } from "./components/Businesses/ManageBusinesses";
+import { BusinessDetails } from "./components/Businesses/BusinessDetails";
 
 function App() {
   const dispatch = useDispatch();
@@ -31,6 +32,9 @@ function App() {
           </Route>
           <Route exact path="/businesses/current">
             <ManageBusinesses />
+          </Route>
+          <Route exact path="/businesses/:businessId">
+            <BusinessDetails />
           </Route>
         </Switch>
       )}

@@ -19,7 +19,7 @@ const BusinessList = ({ business }) => {
   const history = useHistory();
 
   const handleClick = () => {
-    history.push(`/businesss/${business.id}`);
+    history.push(`/businesses/${business.id}`);
   };
 
   return (
