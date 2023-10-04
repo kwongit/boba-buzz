@@ -75,3 +75,53 @@ def create_business():
     else:
         print(form.errors)
         return { "errors": form.errors }, 400
+
+
+@business_routes.route("/<int:businessId>", methods=["PUT"])
+@login_required
+def update_business(businessId):
+    """
+    Route to update a business
+    """
+    form = BusinessForm()
+    form["csrf_token"].data = request.cookies["csrf_token"]
+
+    business_to_update = Business.query.get(businessId)
+
+    if business_to_update.owner_id == current_user.id:
+        if form.validate_on_submit():
+            business_to_update.address = form.data["address"]
+            business_to_update.city = form.data["city"]
+            business_to_update.state = form.data["state"]
+            business_to_update.name = form.data["name"]
+            business_to_update.type = form.data["type"]
+            business_to_update.price = form.data["price"]
+            business_to_update.open_hours = form.data["open_hours"]
+            business_to_update.close_hours = form.data["close_hours"]
+            business_to_update.image_url = form.data["image_url"]
+            business_to_update.description = form.data["description"]
+            db.session.commit()
+            return business_to_update.to_dict()
+        else:
+            return { "errors": form.errors }, 400
+    else:
+        return { "message": "FORBIDDEN" }, 403
+
+
+@business_routes.route("/<int:businessId>", methods=["DELETE"])
+@login_required
+def delete_business(businessId):
+    """
+    Route to delete a business
+    """
+    business_to_delete = Business.query.get(businessId)
+
+    if business_to_delete:
+        if business_to_delete.owner_id == current_user.id:
+            db.session.delete(business_to_delete)
+            db.session.commit()
+            return { "message": "Delete successful!" }
+        else:
+            return { "message": "FORBIDDEN" }, 403
+    else:
+        return { "message": "Business not found!" }, 404
