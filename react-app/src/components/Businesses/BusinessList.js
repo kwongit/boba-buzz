@@ -35,15 +35,17 @@ const BusinessList = ({ business }) => {
             src={image_url}
             alt={name}
             title={name}
+            style={{ width: "220px", height: "220px" }}
           ></img>
         </div>
         <div className="business-list-details">
-          {name}
-          {type}
-          {price}
-          {city}
-          {open_hours}
-          {close_hours}
+          <div>{name}</div>
+          <div>{type}</div>
+          <div>Price: {price}</div>
+          <div>{city}</div>
+          <div>
+            Hours: {open_hours} - {close_hours}
+          </div>
         </div>
       </div>
     </div>

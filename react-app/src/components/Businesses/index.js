@@ -6,7 +6,7 @@ import BusinessList from "./BusinessList";
 export const Businesses = () => {
   const dispatch = useDispatch();
 
-  const getBusinesses = useSelector((state) => state.business.allBusinesses);
+  const getBusinesses = useSelector((state) => state.businesses.allBusinesses);
 
   const businesses = Object.values(getBusinesses);
 
