@@ -14,7 +14,23 @@ def get_all_businesses():
     Get all businesses and return businesses dictionary
     """
     businesses = Business.query.all()
+    reviews = Review.query.all()
+
     all_business_list = [business.to_dict() for business in businesses]
+    all_review_list = [review.to_dict() for review in reviews]
+
+    for business in all_business_list:
+        business_reviews = [ review for review in all_review_list if review["business_id"] == business["id"]]
+
+        total_stars = 0
+
+        for review in business_reviews:
+            total_stars += review["stars"]
+
+        if total_stars > 0:
+            avg_rating = total_stars / len(business_reviews)
+            business["avg_rating"] = avg_rating
+            business["num_reviews"] = len(business_reviews)
 
     return { "businesses": all_business_list }
 
@@ -25,6 +41,22 @@ def get_business_by_id(id):
     Get business by business id
     """
     business = Business.query.get(id).to_dict()
+    reviews = Review.query.all()
+
+    all_review_list = [review.to_dict() for review in reviews]
+
+    business_reviews = [ review for review in all_review_list if review["business_id"] == business["id"]]
+
+    total_stars = 0
+
+    for review in business_reviews:
+        total_stars += review["stars"]
+
+    if total_stars > 0:
+        avg_rating = total_stars / len(business_reviews)
+        business["avg_rating"] = avg_rating
+        business["num_reviews"] = len(business_reviews)
+
     if not business:
         return { "message": "Business was not found!" }, 404
 
@@ -38,7 +70,24 @@ def get_owned_businesses():
     Get owned businesses by current user and return businesses dictionary
     """
     businesses = Business.query.all()
+    reviews = Review.query.all()
+
     owned_businesses = [ business.to_dict() for business in businesses if business.owner_id == current_user.id ]
+
+    all_review_list = [review.to_dict() for review in reviews]
+
+    for business in owned_businesses:
+        business_reviews = [ review for review in all_review_list if review["business_id"] == business["id"]]
+
+        total_stars = 0
+
+        for review in business_reviews:
+            total_stars += review["stars"]
+
+        if total_stars > 0:
+            avg_rating = total_stars / len(business_reviews)
+            business["avg_rating"] = avg_rating
+            business["num_reviews"] = len(business_reviews)
 
     return { "businesses": owned_businesses }
 
@@ -131,12 +180,12 @@ def get_business_reviews(businessId):
     Get all reviews by businessId and return businesses dictionary
     """
     reviews = Review.query.all()
-    all_reviews_list = [review.to_dict() for review in reviews if review.business_id == businessId]
+    business_reviews = [review.to_dict() for review in reviews if review.business_id == businessId]
 
-    return { "reviews": all_reviews_list }
+    return business_reviews
 
 
-@business_routes.route('/<int:businessId>/', methods=["POST"])
+@business_routes.route('/<int:businessId>', methods=["POST"])
 @login_required
 def create_review(businessId):
     """
