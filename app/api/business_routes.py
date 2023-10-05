@@ -185,7 +185,7 @@ def get_business_reviews(businessId):
     return business_reviews
 
 
-@business_routes.route('/<int:businessId>/', methods=["POST"])
+@business_routes.route('/<int:businessId>', methods=["POST"])
 @login_required
 def create_review(businessId):
     """
