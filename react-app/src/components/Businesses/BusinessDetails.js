@@ -1,19 +1,27 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { thunkGetBusinessInfo } from "../../store/businesses";
 import { useHistory } from "react-router";
+import { thunkGetBusinessInfo } from "../../store/businesses";
+import { thunkGetBusinessReviews } from "../../store/reviews";
+import { BusinessReviews } from "../Reviews";
 
 export const BusinessDetails = () => {
   const dispatch = useDispatch();
   const history = useHistory();
 
   const { businessId } = useParams();
+
   const currentUser = useSelector((state) => state.session.user);
+
+  const reviews = useSelector((state) => state.reviews.allReviews);
+  const reviewsList = Object.values(reviews);
+
   const oneBusiness = useSelector((state) => state.businesses.singleBusiness);
 
   useEffect(() => {
     dispatch(thunkGetBusinessInfo(businessId));
+    dispatch(thunkGetBusinessReviews(businessId));
   }, [dispatch, businessId]);
 
   if (!oneBusiness.id) return null;
@@ -24,6 +32,8 @@ export const BusinessDetails = () => {
     city,
     state,
     name,
+    avg_rating,
+    num_reviews,
     type,
     price,
     open_hours,
@@ -42,7 +52,18 @@ export const BusinessDetails = () => {
       ></img>
       <div>{name}</div>
       <div>
-        <i className="fa-solid fa-star"></i> (X reviews)
+        {reviewsList.length ? (
+          <span>
+            <i className="fa-solid fa-star"></i>
+            {Number(avg_rating).toFixed(1)} ({num_reviews}{" "}
+            {num_reviews > 1 ? "Reviews" : "Review"})
+          </span>
+        ) : (
+          <span>
+            <i className="fa-solid fa-star"></i>
+            New
+          </span>
+        )}
       </div>
       <div>
         {price === 3 ? "$$$" : price === 2 ? "$$" : "$"} · {type}
@@ -60,7 +81,8 @@ export const BusinessDetails = () => {
       </div>
       <div>About the Business</div>
       <div>{description}</div>
-      <div>Reviews</div>
+
+      <BusinessReviews />
     </div>
   );
 };

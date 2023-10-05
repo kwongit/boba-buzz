@@ -14,9 +14,9 @@ def get_owned_reviews():
     Get owned reviews by current user and return reviews dictionary
     """
     reviews = Review.query.all()
-    owned_reviews = [review.to_dict() for review in reviews if review.user_id == current_user.id]
+    reviews_list = [review.to_dict() for review in reviews if review.user_id == current_user.id]
 
-    return { "reviews": owned_reviews }
+    return reviews_list
 
 
 @review_routes.route('/<int:reviewId>', methods=["PUT"])
