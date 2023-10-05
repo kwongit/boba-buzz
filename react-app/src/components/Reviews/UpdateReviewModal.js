@@ -1,38 +1,30 @@
 import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { useHistory } from "react-router-dom";
 import { useModal } from "../../context/Modal";
-import { thunkCreateReview } from "../../store/reviews";
+import { thunkGetReviewInfo, thunkUpdateReview } from "../../store/reviews";
 
-export const CreateReviewModal = ({ business }) => {
+export const UpdateReviewModal = ({ updateReview }) => {
   const dispatch = useDispatch();
-  const history = useHistory();
   const { closeModal } = useModal();
 
-  const [stars, setStars] = useState();
-  const [review, setReview] = useState("");
-  const [activeRating, setActiveRating] = useState();
+  const [stars, setStars] = useState(updateReview.stars);
+  const [review, setReview] = useState(updateReview.review);
+  const [activeRating, setActiveRating] = useState(updateReview.stars);
   const [submitted, setSubmitted] = useState(false);
   const [errors, setErrors] = useState({});
 
   useEffect(() => {
-    const errors = {};
-
-    if (!stars) errors.stars = "Star rating is required!";
-    if (!review) errors.review = "Review is required!";
-
-    setErrors(errors);
-  }, [dispatch, review, stars]);
+    dispatch(thunkGetReviewInfo(updateReview.id));
+  }, [dispatch, review, stars, updateReview.id]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setErrors({});
 
     try {
-      await dispatch(thunkCreateReview({ stars, review }, business.id));
+      await dispatch(thunkUpdateReview({ stars, review }, updateReview.id));
       closeModal();
       setSubmitted(true);
-      history.push(`/businesses/${business.id}`);
     } catch (errors) {
       if (errors) {
         setErrors(errors);
@@ -43,7 +35,7 @@ export const CreateReviewModal = ({ business }) => {
 
   return (
     <div className="">
-      <h2>Post Your Review</h2>
+      <h2>Update Your Review</h2>
       <form onSubmit={handleSubmit}>
         <div className="">
           <div className="">
@@ -94,13 +86,12 @@ export const CreateReviewModal = ({ business }) => {
               onMouseLeave={() => setActiveRating(stars)}
             ></div>
           </div>
-          {!stars && submitted && <div className="">Select your rating</div>}
 
           <div className="">
             <textarea
               className=""
               type="text"
-              placeholder={`Leave a review for ${business.name}`}
+              placeholder={`${updateReview.review}`}
               value={review}
               onChange={(e) => setReview(e.target.value)}
             ></textarea>
@@ -114,7 +105,7 @@ export const CreateReviewModal = ({ business }) => {
         </div>
 
         <div className="">
-          <button className="">Post Review</button>
+          <button className="">Update Review</button>
         </div>
       </form>
     </div>

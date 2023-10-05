@@ -2,6 +2,8 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { thunkGetUserReviews } from "../../store/reviews";
 import OpenModalButton from "../OpenModalButton";
+import { UpdateReviewModal } from "./UpdateReviewModal";
+import { DeleteReviewModal } from "./DeleteReviewModal";
 
 export const ManageReviews = () => {
   const dispatch = useDispatch();
@@ -42,8 +44,16 @@ export const ManageReviews = () => {
             <div className="">{review.review}</div>
             <div className="">
               <div>
-                <OpenModalButton className="" buttonText="Update" />
-                <OpenModalButton className="" buttonText="Delete" />
+                <OpenModalButton
+                  className=""
+                  buttonText="Update"
+                  modalComponent={<UpdateReviewModal updateReview={review} />}
+                />
+                <OpenModalButton
+                  className=""
+                  buttonText="Delete"
+                  modalComponent={<DeleteReviewModal reviewId={review.id} />}
+                />
               </div>
             </div>
           </div>

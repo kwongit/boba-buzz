@@ -4,6 +4,8 @@ import { thunkGetBusinessReviews } from "../../store/reviews";
 import OpenModalButton from "../OpenModalButton";
 import { thunkGetBusinessInfo } from "../../store/businesses";
 import { CreateReviewModal } from "./CreateReviewModal";
+import { UpdateReviewModal } from "./UpdateReviewModal";
+import { DeleteReviewModal } from "./DeleteReviewModal";
 
 export const BusinessReviews = ({ businessId }) => {
   const dispatch = useDispatch();
@@ -76,8 +78,20 @@ export const BusinessReviews = ({ businessId }) => {
                   <div className="">
                     {review.user_id === user.id && (
                       <div>
-                        <OpenModalButton className="" buttonText="Update" />
-                        <OpenModalButton className="" buttonText="Delete" />
+                        <OpenModalButton
+                          className=""
+                          buttonText="Update"
+                          modalComponent={
+                            <UpdateReviewModal updateReview={review} />
+                          }
+                        />
+                        <OpenModalButton
+                          className=""
+                          buttonText="Delete"
+                          modalComponent={
+                            <DeleteReviewModal reviewId={review.id} />
+                          }
+                        />
                       </div>
                     )}
                   </div>
