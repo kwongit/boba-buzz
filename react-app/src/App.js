@@ -7,6 +7,7 @@ import { authenticate } from "./store/session";
 import Navigation from "./components/Navigation";
 import { Businesses } from "./components/Businesses";
 import { ManageBusinesses } from "./components/Businesses/ManageBusinesses";
+import { ManageReviews } from "./components/Reviews/ManageReviews";
 import { BusinessDetails } from "./components/Businesses/BusinessDetails";
 import { CreateBusiness } from "./components/Businesses/CreateBusiness";
 import { GetBusinessToUpdate } from "./components/Businesses/GetBusinessToUpdate";
@@ -37,6 +38,9 @@ function App() {
           </Route>
           <Route exact path="/businesses/current">
             <ManageBusinesses />
+          </Route>
+          <Route exact path="/reviews/current">
+            <ManageReviews />
           </Route>
           <Route exact path="/businesses/:businessId">
             <BusinessDetails />
