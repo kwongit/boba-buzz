@@ -22,7 +22,7 @@ export const BusinessDetails = () => {
   useEffect(() => {
     dispatch(thunkGetBusinessInfo(businessId));
     dispatch(thunkGetBusinessReviews(businessId));
-  }, [dispatch, businessId]);
+  }, [dispatch, businessId, reviewsList.length]);
 
   if (!oneBusiness.id) return null;
 

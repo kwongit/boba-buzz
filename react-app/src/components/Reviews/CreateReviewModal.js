@@ -43,7 +43,7 @@ export const CreateReviewModal = ({ business }) => {
 
   return (
     <div className="">
-      <h2>NAME OF BUSINESS</h2>
+      <h2>{business.name}</h2>
       <form onSubmit={handleSubmit}>
         <div className="">
           <div className="">
@@ -99,7 +99,7 @@ export const CreateReviewModal = ({ business }) => {
             <textarea
               className="reviewInput"
               type="text"
-              placeholder="Leave a review here!"
+              placeholder={`Leave a review for ${business.name}`}
               value={review}
               onChange={(e) => setReview(e.target.value)}
             ></textarea>

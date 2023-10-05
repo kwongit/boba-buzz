@@ -13,7 +13,7 @@ export const ManageReviews = () => {
 
   useEffect(() => {
     dispatch(thunkGetUserReviews());
-  }, [dispatch]);
+  }, [dispatch, reviewsList.length]);
 
   if (!reviews) return null;
   if (!user) return null;
