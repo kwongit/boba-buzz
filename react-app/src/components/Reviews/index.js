@@ -76,18 +76,8 @@ export const BusinessReviews = ({ businessId }) => {
                   <div className="">
                     {review.user_id === user.id && (
                       <div>
-                        <OpenModalButton
-                          className=""
-                          buttonText="Update"
-                          // modalComponent={
-                          //   <UpdateReviewModal updateReview={review} />
-                          // }
-                        />
-                        <OpenModalButton
-                          className=""
-                          buttonText="Delete"
-                          // modalComponent={<DeleteReviewModal review={review} />}
-                        />
+                        <OpenModalButton className="" buttonText="Update" />
+                        <OpenModalButton className="" buttonText="Delete" />
                       </div>
                     )}
                   </div>
@@ -101,7 +91,7 @@ export const BusinessReviews = ({ businessId }) => {
               <div>Overall rating</div>
               <div>
                 <i className="fa-solid fa-star"></i>
-                New
+                No reviews yet
               </div>
               <div className="">
                 {!previousReview &&
@@ -109,9 +99,7 @@ export const BusinessReviews = ({ businessId }) => {
                   user.id && (
                     <OpenModalButton
                       buttonText="Post Review"
-                      // modalComponent={
-                      //   <CreateReviewModal business={business} user={user} />
-                      // }
+                      modalComponent={<CreateReviewModal business={business} />}
                     />
                   )}
               </div>

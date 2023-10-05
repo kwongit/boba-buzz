@@ -42,18 +42,8 @@ export const ManageReviews = () => {
             <div className="">{review.review}</div>
             <div className="">
               <div>
-                <OpenModalButton
-                  className=""
-                  buttonText="Update"
-                  // modalComponent={
-                  //   <UpdateReviewModal updateReview={review} />
-                  // }
-                />
-                <OpenModalButton
-                  className=""
-                  buttonText="Delete"
-                  // modalComponent={<DeleteReviewModal review={review} />}
-                />
+                <OpenModalButton className="" buttonText="Update" />
+                <OpenModalButton className="" buttonText="Delete" />
               </div>
             </div>
           </div>
