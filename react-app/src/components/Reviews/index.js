@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { thunkGetBusinessReviews } from "../../store/reviews";
 import OpenModalButton from "../OpenModalButton";
 import { thunkGetBusinessInfo } from "../../store/businesses";
+import { CreateReviewModal } from "./CreateReviewModal";
 
 export const BusinessReviews = ({ businessId }) => {
   const dispatch = useDispatch();
@@ -56,9 +57,7 @@ export const BusinessReviews = ({ businessId }) => {
                   user.id && (
                     <OpenModalButton
                       buttonText="Post Review"
-                      // modalComponent={
-                      //   <CreateReviewModal business={business} user={user} />
-                      // }
+                      modalComponent={<CreateReviewModal business={business} />}
                     />
                   )}
               </div>

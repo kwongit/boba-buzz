@@ -4,6 +4,9 @@ import { csrfFetch } from "./csrf";
 
 const GET_REVIEWS = "reviews/getReviews";
 const GET_REVIEW = "reviews/getReview";
+const CREATE_REVIEW = "reviews/createReview";
+const UPDATE_REVIEW = "reviews/updateReview";
+const DELETE_REVIEW = "reviews/deleteReview";
 
 // ACTION CREATORS
 
@@ -18,6 +21,27 @@ const getReview = (review) => {
   return {
     type: GET_REVIEW,
     review,
+  };
+};
+
+const createReview = (review) => {
+  return {
+    type: CREATE_REVIEW,
+    review,
+  };
+};
+
+const updateReview = (review) => {
+  return {
+    type: UPDATE_REVIEW,
+    review,
+  };
+};
+
+const deleteReview = (reviewId) => {
+  return {
+    type: DELETE_REVIEW,
+    reviewId,
   };
 };
 
@@ -75,6 +99,49 @@ export const thunkGetBusinessReviews = (businessId) => async (dispatch) => {
   }
 };
 
+export const thunkCreateReview = (review, businessId) => async (dispatch) => {
+  const res = await csrfFetch(`/api/businesses/${businessId}`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(review),
+  });
+
+  if (res.ok) {
+    const data = await res.json();
+    await dispatch(thunkGetBusinessReviews(businessId));
+    return data;
+  } else {
+    const errors = await res.json();
+    return errors;
+  }
+};
+
+export const thunkUpdateReview = (review, reviewId) => async (dispatch) => {
+  const res = await csrfFetch(`/api/reviews/${reviewId}`, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(review),
+  });
+
+  if (res.ok) {
+    const data = await res.json();
+    dispatch(updateReview(data));
+    return data;
+  } else {
+    const errors = await res.json();
+    return errors;
+  }
+};
+
+export const thunkDeleteReview = (reviewId) => async (dispatch) => {
+  const res = await csrfFetch(`/api/reviews/${reviewId}`, {
+    method: "DELETE",
+  });
+
+  dispatch(deleteReview(reviewId));
+  return res;
+};
+
 // REDUCERS
 
 const initialState = { allReviews: {}, singleReview: {} };
@@ -93,6 +160,36 @@ const reviewsReducer = (state = initialState, action) => {
     case GET_REVIEW:
       newState = { ...state, review: {} };
       newState.review = action.review;
+      return newState;
+
+    case CREATE_REVIEW:
+      newState = {
+        ...state,
+        allReviews: { ...state.allReviews },
+        singleReview: { ...action.review },
+      };
+      newState.allReviews[action.review.id] = action.review;
+      return newState;
+
+    case UPDATE_REVIEW:
+      newState = {
+        ...state,
+        allReviews: {},
+        singleReview: { ...state.singleReview },
+      };
+      newState.singleReview = {
+        ...newState.singleReview,
+        ...action.review,
+      };
+      return newState;
+
+    case DELETE_REVIEW:
+      newState = {
+        ...state,
+        allReviews: { ...state.allReviews },
+        singleReview: {},
+      };
+      delete newState.allReviews[action.reviewId];
       return newState;
 
     default:
