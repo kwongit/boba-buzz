@@ -9,7 +9,7 @@ export const BusinessReviews = ({ businessId }) => {
 
   const reviews = useSelector((state) => state.reviews.allReviews);
   const business = useSelector((state) => state.businesses.singleBusiness);
-  const user = useSelector((state) => state.session.user);
+  let user = useSelector((state) => state.session.user);
 
   const reviewsList = Object.values(reviews).reverse();
 
@@ -19,9 +19,11 @@ export const BusinessReviews = ({ businessId }) => {
   }, [dispatch, businessId]);
 
   if (!reviews) return null;
+  if (!user) user = 0;
 
-  const previousReview =
-    user && reviewsList.find((review) => review.userId === user.id);
+  const previousReview = reviewsList.find(
+    (review) => review.user_id === user.id
+  );
 
   const { avg_rating, num_reviews } = business;
 
@@ -35,49 +37,59 @@ export const BusinessReviews = ({ businessId }) => {
 
   return (
     <div>
-      <h1>RENDER REVIEWS COMPONENT HERE</h1>
+      <h1>Recommended Reviews</h1>
       <div>
         {reviewsList.length ? (
           <div>
             <div className="">
               <div>Overall rating</div>
-              <i className="fa-solid fa-star"></i>{" "}
-              {Number(avg_rating).toFixed(1)}
+              <div>
+                <i className="fa-solid fa-star"></i>
+                {Number(avg_rating).toFixed(1)}
+              </div>
               <div>
                 {num_reviews} {num_reviews > 1 ? "Reviews" : "Review"}
               </div>
               <div className="">
-                {user && !previousReview && business.ownerId !== user?.id && (
-                  <OpenModalButton
-                    buttonText="Post Your Review"
-                    // modalComponent={
-                    //   <CreateReviewModal business={business} user={user} />
-                    // }
-                  />
-                )}
+                {!previousReview &&
+                  user.id !== business.owner_id &&
+                  user.id && (
+                    <OpenModalButton
+                      buttonText="Post Review"
+                      // modalComponent={
+                      //   <CreateReviewModal business={business} user={user} />
+                      // }
+                    />
+                  )}
               </div>
             </div>
 
             {reviewsList.map((review) => (
-              <div key={review.id}>
-                <div className="review-user-date-description-container">
-                  {/* <h3 className="user-name">{review}</h3> */}
-                  <h4 className="review-date">
-                    {createDate(review.created_at)}
-                  </h4>
-                  <p className="review-description">{review.review}</p>
-
-                  <div className="delete-review-button">
-                    {review.userId === user?.id && (
-                      <OpenModalButton
-                        buttonText="Delete"
-                        // modalComponent={
-                        //   <DeleteReviewModal
-                        //     reviewId={review.id}
-                        //     businessId={business.id}
-                        //   />
-                        // }
-                      />
+              <div className="" key={review.id}>
+                <div className="">
+                  <div className="">{review.user}</div>
+                  <div className="">
+                    <i className="fa-solid fa-star"></i>
+                    {review.stars}
+                    <div className="">{createDate(review.created_at)}</div>
+                  </div>
+                  <div className="">{review.review}</div>
+                  <div className="">
+                    {review.user_id === user.id && (
+                      <div>
+                        <OpenModalButton
+                          className=""
+                          buttonText="Update"
+                          // modalComponent={
+                          //   <UpdateReviewModal updateReview={review} />
+                          // }
+                        />
+                        <OpenModalButton
+                          className=""
+                          buttonText="Delete"
+                          // modalComponent={<DeleteReviewModal review={review} />}
+                        />
+                      </div>
                     )}
                   </div>
                 </div>
@@ -86,22 +98,27 @@ export const BusinessReviews = ({ businessId }) => {
           </div>
         ) : (
           <div>
-            <div className="new-star-container">
-              <i className="fa-solid fa-star"></i>
-              New
-              <div className="post-review-button">
-                {user && !previousReview && business.ownerId !== user?.id && (
-                  <OpenModalButton
-                    buttonText="Post Your Review"
-                    // modalComponent={
-                    //   <CreateReviewModal business={business} user={user} />
-                    // }
-                  />
-                )}
+            <div className="">
+              <div>Overall rating</div>
+              <div>
+                <i className="fa-solid fa-star"></i>
+                New
+              </div>
+              <div className="">
+                {!previousReview &&
+                  user.id !== business.owner_id &&
+                  user.id && (
+                    <OpenModalButton
+                      buttonText="Post Review"
+                      // modalComponent={
+                      //   <CreateReviewModal business={business} user={user} />
+                      // }
+                    />
+                  )}
               </div>
             </div>
 
-            {user && !previousReview && business.ownerId !== user?.id && (
+            {!previousReview && user.id !== business.owner_id && user.id && (
               <h3 className="be-the-first-text">
                 Be the first to post a review!
               </h3>
