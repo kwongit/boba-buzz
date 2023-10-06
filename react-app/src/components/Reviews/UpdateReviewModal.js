@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
 import { thunkUpdateReview } from "../../store/reviews";
@@ -13,18 +13,31 @@ export const UpdateReviewModal = ({ updateReview }) => {
   const [submitted, setSubmitted] = useState(false);
   const [errors, setErrors] = useState({});
 
+  useEffect(() => {
+    const errors = {};
+
+    if (!stars) errors.stars = "Star rating is required!";
+    if (!review || review.length < 2)
+      errors.review = "Please provide a buzz of at least 2 characters!";
+
+    setErrors(errors);
+  }, [dispatch, review, stars]);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setErrors({});
+    setSubmitted(true);
 
-    try {
-      dispatch(thunkUpdateReview({ stars, review }, updateReview.id));
-      closeModal();
-      setSubmitted(true);
-    } catch (errors) {
-      if (errors) {
-        setErrors(errors);
-        setSubmitted(true);
+    if (!Object.values(errors).length) {
+      const updatedReview = await dispatch(
+        thunkUpdateReview({ stars, review }, updateReview.id)
+      );
+
+      const combinedErrors = { ...errors, Errors: updatedReview.errors };
+
+      if (updatedReview.errors) {
+        setErrors(combinedErrors);
+      } else {
+        closeModal();
       }
     }
   };
@@ -82,6 +95,7 @@ export const UpdateReviewModal = ({ updateReview }) => {
               onMouseLeave={() => setActiveRating(stars)}
             ></div>
           </div>
+          {errors.stars && submitted && <div className="">{errors.stars}</div>}
 
           <div className="">
             <textarea
@@ -92,8 +106,8 @@ export const UpdateReviewModal = ({ updateReview }) => {
               onChange={(e) => setReview(e.target.value)}
             ></textarea>
           </div>
-          {!review && submitted && (
-            <div className="">Your buzz needs at least 2 characters!</div>
+          {errors.review && submitted && (
+            <div className="">{errors.review}</div>
           )}
         </div>
 

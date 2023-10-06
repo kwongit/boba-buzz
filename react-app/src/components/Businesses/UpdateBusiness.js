@@ -41,15 +41,16 @@ export const UpdateBusiness = ({ business }) => {
   useEffect(() => {
     const errors = {};
 
+    if (!name) errors.name = "Name is required";
     if (!address) errors.address = "Address is required";
     if (!city) errors.city = "City is required";
     if (!state) errors.state = "State is required";
-    if (!name) errors.name = "Name is required";
-    if (name.length < 2) errors.name = "Name must be more than 1 character";
     if (!type) errors.type = "Type is required";
     if (!price || price < 1) errors.price = "Price is required";
-    if (!open_hours) errors.open_hours = "Open hours is required";
-    if (!close_hours) errors.close_hours = "Close hours is required";
+    if (!open_hours || open_hours < 1)
+      errors.open_hours = "Open hours is required";
+    if (!close_hours || close_hours < 1)
+      errors.close_hours = "Close hours is required";
     if (!image_url) errors.image_url = "Preview image is required";
     if (
       image_url &&
@@ -103,7 +104,6 @@ export const UpdateBusiness = ({ business }) => {
       if (updateBusiness.errors) {
         setErrors(combinedErrors);
       } else {
-        // history.push(`/businesses/${business.id}`);
         history.push(`/businesses/current`);
       }
     }
@@ -168,12 +168,12 @@ export const UpdateBusiness = ({ business }) => {
         </div>
 
         <div className="">
-          <label>Shop Type</label>
+          <label>Type</label>
           <input
             type="text"
             value={type}
             onChange={(e) => setType(e.target.value)}
-            placeholder="Shop Type"
+            placeholder="Type"
           />
           {errors.type && submitted && (
             <p className="on-submit-errors">{errors.type}</p>
@@ -181,8 +181,8 @@ export const UpdateBusiness = ({ business }) => {
         </div>
 
         <div className="">
-          <label>Shop Price Range</label>
-          <select onChange={(e) => setPrice(e.target.value)}>
+          <label>Price Range</label>
+          <select value={price} onChange={(e) => setPrice(e.target.value)}>
             <option value="0">Select Price Range</option>
             <option value="1">$</option>
             <option value="2">$$</option>
@@ -194,8 +194,11 @@ export const UpdateBusiness = ({ business }) => {
         </div>
 
         <div className="">
-          <label>Shop Open Hours</label>
-          <select onChange={(e) => setOpenHours(e.target.value)}>
+          <label>Open Hours</label>
+          <select
+            value={open_hours}
+            onChange={(e) => setOpenHours(e.target.value)}
+          >
             <option value="0">Select Open Hours</option>
             <option value="10:00 AM">10:00 AM</option>
             <option value="10:30 AM">10:30 AM</option>
@@ -210,8 +213,11 @@ export const UpdateBusiness = ({ business }) => {
         </div>
 
         <div className="">
-          <label>Shop Close Hours</label>
-          <select onChange={(e) => setCloseHours(e.target.value)}>
+          <label>Close Hours</label>
+          <select
+            value={close_hours}
+            onChange={(e) => setCloseHours(e.target.value)}
+          >
             <option value="0">Select Close Hours</option>
             <option value="1:00 PM">1:00 PM</option>
             <option value="1:30 PM">1:30 PM</option>
@@ -243,7 +249,7 @@ export const UpdateBusiness = ({ business }) => {
         </div>
 
         <div className="">
-          <label>Shop Main Image</label>
+          <label>Main Image</label>
           <input
             type="url"
             value={image_url}
@@ -256,12 +262,12 @@ export const UpdateBusiness = ({ business }) => {
         </div>
 
         <div className="">
-          <label>Shop Description</label>
+          <label>Description</label>
           <input
             type="text"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
-            placeholder="Shop Description"
+            placeholder="Description"
           />
           {errors.description && submitted && (
             <p className="on-submit-errors">{errors.description}</p>
@@ -269,24 +275,7 @@ export const UpdateBusiness = ({ business }) => {
         </div>
 
         <div className="">
-          <button
-            className=""
-            type="submit"
-            // disabled={
-            //   !(
-            //     address ||
-            //     city ||
-            //     state ||
-            //     name ||
-            //     type ||
-            //     price ||
-            //     open_hours ||
-            //     close_hours ||
-            //     image_url ||
-            //     description
-            //   )
-            // }
-          >
+          <button className="" type="submit">
             Update Shop
           </button>
         </div>
