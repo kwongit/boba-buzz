@@ -22,7 +22,7 @@ export const UpdateReviewModal = ({ updateReview }) => {
     setErrors({});
 
     try {
-      await dispatch(thunkUpdateReview({ stars, review }, updateReview.id));
+      dispatch(thunkUpdateReview({ stars, review }, updateReview.id));
       closeModal();
       setSubmitted(true);
     } catch (errors) {

@@ -24,12 +24,12 @@ const getReview = (review) => {
   };
 };
 
-const createReview = (review) => {
-  return {
-    type: CREATE_REVIEW,
-    review,
-  };
-};
+// const createReview = (review) => {
+//   return {
+//     type: CREATE_REVIEW,
+//     review,
+//   };
+// };
 
 const updateReview = (review) => {
   return {

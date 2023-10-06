@@ -1,14 +1,17 @@
 import { useEffect } from "react";
+import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { thunkGetBusinessReviews } from "../../store/reviews";
-import OpenModalButton from "../OpenModalButton";
 import { thunkGetBusinessInfo } from "../../store/businesses";
 import { CreateReviewModal } from "./CreateReviewModal";
 import { UpdateReviewModal } from "./UpdateReviewModal";
 import { DeleteReviewModal } from "./DeleteReviewModal";
+import OpenModalButton from "../OpenModalButton";
 
-export const BusinessReviews = ({ businessId }) => {
+// export const BusinessReviews = ({ businessId }) => {
+export const BusinessReviews = () => {
   const dispatch = useDispatch();
+  const { businessId } = useParams();
 
   const reviews = useSelector((state) => state.reviews.allReviews);
   const business = useSelector((state) => state.businesses.singleBusiness);

@@ -1,18 +1,14 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { useHistory } from "react-router";
 import { thunkGetBusinessInfo } from "../../store/businesses";
 import { thunkGetBusinessReviews } from "../../store/reviews";
 import { BusinessReviews } from "../Reviews";
 
 export const BusinessDetails = () => {
   const dispatch = useDispatch();
-  const history = useHistory();
 
   const { businessId } = useParams();
-
-  const currentUser = useSelector((state) => state.session.user);
 
   const reviews = useSelector((state) => state.reviews.allReviews);
   const reviewsList = Object.values(reviews);
@@ -27,7 +23,6 @@ export const BusinessDetails = () => {
   if (!oneBusiness.id) return null;
 
   const {
-    Owner,
     address,
     city,
     state,
