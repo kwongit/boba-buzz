@@ -29,7 +29,7 @@ const BusinessList = ({ business }) => {
         <div className="business-list-details">
           <div>{name}</div>
           <div>{type}</div>
-          <div>Price: {price}</div>
+          <div>{price === 3 ? "$$$" : price === 2 ? "$$" : "$"}</div>
           <div>{city}</div>
           <div>
             Hours: {open_hours} - {close_hours}

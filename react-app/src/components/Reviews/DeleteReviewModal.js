@@ -16,7 +16,7 @@ export const DeleteReviewModal = ({ reviewId }) => {
     <div className="">
       <div className="">
         <h2 className="">Confirm Delete</h2>
-        <p className="">Are you sure you want to delete this review?</p>
+        <p className="">Are you sure you want to delete this buzz?</p>
       </div>
       <div className="">
         <button className="" onClick={handleClick}>

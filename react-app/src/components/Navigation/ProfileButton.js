@@ -57,7 +57,7 @@ function ProfileButton({ user }) {
                 exact
                 to="/businesses/current"
               >
-                Manage Businesses
+                Manage Shops
               </NavLink>
             </li>
             <li>
@@ -66,7 +66,7 @@ function ProfileButton({ user }) {
                 exact
                 to="/reviews/current"
               >
-                Manage Reviews
+                Manage Buzzes
               </NavLink>
             </li>
             <li className="logout-btn-container">

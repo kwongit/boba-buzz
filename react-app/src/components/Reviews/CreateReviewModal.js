@@ -12,6 +12,7 @@ export const CreateReviewModal = ({ business }) => {
   const [stars, setStars] = useState();
   const [review, setReview] = useState("");
   const [activeRating, setActiveRating] = useState();
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [errors, setErrors] = useState({});
 
@@ -19,31 +20,38 @@ export const CreateReviewModal = ({ business }) => {
     const errors = {};
 
     if (!stars) errors.stars = "Star rating is required!";
-    if (!review) errors.review = "Review is required!";
+    if (!review || review.length < 2)
+      errors.review = "Please provide a buzz of at least 2 characters!";
 
     setErrors(errors);
   }, [dispatch, review, stars]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setErrors({});
+    if (isSubmitting) return;
+    setIsSubmitting(true);
+    setSubmitted(true);
 
-    try {
-      await dispatch(thunkCreateReview({ stars, review }, business.id));
-      closeModal();
-      setSubmitted(true);
-      history.push(`/businesses/${business.id}`);
-    } catch (errors) {
-      if (errors) {
-        setErrors(errors);
-        setSubmitted(true);
+    if (!Object.values(errors).length) {
+      const addReview = await dispatch(
+        thunkCreateReview({ stars, review }, business.id)
+      );
+
+      const combinedErrors = { ...errors, Errors: addReview.errors };
+
+      if (addReview.errors) {
+        setErrors(combinedErrors);
+      } else {
+        closeModal();
+        history.push(`/businesses/${business.id}`);
       }
     }
+    setIsSubmitting(false);
   };
 
   return (
     <div className="">
-      <h2>Post Your Review</h2>
+      <h2>Post Your Buzz</h2>
       <form onSubmit={handleSubmit}>
         <div className="">
           <div className="">
@@ -94,27 +102,24 @@ export const CreateReviewModal = ({ business }) => {
               onMouseLeave={() => setActiveRating(stars)}
             ></div>
           </div>
-          {!stars && submitted && <div className="">Select your rating</div>}
+          {errors.stars && submitted && <div className="">{errors.stars}</div>}
 
           <div className="">
             <textarea
               className=""
               type="text"
-              placeholder={`Leave a review for ${business.name}`}
+              placeholder={`Leave a buzz for ${business.name}`}
               value={review}
               onChange={(e) => setReview(e.target.value)}
             ></textarea>
           </div>
-          {!review && submitted && (
-            <div className="">
-              Your review needs at least 2 characters. Add a few thoughts to
-              post review.
-            </div>
+          {errors.review && submitted && (
+            <div className="">{errors.review}</div>
           )}
         </div>
 
         <div className="">
-          <button className="">Post Review</button>
+          <button className="">Post Buzz</button>
         </div>
       </form>
     </div>
