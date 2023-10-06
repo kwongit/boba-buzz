@@ -43,7 +43,7 @@ export const CreateReviewModal = ({ business }) => {
 
   return (
     <div className="">
-      <h2>Post Your Review</h2>
+      <h2>Post Your Buzz</h2>
       <form onSubmit={handleSubmit}>
         <div className="">
           <div className="">
@@ -94,27 +94,24 @@ export const CreateReviewModal = ({ business }) => {
               onMouseLeave={() => setActiveRating(stars)}
             ></div>
           </div>
-          {!stars && submitted && <div className="">Select your rating</div>}
+          {!stars && submitted && <div className="">Select your rating!</div>}
 
           <div className="">
             <textarea
               className=""
               type="text"
-              placeholder={`Leave a review for ${business.name}`}
+              placeholder={`Leave a buzz for ${business.name}`}
               value={review}
               onChange={(e) => setReview(e.target.value)}
             ></textarea>
           </div>
           {!review && submitted && (
-            <div className="">
-              Your review needs at least 2 characters. Add a few thoughts to
-              post review.
-            </div>
+            <div className="">Your buzz needs at least 2 characters!</div>
           )}
         </div>
 
         <div className="">
-          <button className="">Post Review</button>
+          <button className="">Post Buzz</button>
         </div>
       </form>
     </div>

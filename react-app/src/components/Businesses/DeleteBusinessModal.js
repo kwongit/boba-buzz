@@ -16,7 +16,7 @@ export const DeleteBusinessModal = ({ businessId }) => {
     <div className="delete-business-modal-container">
       <div className="delete-business-modal-content">
         <h3>Confirm Delete</h3>
-        <p>Are you sure you want to remove this business?</p>
+        <p>Are you sure you want to remove this shop?</p>
         <div className="delete-business-modal-btn-container">
           <button
             className="delete-business-yes-btn"

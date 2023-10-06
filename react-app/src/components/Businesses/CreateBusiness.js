@@ -95,15 +95,15 @@ export const CreateBusiness = ({ user }) => {
   return (
     <div className="">
       <form onSubmit={handleSubmit}>
-        <h1>Add Your Business</h1>
+        <h1>Add Your Shop</h1>
 
         <div className="">
-          <label>Business Name</label>
+          <label>Shop Name</label>
           <input
             type="text"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            placeholder="Business Name"
+            placeholder="Shop Name"
           />
           {errors.name && submitted && (
             <p className="on-submit-errors">{errors.name}</p>
@@ -150,12 +150,12 @@ export const CreateBusiness = ({ user }) => {
         </div>
 
         <div className="">
-          <label>Business Type</label>
+          <label>Shop Type</label>
           <input
             type="text"
             value={type}
             onChange={(e) => setType(e.target.value)}
-            placeholder="Business Type"
+            placeholder="Shop Type"
           />
           {errors.type && submitted && (
             <p className="on-submit-errors">{errors.type}</p>
@@ -163,7 +163,7 @@ export const CreateBusiness = ({ user }) => {
         </div>
 
         <div className="">
-          <label>Business Price Range</label>
+          <label>Shop Price Range</label>
           <select onChange={(e) => setPrice(e.target.value)}>
             <option value="0">Select Price Range</option>
             <option value="1">$</option>
@@ -176,33 +176,15 @@ export const CreateBusiness = ({ user }) => {
         </div>
 
         <div className="">
-          <label>Business Open Hours</label>
+          <label>Shop Open Hours</label>
           <select onChange={(e) => setOpenHours(e.target.value)}>
             <option value="0">Select Open Hours</option>
-            <option value="1:00">1:00</option>
-            <option value="1:30">1:30</option>
-            <option value="2:00">2:00</option>
-            <option value="2:30">2:30</option>
-            <option value="3:00">3:00</option>
-            <option value="3:30">3:30</option>
-            <option value="4:00">4:00</option>
-            <option value="4:30">4:30</option>
-            <option value="5:00">5:00</option>
-            <option value="5:30">5:30</option>
-            <option value="6:00">6:00</option>
-            <option value="6:30">6:30</option>
-            <option value="7:00">7:00</option>
-            <option value="7:30">7:30</option>
-            <option value="8:00">8:00</option>
-            <option value="8:30">8:30</option>
-            <option value="9:00">9:00</option>
-            <option value="9:30">9:30</option>
-            <option value="10:00">10:00</option>
-            <option value="10:30">10:30</option>
-            <option value="11:00">11:00</option>
-            <option value="11:30">11:30</option>
-            <option value="12:00">12:00</option>
-            <option value="12:30">12:30</option>
+            <option value="10:00 AM">10:00 AM</option>
+            <option value="10:30 AM">10:30 AM</option>
+            <option value="11:00 AM">11:00 AM</option>
+            <option value="11:30 AM">11:30 AM</option>
+            <option value="12:00 PM">12:00 PM</option>
+            <option value="12:30 PM">12:30 PM</option>
           </select>
           {errors.open_hours && submitted && (
             <p className="on-submit-errors">{errors.open_hours}</p>
@@ -210,33 +192,32 @@ export const CreateBusiness = ({ user }) => {
         </div>
 
         <div className="">
-          <label>Business Close Hours</label>
+          <label>Shop Close Hours</label>
           <select onChange={(e) => setCloseHours(e.target.value)}>
             <option value="0">Select Close Hours</option>
-            <option value="1:00">1:00</option>
-            <option value="1:30">1:30</option>
-            <option value="2:00">2:00</option>
-            <option value="2:30">2:30</option>
-            <option value="3:00">3:00</option>
-            <option value="3:30">3:30</option>
-            <option value="4:00">4:00</option>
-            <option value="4:30">4:30</option>
-            <option value="5:00">5:00</option>
-            <option value="5:30">5:30</option>
-            <option value="6:00">6:00</option>
-            <option value="6:30">6:30</option>
-            <option value="7:00">7:00</option>
-            <option value="7:30">7:30</option>
-            <option value="8:00">8:00</option>
-            <option value="8:30">8:30</option>
-            <option value="9:00">9:00</option>
-            <option value="9:30">9:30</option>
-            <option value="10:00">10:00</option>
-            <option value="10:30">10:30</option>
-            <option value="11:00">11:00</option>
-            <option value="11:30">11:30</option>
-            <option value="12:00">12:00</option>
-            <option value="12:30">12:30</option>
+            <option value="1:00 PM">1:00 PM</option>
+            <option value="1:30 PM">1:30 PM</option>
+            <option value="2:00 PM">2:00 PM</option>
+            <option value="2:30 PM">2:30 PM</option>
+            <option value="3:00 PM">3:00 PM</option>
+            <option value="3:30 PM">3:30 PM</option>
+            <option value="4:00 PM">4:00 PM</option>
+            <option value="4:30 PM">4:30 PM</option>
+            <option value="5:00 PM">5:00 PM</option>
+            <option value="5:30 PM">5:30 PM</option>
+            <option value="6:00 PM">6:00 PM</option>
+            <option value="6:30 PM">6:30 PM</option>
+            <option value="7:00 PM">7:00 PM</option>
+            <option value="7:30 PM">7:30 PM</option>
+            <option value="8:00 PM">8:00 PM</option>
+            <option value="8:30 PM">8:30 PM</option>
+            <option value="9:00 PM">9:00 PM</option>
+            <option value="9:30 PM">9:30 PM</option>
+            <option value="10:00 PM">10:00 PM</option>
+            <option value="10:30 PM">10:30 PM</option>
+            <option value="11:00 PM">11:00 PM</option>
+            <option value="11:30 PM">11:30 PM</option>
+            <option value="12:00 AM">12:00 AM</option>
           </select>
           {errors.close_hours && submitted && (
             <p className="on-submit-errors">{errors.close_hours}</p>
@@ -244,7 +225,7 @@ export const CreateBusiness = ({ user }) => {
         </div>
 
         <div className="">
-          <label>Business Main Image</label>
+          <label>Shop Main Image</label>
           <input
             type="url"
             value={image_url}
@@ -257,12 +238,12 @@ export const CreateBusiness = ({ user }) => {
         </div>
 
         <div className="">
-          <label>Business Description</label>
+          <label>Shop Description</label>
           <input
             type="text"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
-            placeholder="Business Description"
+            placeholder="Shop Description"
           />
           {errors.description && submitted && (
             <p className="on-submit-errors">{errors.description}</p>
@@ -273,22 +254,22 @@ export const CreateBusiness = ({ user }) => {
           <button
             className=""
             type="submit"
-            disabled={
-              !(
-                address ||
-                city ||
-                state ||
-                name ||
-                type ||
-                price ||
-                open_hours ||
-                close_hours ||
-                image_url ||
-                description
-              )
-            }
+            // disabled={
+            //   !(
+            //     address ||
+            //     city ||
+            //     state ||
+            //     name ||
+            //     type ||
+            //     price ||
+            //     open_hours ||
+            //     close_hours ||
+            //     image_url ||
+            //     description
+            //   )
+            // }
           >
-            Add Business
+            Add Shop
           </button>
         </div>
       </form>

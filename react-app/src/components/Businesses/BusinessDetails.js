@@ -44,6 +44,7 @@ export const BusinessDetails = () => {
         src={image_url}
         alt={name}
         title={name}
+        style={{ width: "220px", height: "220px" }}
       ></img>
       <div>{name}</div>
       <div>
@@ -51,7 +52,7 @@ export const BusinessDetails = () => {
           <span>
             <i className="fa-solid fa-star"></i>
             {Number(avg_rating).toFixed(1)} ({num_reviews}{" "}
-            {num_reviews > 1 ? "Reviews" : "Review"})
+            {num_reviews > 1 ? "Buzzes" : "Buzz"})
           </span>
         ) : (
           <span>
@@ -74,7 +75,7 @@ export const BusinessDetails = () => {
       <div>
         Hours: {open_hours} - {close_hours}
       </div>
-      <div>About the Business</div>
+      <div>About the Shop</div>
       <div>{description}</div>
 
       <BusinessReviews />

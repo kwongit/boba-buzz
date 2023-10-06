@@ -43,25 +43,25 @@ export const BusinessReviews = () => {
 
   return (
     <div>
-      <h1>Recommended Reviews</h1>
+      <h1>Recommended Buzzez</h1>
       <div>
         {reviewsList.length ? (
           <div>
             <div className="">
-              <div>Overall rating</div>
+              <div>Overall buzz rating</div>
               <div>
                 <i className="fa-solid fa-star"></i>
                 {Number(avg_rating).toFixed(1)}
               </div>
               <div>
-                {num_reviews} {num_reviews > 1 ? "Reviews" : "Review"}
+                {num_reviews} {num_reviews > 1 ? "Buzzes" : "Buzz"}
               </div>
               <div className="">
                 {!previousReview &&
                   user.id !== business.owner_id &&
                   user.id && (
                     <OpenModalButton
-                      buttonText="Post Review"
+                      buttonText="Post Buzz"
                       modalComponent={<CreateReviewModal business={business} />}
                     />
                   )}
@@ -105,17 +105,17 @@ export const BusinessReviews = () => {
         ) : (
           <div>
             <div className="">
-              <div>Overall rating</div>
+              <div>Overall buzz rating</div>
               <div>
                 <i className="fa-solid fa-star"></i>
-                No reviews yet
+                No buzzes yet!
               </div>
               <div className="">
                 {!previousReview &&
                   user.id !== business.owner_id &&
                   user.id && (
                     <OpenModalButton
-                      buttonText="Post Review"
+                      buttonText="Post Buzz"
                       modalComponent={<CreateReviewModal business={business} />}
                     />
                   )}
@@ -124,7 +124,7 @@ export const BusinessReviews = () => {
 
             {!previousReview && user.id !== business.owner_id && user.id && (
               <h3 className="be-the-first-text">
-                Be the first to post a review!
+                Be the first to post a buzz!
               </h3>
             )}
           </div>

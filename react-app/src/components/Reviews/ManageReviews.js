@@ -30,7 +30,7 @@ export const ManageReviews = () => {
 
   return (
     <div>
-      <h1>Manage Your Reviews</h1>
+      <h1>Manage Your Buzzes</h1>
 
       {reviewsList.map((review) => (
         <div className="" key={review.id}>

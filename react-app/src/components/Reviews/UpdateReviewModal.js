@@ -31,7 +31,7 @@ export const UpdateReviewModal = ({ updateReview }) => {
 
   return (
     <div className="">
-      <h2>Update Your Review</h2>
+      <h2>Update Your Buzz</h2>
       <form onSubmit={handleSubmit}>
         <div className="">
           <div className="">
@@ -93,15 +93,12 @@ export const UpdateReviewModal = ({ updateReview }) => {
             ></textarea>
           </div>
           {!review && submitted && (
-            <div className="">
-              Your review needs at least 2 characters. Add a few thoughts to
-              post review.
-            </div>
+            <div className="">Your buzz needs at least 2 characters!</div>
           )}
         </div>
 
         <div className="">
-          <button className="">Update Review</button>
+          <button className="">Update Buzz</button>
         </div>
       </form>
     </div>
