@@ -24,12 +24,12 @@ const getBusiness = (business) => {
   };
 };
 
-const createBusiness = (business) => {
-  return {
-    type: CREATE_BUSINESS,
-    business,
-  };
-};
+// const createBusiness = (business) => {
+//   return {
+//     type: CREATE_BUSINESS,
+//     business,
+//   };
+// };
 
 const updateBusiness = (business) => {
   return {
