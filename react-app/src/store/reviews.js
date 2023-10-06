@@ -17,12 +17,12 @@ const getReviews = (reviews) => {
   };
 };
 
-const getReview = (review) => {
-  return {
-    type: GET_REVIEW,
-    review,
-  };
-};
+// const getReview = (review) => {
+//   return {
+//     type: GET_REVIEW,
+//     review,
+//   };
+// };
 
 // const createReview = (review) => {
 //   return {
@@ -60,18 +60,18 @@ export const thunkGetReviews = () => async (dispatch) => {
   }
 };
 
-export const thunkGetReviewInfo = (reviewId) => async (dispatch) => {
-  const res = await csrfFetch(`/api/reviews/${reviewId}`);
+// export const thunkGetReviewInfo = (reviewId) => async (dispatch) => {
+//   const res = await csrfFetch(`/api/reviews/${reviewId}`);
 
-  if (res.ok) {
-    const review = await res.json();
-    dispatch(getReview(review));
-    return res;
-  } else {
-    const errors = await res.json();
-    return errors;
-  }
-};
+//   if (res.ok) {
+//     const review = await res.json();
+//     dispatch(getReview(review));
+//     return res;
+//   } else {
+//     const errors = await res.json();
+//     return errors;
+//   }
+// };
 
 export const thunkGetUserReviews = () => async (dispatch) => {
   const res = await csrfFetch("/api/reviews/current");

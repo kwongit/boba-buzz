@@ -1,7 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
-import { thunkGetReviewInfo, thunkUpdateReview } from "../../store/reviews";
+import { thunkUpdateReview } from "../../store/reviews";
 
 export const UpdateReviewModal = ({ updateReview }) => {
   const dispatch = useDispatch();
@@ -12,10 +12,6 @@ export const UpdateReviewModal = ({ updateReview }) => {
   const [activeRating, setActiveRating] = useState(updateReview.stars);
   const [submitted, setSubmitted] = useState(false);
   const [errors, setErrors] = useState({});
-
-  useEffect(() => {
-    dispatch(thunkGetReviewInfo(updateReview.id));
-  }, [dispatch, review, stars, updateReview.id]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
