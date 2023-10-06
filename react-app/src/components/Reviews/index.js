@@ -48,13 +48,30 @@ export const BusinessReviews = () => {
         {reviewsList.length ? (
           <div>
             <div className="">
-              <div>Overall buzz rating</div>
+              <div>Overall Buzz Rating:</div>
               <div>
-                <i className="fa-solid fa-star"></i>
-                {Number(avg_rating).toFixed(1)}
-              </div>
-              <div>
-                {num_reviews} {num_reviews > 1 ? "Buzzes" : "Buzz"}
+                {avg_rating ? (
+                  <>
+                    {[...Array(Math.floor(avg_rating))].map((_, index) => (
+                      <i key={index} className="fa-solid fa-star"></i>
+                    ))}
+                    {avg_rating % 1 !== 0 && (
+                      <i className="fa-solid fa-star-half-stroke"></i>
+                    )}
+                    {[...Array(5 - Math.ceil(avg_rating))].map((_, index) => (
+                      <i key={index} className="fa-regular fa-star"></i>
+                    ))}
+                    {Number(avg_rating).toFixed(1)} ({num_reviews}{" "}
+                    {num_reviews > 1 ? "Buzzes" : "Buzz"})
+                  </>
+                ) : (
+                  <>
+                    {[...Array(5)].map((_, index) => (
+                      <i key={index} className="fa-regular fa-star"></i>
+                    ))}
+                    New
+                  </>
+                )}
               </div>
               <div className="">
                 {!previousReview &&
@@ -72,9 +89,21 @@ export const BusinessReviews = () => {
               <div className="" key={review.id}>
                 <div className="">
                   <div className="">{review.user}</div>
-                  <div className="">
+                  {/* <div className="">
                     <i className="fa-solid fa-star"></i>
+                    <i className="fa-regular fa-star"></i>
                     {review.stars}
+                    <div className="">{createDate(review.created_at)}</div>
+                  </div> */}
+                  <div className="">
+                    {Array.from({ length: 5 }, (_, index) => (
+                      <i
+                        key={index}
+                        className={`fa-star ${
+                          index < review.stars ? "fa-solid" : "fa-regular"
+                        }`}
+                      ></i>
+                    ))}
                     <div className="">{createDate(review.created_at)}</div>
                   </div>
                   <div className="">{review.review}</div>

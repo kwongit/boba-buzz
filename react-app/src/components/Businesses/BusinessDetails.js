@@ -47,7 +47,7 @@ export const BusinessDetails = () => {
         style={{ width: "220px", height: "220px" }}
       ></img>
       <div>{name}</div>
-      <div>
+      {/* <div>
         {reviewsList.length ? (
           <span>
             <i className="fa-solid fa-star"></i>
@@ -59,6 +59,30 @@ export const BusinessDetails = () => {
             <i className="fa-solid fa-star"></i>
             New
           </span>
+        )}
+      </div> */}
+      <div>
+        {avg_rating ? (
+          <>
+            {[...Array(Math.floor(avg_rating))].map((_, index) => (
+              <i key={index} className="fa-solid fa-star"></i>
+            ))}
+            {avg_rating % 1 !== 0 && (
+              <i className="fa-solid fa-star-half-stroke"></i>
+            )}
+            {[...Array(5 - Math.ceil(avg_rating))].map((_, index) => (
+              <i key={index} className="fa-regular fa-star"></i>
+            ))}
+            {Number(avg_rating).toFixed(1)} ({num_reviews}{" "}
+            {num_reviews > 1 ? "Buzzes" : "Buzz"})
+          </>
+        ) : (
+          <>
+            {[...Array(5)].map((_, index) => (
+              <i key={index} className="fa-regular fa-star"></i>
+            ))}
+            New
+          </>
         )}
       </div>
       <div>
