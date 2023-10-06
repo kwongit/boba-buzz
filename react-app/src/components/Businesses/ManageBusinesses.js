@@ -32,7 +32,7 @@ export const ManageBusinesses = () => {
   return (
     <div>
       <div className="manage-businesses-container">
-        <h1>Manage Businesses</h1>
+        <h1>Manage Your Businesses</h1>
         <button className="manage-businesses-create-btn" onClick={handleClick}>
           Add a New Business
         </button>

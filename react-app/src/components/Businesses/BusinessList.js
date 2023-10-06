@@ -1,20 +1,8 @@
 import { useHistory } from "react-router";
 
 const BusinessList = ({ business }) => {
-  const {
-    id,
-    owner_id,
-    address,
-    city,
-    state,
-    name,
-    type,
-    price,
-    open_hours,
-    close_hours,
-    image_url,
-    description,
-  } = business;
+  const { id, city, name, type, price, open_hours, close_hours, image_url } =
+    business;
 
   const history = useHistory();
 
