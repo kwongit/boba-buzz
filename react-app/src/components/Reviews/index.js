@@ -48,14 +48,39 @@ export const BusinessReviews = () => {
         {reviewsList.length ? (
           <div>
             <div className="">
-              <div>Overall buzz rating</div>
+              <div>Overall Buzz Rating:</div>
+
               <div>
-                <i className="fa-solid fa-star"></i>
-                {Number(avg_rating).toFixed(1)}
+                {avg_rating ? (
+                  <div>
+                    {Array(Math.floor(avg_rating))
+                      .fill()
+                      .map((_, i) => (
+                        <i key={i} className="fa-solid fa-star"></i>
+                      ))}
+                    {avg_rating % 1 !== 0 && (
+                      <i className="fa-solid fa-star-half-stroke"></i>
+                    )}
+                    {Array(5 - Math.ceil(avg_rating))
+                      .fill()
+                      .map((_, i) => (
+                        <i key={i} className="fa-regular fa-star"></i>
+                      ))}
+                    {Number(avg_rating).toFixed(1)} ({num_reviews}{" "}
+                    {num_reviews > 1 ? "Buzzes" : "Buzz"})
+                  </div>
+                ) : (
+                  <div>
+                    {Array(5)
+                      .fill()
+                      .map((_, i) => (
+                        <i key={i} className="fa-regular fa-star"></i>
+                      ))}
+                    New (0 Buzzes)
+                  </div>
+                )}
               </div>
-              <div>
-                {num_reviews} {num_reviews > 1 ? "Buzzes" : "Buzz"}
-              </div>
+
               <div className="">
                 {!previousReview &&
                   user.id !== business.owner_id &&
@@ -72,12 +97,26 @@ export const BusinessReviews = () => {
               <div className="" key={review.id}>
                 <div className="">
                   <div className="">{review.user}</div>
+
                   <div className="">
-                    <i className="fa-solid fa-star"></i>
-                    {review.stars}
+                    <div>
+                      {Array(review.stars)
+                        .fill()
+                        .map((_, i) => (
+                          <i key={i} className="fa-solid fa-star"></i>
+                        ))}
+                      {Array(5 - review.stars)
+                        .fill()
+                        .map((_, i) => (
+                          <i key={i} className="fa-regular fa-star"></i>
+                        ))}
+                    </div>
+
                     <div className="">{createDate(review.created_at)}</div>
                   </div>
+
                   <div className="">{review.review}</div>
+
                   <div className="">
                     {review.user_id === user.id && (
                       <div>
@@ -105,11 +144,17 @@ export const BusinessReviews = () => {
         ) : (
           <div>
             <div className="">
-              <div>Overall buzz rating</div>
+              <div>Overall Buzz Rating:</div>
+
               <div>
-                <i className="fa-solid fa-star"></i>
-                No buzzes yet!
+                {Array(5)
+                  .fill()
+                  .map((_, i) => (
+                    <i key={i} className="fa-regular fa-star"></i>
+                  ))}
+                New (0 Buzzes)
               </div>
+
               <div className="">
                 {!previousReview &&
                   user.id !== business.owner_id &&
