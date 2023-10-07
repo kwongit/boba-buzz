@@ -40,35 +40,45 @@ const BusinessList = ({ business }) => {
             style={{ width: "220px", height: "220px" }}
           ></img>
         </div>
+
         <div className="business-list-details">
           <div>{name}</div>
+
           <div>
             {avg_rating ? (
-              <>
-                {[...Array(Math.floor(avg_rating))].map((_, index) => (
-                  <i key={index} className="fa-solid fa-star"></i>
-                ))}
+              <div>
+                {Array(Math.floor(avg_rating))
+                  .fill()
+                  .map((_, i) => (
+                    <i key={i} className="fa-solid fa-star"></i>
+                  ))}
                 {avg_rating % 1 !== 0 && (
                   <i className="fa-solid fa-star-half-stroke"></i>
                 )}
-                {[...Array(5 - Math.ceil(avg_rating))].map((_, index) => (
-                  <i key={index} className="fa-regular fa-star"></i>
-                ))}
+                {Array(5 - Math.ceil(avg_rating))
+                  .fill()
+                  .map((_, i) => (
+                    <i key={i} className="fa-regular fa-star"></i>
+                  ))}
                 {Number(avg_rating).toFixed(1)} ({num_reviews}{" "}
                 {num_reviews > 1 ? "Buzzes" : "Buzz"})
-              </>
+              </div>
             ) : (
-              <>
-                {[...Array(5)].map((_, index) => (
-                  <i key={index} className="fa-regular fa-star"></i>
-                ))}
-                New
-              </>
+              <div>
+                {Array(5)
+                  .fill()
+                  .map((_, i) => (
+                    <i key={i} className="fa-regular fa-star"></i>
+                  ))}
+                New (0 Buzzes)
+              </div>
             )}
           </div>
+
           <div>
             {type} · {price === 3 ? "$$$" : price === 2 ? "$$" : "$"} · {city}
           </div>
+
           <div>
             <strong style={{ fontWeight: "bold" }}>Open</strong> until{" "}
             {close_hours}

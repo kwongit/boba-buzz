@@ -49,30 +49,38 @@ export const BusinessReviews = () => {
           <div>
             <div className="">
               <div>Overall Buzz Rating:</div>
+
               <div>
                 {avg_rating ? (
-                  <>
-                    {[...Array(Math.floor(avg_rating))].map((_, index) => (
-                      <i key={index} className="fa-solid fa-star"></i>
-                    ))}
+                  <div>
+                    {Array(Math.floor(avg_rating))
+                      .fill()
+                      .map((_, i) => (
+                        <i key={i} className="fa-solid fa-star"></i>
+                      ))}
                     {avg_rating % 1 !== 0 && (
                       <i className="fa-solid fa-star-half-stroke"></i>
                     )}
-                    {[...Array(5 - Math.ceil(avg_rating))].map((_, index) => (
-                      <i key={index} className="fa-regular fa-star"></i>
-                    ))}
+                    {Array(5 - Math.ceil(avg_rating))
+                      .fill()
+                      .map((_, i) => (
+                        <i key={i} className="fa-regular fa-star"></i>
+                      ))}
                     {Number(avg_rating).toFixed(1)} ({num_reviews}{" "}
                     {num_reviews > 1 ? "Buzzes" : "Buzz"})
-                  </>
+                  </div>
                 ) : (
-                  <>
-                    {[...Array(5)].map((_, index) => (
-                      <i key={index} className="fa-regular fa-star"></i>
-                    ))}
-                    New
-                  </>
+                  <div>
+                    {Array(5)
+                      .fill()
+                      .map((_, i) => (
+                        <i key={i} className="fa-regular fa-star"></i>
+                      ))}
+                    New (0 Buzzes)
+                  </div>
                 )}
               </div>
+
               <div className="">
                 {!previousReview &&
                   user.id !== business.owner_id &&
@@ -89,20 +97,26 @@ export const BusinessReviews = () => {
               <div className="" key={review.id}>
                 <div className="">
                   <div className="">{review.user}</div>
+
                   <div className="">
-                    <>
-                      {[...Array(Math.floor(review.stars))].map((_, index) => (
-                        <i key={index} className="fa-solid fa-star"></i>
-                      ))}
-                      {[...Array(5 - Math.ceil(review.stars))].map(
-                        (_, index) => (
-                          <i key={index} className="fa-regular fa-star"></i>
-                        )
-                      )}
-                    </>
+                    <div>
+                      {Array(review.stars)
+                        .fill()
+                        .map((_, i) => (
+                          <i key={i} className="fa-solid fa-star"></i>
+                        ))}
+                      {Array(5 - review.stars)
+                        .fill()
+                        .map((_, i) => (
+                          <i key={i} className="fa-regular fa-star"></i>
+                        ))}
+                    </div>
+
                     <div className="">{createDate(review.created_at)}</div>
                   </div>
+
                   <div className="">{review.review}</div>
+
                   <div className="">
                     {review.user_id === user.id && (
                       <div>
@@ -130,38 +144,17 @@ export const BusinessReviews = () => {
         ) : (
           <div>
             <div className="">
-              <div>Overall buzz rating</div>
-              <div>
-                {/* <>
+              <div>Overall Buzz Rating:</div>
 
-                  {[...Array(5 - Math.ceil(0))].map((_, index) => (
-                    <i key={index} className="fa-regular fa-star"></i>
+              <div>
+                {Array(5)
+                  .fill()
+                  .map((_, i) => (
+                    <i key={i} className="fa-regular fa-star"></i>
                   ))}
-                </>
-                No buzzes yet! */}
-                {avg_rating ? (
-                  <>
-                    {[...Array(Math.floor(avg_rating))].map((_, index) => (
-                      <i key={index} className="fa-solid fa-star"></i>
-                    ))}
-                    {avg_rating % 1 !== 0 && (
-                      <i className="fa-solid fa-star-half-stroke"></i>
-                    )}
-                    {[...Array(5 - Math.ceil(avg_rating))].map((_, index) => (
-                      <i key={index} className="fa-regular fa-star"></i>
-                    ))}
-                    {Number(avg_rating).toFixed(1)} ({num_reviews}{" "}
-                    {num_reviews > 1 ? "Buzzes" : "Buzz"})
-                  </>
-                ) : (
-                  <>
-                    {[...Array(5)].map((_, index) => (
-                      <i key={index} className="fa-regular fa-star"></i>
-                    ))}
-                    No buzzes yet!
-                  </>
-                )}
+                New (0 Buzzes)
               </div>
+
               <div className="">
                 {!previousReview &&
                   user.id !== business.owner_id &&
