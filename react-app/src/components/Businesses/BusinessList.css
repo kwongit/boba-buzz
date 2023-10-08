@@ -13,20 +13,3 @@
   justify-content: center;
   gap: 10px;
 }
-
-.fa-solid {
-  color: white;
-  background-color: orangered;
-  margin-right: 5px;
-}
-
-.fa-regular {
-  color: white;
-  background-color: gray;
-  margin-right: 5px;
-}
-
-.business-list-span-type {
-  background-color: lightgray;
-  color: darkslategray;
-}

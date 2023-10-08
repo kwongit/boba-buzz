@@ -1,16 +1,15 @@
-.landing-page-window {
-  width: 1761px;
+.manage-businesses-container {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.landing-page-business-container {
+.manage-businesses-list-container {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.landing-page-ul {
+.manage-business-page-ul {
   list-style: none;
 }

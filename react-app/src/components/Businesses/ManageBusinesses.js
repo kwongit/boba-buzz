@@ -5,6 +5,7 @@ import { thunkGetUserBusinesses } from "../../store/businesses";
 import BusinessList from "./BusinessList";
 import { DeleteBusinessModal } from "./DeleteBusinessModal";
 import OpenModalButton from "../OpenModalButton";
+import "./ManageBusinesses.css";
 
 export const ManageBusinesses = () => {
   const dispatch = useDispatch();
@@ -38,10 +39,10 @@ export const ManageBusinesses = () => {
         </button>
       </div>
       <div className="manage-businesses-list-container">
-        <ol>
-          {businessesList.map((business) => (
+        <ul className="manage-business-page-ul">
+          {businessesList.map((business, index) => (
             <li key={business.id}>
-              <BusinessList manage={true} business={business} />
+              <BusinessList manage={true} business={business} index={index} />
               <div className="manage-businesses-btn-container">
                 <button
                   className="manage-businesses-update-btn"
@@ -59,7 +60,7 @@ export const ManageBusinesses = () => {
               </div>
             </li>
           ))}
-        </ol>
+        </ul>
       </div>
     </div>
   );

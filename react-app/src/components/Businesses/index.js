@@ -18,7 +18,7 @@ export const Businesses = () => {
   if (!businesses.length) return null;
 
   return (
-    <div>
+    <div className="landing-page-window">
       <h1>BobaBuzz</h1>
       <div className="landing-page-business-container">
         <ul className="landing-page-ul">
