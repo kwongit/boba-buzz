@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { thunkGetBusinessInfo } from "../../store/businesses";
 import { thunkGetBusinessReviews } from "../../store/reviews";
 import { BusinessReviews } from "../Reviews";
+import "./BusinessDetails.css";
 
 export const BusinessDetails = () => {
   const dispatch = useDispatch();
@@ -39,53 +40,57 @@ export const BusinessDetails = () => {
 
   return (
     <div className="business-details-container">
-      <img
-        className="business-details-main-image"
-        src={image_url}
-        alt={name}
-        title={name}
-        style={{ width: "220px", height: "220px" }}
-      ></img>
+      <div className="business-details-sub-container">
+        <div className="business-details-main-img">
+          <img
+            className="preview-img"
+            src={image_url}
+            alt={name}
+            title={name}
+            // style={{ width: "220px", height: "220px" }}
+          ></img>
+        </div>
 
-      <div>{name}</div>
-
-      <div>
-        {avg_rating ? (
+        <div className="business-details-details">
+          <h3>{name}</h3>
           <div>
-            {Array(Math.floor(avg_rating))
-              .fill()
-              .map((_, i) => (
-                <i key={i} className="fa-solid fa-star"></i>
-              ))}
-            {avg_rating % 1 !== 0 && (
-              <i className="fa-solid fa-star-half-stroke"></i>
+            {avg_rating ? (
+              <div>
+                {Array(Math.floor(avg_rating))
+                  .fill()
+                  .map((_, i) => (
+                    <i key={i} className="fa-solid fa-star"></i>
+                  ))}
+                {avg_rating % 1 !== 0 && (
+                  <i className="fa-solid fa-star-half-stroke"></i>
+                )}
+                {Array(5 - Math.ceil(avg_rating))
+                  .fill()
+                  .map((_, i) => (
+                    <i key={i} className="fa-regular fa-star"></i>
+                  ))}
+                {Number(avg_rating).toFixed(1)} ({num_reviews}{" "}
+                {num_reviews > 1 ? "Buzzes" : "Buzz"})
+              </div>
+            ) : (
+              <div>
+                {Array(5)
+                  .fill()
+                  .map((_, i) => (
+                    <i key={i} className="fa-regular fa-star"></i>
+                  ))}
+                New (0 Buzzes)
+              </div>
             )}
-            {Array(5 - Math.ceil(avg_rating))
-              .fill()
-              .map((_, i) => (
-                <i key={i} className="fa-regular fa-star"></i>
-              ))}
-            {Number(avg_rating).toFixed(1)} ({num_reviews}{" "}
-            {num_reviews > 1 ? "Buzzes" : "Buzz"})
           </div>
-        ) : (
+
           <div>
-            {Array(5)
-              .fill()
-              .map((_, i) => (
-                <i key={i} className="fa-regular fa-star"></i>
-              ))}
-            New (0 Buzzes)
+            {price === 3 ? "$$$" : price === 2 ? "$$" : "$"} · {type}
           </div>
-        )}
-      </div>
-
-      <div>
-        {price === 3 ? "$$$" : price === 2 ? "$$" : "$"} · {type}
-      </div>
-
-      <div>
-        Hours: {open_hours} - {close_hours}
+          <div>
+            Hours: {open_hours} - {close_hours}
+          </div>
+        </div>
       </div>
 
       <div>Featured Items Coming Soon...</div>

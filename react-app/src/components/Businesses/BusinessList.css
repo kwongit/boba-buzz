@@ -1,0 +1,32 @@
+.business-list-sub-container {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  padding: 30px 0px;
+  border-top: 1px solid gray;
+  cursor: pointer;
+}
+
+.business-list-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+}
+
+.fa-solid {
+  color: white;
+  background-color: orangered;
+  margin-right: 5px;
+}
+
+.fa-regular {
+  color: white;
+  background-color: gray;
+  margin-right: 5px;
+}
+
+.business-list-span-type {
+  background-color: lightgray;
+  color: darkslategray;
+}

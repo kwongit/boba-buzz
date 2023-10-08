@@ -1,0 +1,9 @@
+.landing-page-business-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.landing-page-ul {
+  list-style: none;
+}
