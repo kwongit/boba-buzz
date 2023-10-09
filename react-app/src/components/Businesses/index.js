@@ -19,7 +19,7 @@ export const Businesses = () => {
 
   return (
     <div className="landing-page-window">
-      <h1>BobaBuzz</h1>
+      <h1>Top Boba Shops in the Bay Area</h1>
       <div className="landing-page-business-container">
         <ul className="landing-page-ul">
           {businesses.map((business, index) => (

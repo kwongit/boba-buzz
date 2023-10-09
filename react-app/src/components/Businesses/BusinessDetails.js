@@ -52,7 +52,7 @@ export const BusinessDetails = () => {
             ></img>
           </div>
           <div className="business-details-details">
-            <h3>{name}</h3>
+            <h1>{name}</h1>
             <div>
               {avg_rating ? (
                 <div>
@@ -92,17 +92,23 @@ export const BusinessDetails = () => {
           </div>
         </div>
         <div className="business-details-additional-details">
-          <h3>Featured Items</h3>
-          <div>Coming Soon...</div>
-          <h3>Location & Hours</h3>
-          <div>
-            {address}, {city}, {state}
+          <div className="business-details-featured-items">
+            <h3>Featured Items</h3>
+            <div>Coming Soon...</div>
           </div>
-          <div>
-            Hours: {open_hours} - {close_hours}
+          <div className="business-details-location-hours">
+            <h3>Location & Hours</h3>
+            <div>
+              {address}, {city}, {state}
+            </div>
+            <div>
+              Hours: {open_hours} - {close_hours}
+            </div>
           </div>
-          <h3>About the Shop</h3>
-          <div>{description}</div>
+          <div className="business-details-about-shop">
+            <h3>About the Shop</h3>
+            <div>{description}</div>
+          </div>
         </div>
         <BusinessReviews />
       </div>

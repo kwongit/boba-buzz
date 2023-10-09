@@ -40,9 +40,9 @@ const BusinessList = ({ business, index }) => {
         </div>
 
         <div className="business-list-details">
-          <h3>
+          <h2>
             {index + 1}. {name}
-          </h3>
+          </h2>
 
           <div>
             {avg_rating ? (

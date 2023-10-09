@@ -43,12 +43,12 @@ export const BusinessReviews = () => {
 
   return (
     <div>
-      <h1>Recommended Buzzes</h1>
+      <h2>Recommended Buzzes</h2>
       <div>
         {reviewsList.length ? (
           <div>
             <div className="">
-              <div>Overall Buzz Rating:</div>
+              <h3>Overall Buzz Rating:</h3>
 
               <div>
                 {avg_rating ? (
