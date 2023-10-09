@@ -4,6 +4,7 @@ import { thunkGetUserReviews } from "../../store/reviews";
 import OpenModalButton from "../OpenModalButton";
 import { UpdateReviewModal } from "./UpdateReviewModal";
 import { DeleteReviewModal } from "./DeleteReviewModal";
+import "./ManageReviews.css";
 
 export const ManageReviews = () => {
   const dispatch = useDispatch();
@@ -30,35 +31,55 @@ export const ManageReviews = () => {
 
   return (
     <div>
-      <h1>Manage Your Reviews</h1>
+      <div className="manage-reviews-container">
+        <h1>Manage Your Buzzes</h1>
+      </div>
 
-      {reviewsList.map((review) => (
-        <div className="" key={review.id}>
-          <div className="">
-            <div className="">{review.business_name}</div>
+      <div className="manage-reviews-list-container">
+        {reviewsList.map((review) => (
+          <div className="" key={review.id}>
             <div className="">
-              <i className="fa-solid fa-star"></i>
-              {review.stars}
-              <div className="">{createDate(review.created_at)}</div>
-            </div>
-            <div className="">{review.review}</div>
-            <div className="">
-              <div>
-                <OpenModalButton
-                  className=""
-                  buttonText="Update"
-                  modalComponent={<UpdateReviewModal updateReview={review} />}
-                />
-                <OpenModalButton
-                  className=""
-                  buttonText="Delete"
-                  modalComponent={<DeleteReviewModal reviewId={review.id} />}
-                />
+              <div className="">{review.business_name}</div>
+              <div className="">
+                {review.stars ? (
+                  <div className="manage-reviews-stars-date">
+                    <div>
+                      {Array(review.stars)
+                        .fill()
+                        .map((_, i) => (
+                          <i key={i} className="fa-solid fa-star"></i>
+                        ))}
+                      {Array(5 - review.stars)
+                        .fill()
+                        .map((_, i) => (
+                          <i key={i} className="fa-regular fa-star"></i>
+                        ))}
+                    </div>
+                    <div>{createDate(review.created_at)}</div>
+                  </div>
+                ) : (
+                  ""
+                )}
+              </div>
+              <div className="">{review.review}</div>
+              <div className="">
+                <div>
+                  <OpenModalButton
+                    className=""
+                    buttonText="Update"
+                    modalComponent={<UpdateReviewModal updateReview={review} />}
+                  />
+                  <OpenModalButton
+                    className=""
+                    buttonText="Delete"
+                    modalComponent={<DeleteReviewModal reviewId={review.id} />}
+                  />
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 };

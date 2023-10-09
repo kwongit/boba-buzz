@@ -1,0 +1,15 @@
+.manage-businesses-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.manage-businesses-list-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.manage-business-page-ul {
+  list-style: none;
+}

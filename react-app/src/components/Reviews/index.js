@@ -7,6 +7,7 @@ import { CreateReviewModal } from "./CreateReviewModal";
 import { UpdateReviewModal } from "./UpdateReviewModal";
 import { DeleteReviewModal } from "./DeleteReviewModal";
 import OpenModalButton from "../OpenModalButton";
+import "./BusinessReviews.css";
 
 // export const BusinessReviews = ({ businessId }) => {
 export const BusinessReviews = () => {
@@ -43,25 +44,56 @@ export const BusinessReviews = () => {
 
   return (
     <div>
-      <h1>Recommended Reviews</h1>
+      <h2>Recommended Buzzes</h2>
       <div>
         {reviewsList.length ? (
           <div>
-            <div className="">
-              <div>Overall rating</div>
+            <div className="business-reviews-overall-rating-container">
+              <h3>Overall Buzz Rating:</h3>
+
               <div>
-                <i className="fa-solid fa-star"></i>
-                {Number(avg_rating).toFixed(1)}
+                {avg_rating ? (
+                  <div className="business-reviews-overall-stars">
+                    <div>
+                      {Array(Math.floor(avg_rating))
+                        .fill()
+                        .map((_, i) => (
+                          <i key={i} className="fa-solid fa-star"></i>
+                        ))}
+                      {avg_rating % 1 !== 0 && (
+                        <i className="fa-solid fa-star-half-stroke"></i>
+                      )}
+                      {Array(5 - Math.ceil(avg_rating))
+                        .fill()
+                        .map((_, i) => (
+                          <i key={i} className="fa-regular fa-star"></i>
+                        ))}
+                    </div>
+                    <div>
+                      {Number(avg_rating).toFixed(1)} ({num_reviews}{" "}
+                      {num_reviews > 1 ? "Buzzes" : "Buzz"})
+                    </div>
+                  </div>
+                ) : (
+                  <div className="business-reviews-overall-no-stars">
+                    <div>
+                      {Array(5)
+                        .fill()
+                        .map((_, i) => (
+                          <i key={i} className="fa-regular fa-star"></i>
+                        ))}
+                    </div>
+                    <div>New (0 Buzzes)</div>
+                  </div>
+                )}
               </div>
-              <div>
-                {num_reviews} {num_reviews > 1 ? "Reviews" : "Review"}
-              </div>
-              <div className="">
+
+              <div className="business-reviews-post-review-btn">
                 {!previousReview &&
                   user.id !== business.owner_id &&
                   user.id && (
                     <OpenModalButton
-                      buttonText="Post Review"
+                      buttonText="Post Buzz"
                       modalComponent={<CreateReviewModal business={business} />}
                     />
                   )}
@@ -69,15 +101,28 @@ export const BusinessReviews = () => {
             </div>
 
             {reviewsList.map((review) => (
-              <div className="" key={review.id}>
+              <div className="business-reviews-user-reviews" key={review.id}>
                 <div className="">
-                  <div className="">{review.user}</div>
-                  <div className="">
-                    <i className="fa-solid fa-star"></i>
-                    {review.stars}
-                    <div className="">{createDate(review.created_at)}</div>
+                  <div className="business-reviews-username">{review.user}</div>
+
+                  <div className="business-reviews-stars-date">
+                    <div>
+                      {Array(review.stars)
+                        .fill()
+                        .map((_, i) => (
+                          <i key={i} className="fa-solid fa-star"></i>
+                        ))}
+                      {Array(5 - review.stars)
+                        .fill()
+                        .map((_, i) => (
+                          <i key={i} className="fa-regular fa-star"></i>
+                        ))}
+                    </div>
+                    <div>{createDate(review.created_at)}</div>
                   </div>
+
                   <div className="">{review.review}</div>
+
                   <div className="">
                     {review.user_id === user.id && (
                       <div>
@@ -104,18 +149,26 @@ export const BusinessReviews = () => {
           </div>
         ) : (
           <div>
-            <div className="">
-              <div>Overall rating</div>
-              <div>
-                <i className="fa-solid fa-star"></i>
-                No reviews yet
+            <div className="business-reviews-overall-rating-container">
+              <h3>Overall Buzz Rating:</h3>
+
+              <div className="business-reviews-overall-no-stars">
+                <div>
+                  {Array(5)
+                    .fill()
+                    .map((_, i) => (
+                      <i key={i} className="fa-regular fa-star"></i>
+                    ))}
+                </div>
+                <div>New (0 Buzzes)</div>
               </div>
-              <div className="">
+
+              <div className="business-reviews-post-review-btn">
                 {!previousReview &&
                   user.id !== business.owner_id &&
                   user.id && (
                     <OpenModalButton
-                      buttonText="Post Review"
+                      buttonText="Post Buzz"
                       modalComponent={<CreateReviewModal business={business} />}
                     />
                   )}
@@ -123,9 +176,9 @@ export const BusinessReviews = () => {
             </div>
 
             {!previousReview && user.id !== business.owner_id && user.id && (
-              <h3 className="be-the-first-text">
-                Be the first to post a review!
-              </h3>
+              <h4 className="be-the-first-text">
+                Be the first to post a buzz!
+              </h4>
             )}
           </div>
         )}

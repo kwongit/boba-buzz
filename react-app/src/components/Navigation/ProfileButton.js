@@ -43,6 +43,15 @@ function ProfileButton({ user }) {
   return (
     <>
       <div className="user-nav-container">
+        {user ? (
+          <span>
+            <NavLink className="create-new-business" to="/businesses/new">
+              Add a New Shop
+            </NavLink>
+          </span>
+        ) : (
+          ""
+        )}
         <button className="user-nav-btn" onClick={openMenu}>
           <i className="fas fa-user-circle" />
         </button>
@@ -57,7 +66,7 @@ function ProfileButton({ user }) {
                 exact
                 to="/businesses/current"
               >
-                Manage Businesses
+                Manage Shops
               </NavLink>
             </li>
             <li>
@@ -66,7 +75,7 @@ function ProfileButton({ user }) {
                 exact
                 to="/reviews/current"
               >
-                Manage Reviews
+                Manage Buzzes
               </NavLink>
             </li>
             <li className="logout-btn-container">
