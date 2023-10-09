@@ -46,31 +46,37 @@ const BusinessList = ({ business, index }) => {
 
           <div>
             {avg_rating ? (
-              <div>
-                {Array(Math.floor(avg_rating))
-                  .fill()
-                  .map((_, i) => (
-                    <i key={i} className="fa-solid fa-star"></i>
-                  ))}
-                {avg_rating % 1 !== 0 && (
-                  <i className="fa-solid fa-star-half-stroke"></i>
-                )}
-                {Array(5 - Math.ceil(avg_rating))
-                  .fill()
-                  .map((_, i) => (
-                    <i key={i} className="fa-regular fa-star"></i>
-                  ))}
-                <span>{Number(avg_rating).toFixed(1)}</span> ({num_reviews}{" "}
-                {num_reviews > 1 ? "Buzzes" : "Buzz"})
+              <div className="business-list-overall-stars">
+                <div>
+                  {Array(Math.floor(avg_rating))
+                    .fill()
+                    .map((_, i) => (
+                      <i key={i} className="fa-solid fa-star"></i>
+                    ))}
+                  {avg_rating % 1 !== 0 && (
+                    <i className="fa-solid fa-star-half-stroke"></i>
+                  )}
+                  {Array(5 - Math.ceil(avg_rating))
+                    .fill()
+                    .map((_, i) => (
+                      <i key={i} className="fa-regular fa-star"></i>
+                    ))}
+                </div>
+                <div>
+                  {Number(avg_rating).toFixed(1)} ({num_reviews}{" "}
+                  {num_reviews > 1 ? "Buzzes" : "Buzz"})
+                </div>
               </div>
             ) : (
-              <div>
-                {Array(5)
-                  .fill()
-                  .map((_, i) => (
-                    <i key={i} className="fa-regular fa-star"></i>
-                  ))}
-                New (0 Buzzes)
+              <div className="business-list-overall-no-stars">
+                <div>
+                  {Array(5)
+                    .fill()
+                    .map((_, i) => (
+                      <i key={i} className="fa-regular fa-star"></i>
+                    ))}
+                </div>
+                <div>New (0 Buzzes)</div>
               </div>
             )}
           </div>

@@ -37,9 +37,11 @@ export const ManageReviews = () => {
 
       <div className="manage-reviews-list-container">
         {reviewsList.map((review) => (
-          <div className="" key={review.id}>
+          <div className="manage-reviews-user-reviews" key={review.id}>
             <div className="">
-              <div className="">{review.business_name}</div>
+              <div className="manage-reviews-business-name">
+                {review.business_name}
+              </div>
               <div className="">
                 {review.stars ? (
                   <div className="manage-reviews-stars-date">
@@ -62,15 +64,17 @@ export const ManageReviews = () => {
                 )}
               </div>
               <div className="">{review.review}</div>
-              <div className="">
+              <div className="manage-reviews-btn-container">
                 <div>
                   <OpenModalButton
-                    className=""
+                    className="manage-reviews-update-btn"
                     buttonText="Update"
                     modalComponent={<UpdateReviewModal updateReview={review} />}
                   />
+                </div>
+                <div>
                   <OpenModalButton
-                    className=""
+                    className="manage-reviews-delete-btn"
                     buttonText="Delete"
                     modalComponent={<DeleteReviewModal reviewId={review.id} />}
                   />

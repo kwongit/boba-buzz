@@ -25,3 +25,10 @@
   display: flex;
   gap: 5px;
 }
+
+.business-reviews-btn-container {
+  display: flex;
+  gap: 20px;
+  padding-bottom: 30px;
+  padding-top: 10px;
+}
