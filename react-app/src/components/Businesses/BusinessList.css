@@ -13,3 +13,10 @@
   justify-content: center;
   gap: 10px;
 }
+
+.business-list-overall-stars,
+.business-list-overall-no-stars {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+}

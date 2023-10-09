@@ -34,6 +34,13 @@
   color: orangered;
 }
 
+.business-details-overall-stars,
+.business-details-overall-no-stars {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+}
+
 .business-details-additional-details {
   display: flex;
   flex-direction: column;

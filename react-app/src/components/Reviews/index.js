@@ -125,21 +125,25 @@ export const BusinessReviews = () => {
 
                   <div className="">
                     {review.user_id === user.id && (
-                      <div>
-                        <OpenModalButton
-                          className=""
-                          buttonText="Update"
-                          modalComponent={
-                            <UpdateReviewModal updateReview={review} />
-                          }
-                        />
-                        <OpenModalButton
-                          className=""
-                          buttonText="Delete"
-                          modalComponent={
-                            <DeleteReviewModal reviewId={review.id} />
-                          }
-                        />
+                      <div className="business-reviews-btn-container">
+                        <div>
+                          <OpenModalButton
+                            className="business-reviews-update-btn"
+                            buttonText="Update"
+                            modalComponent={
+                              <UpdateReviewModal updateReview={review} />
+                            }
+                          />
+                        </div>
+                        <div>
+                          <OpenModalButton
+                            className="business-reviews-delete-btn"
+                            buttonText="Delete"
+                            modalComponent={
+                              <DeleteReviewModal reviewId={review.id} />
+                            }
+                          />
+                        </div>
                       </div>
                     )}
                   </div>
