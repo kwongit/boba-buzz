@@ -43,9 +43,6 @@ function ProfileButton({ user }) {
   return (
     <>
       <div className="user-nav-container">
-        <button className="user-nav-btn" onClick={openMenu}>
-          <i className="fas fa-user-circle" />
-        </button>
         {user ? (
           <span>
             <NavLink className="create-new-business" to="/businesses/new">
@@ -55,6 +52,9 @@ function ProfileButton({ user }) {
         ) : (
           ""
         )}
+        <button className="user-nav-btn" onClick={openMenu}>
+          <i className="fas fa-user-circle" />
+        </button>
       </div>
       <ul className={ulClassName} ref={ulRef}>
         {user ? (
