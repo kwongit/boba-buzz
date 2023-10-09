@@ -1,0 +1,27 @@
+.business-reviews-overall-rating-container {
+  padding-bottom: 30px;
+}
+
+.business-reviews-overall-stars, .business-reviews-overall-no-stars {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+}
+
+.business-reviews-post-review-btn {
+  padding-top: 20px;
+}
+
+.business-reviews-user-reviews {
+  border-top: 1px solid black;
+  padding: 30px 0px;
+}
+
+.business-reviews-username, .business-reviews-stars-date {
+  padding-bottom: 20px;
+}
+
+.business-reviews-stars-date {
+  display: flex;
+  gap: 5px;
+}
