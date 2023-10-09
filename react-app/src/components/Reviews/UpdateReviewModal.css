@@ -1,0 +1,40 @@
+.update-review-modal-window {
+  width: 320px;
+  height: 320px;
+}
+
+.update-review-modal-title {
+  text-align: center;
+}
+
+.update-review-rating-container, .update-review-review-container {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 20px;
+}
+
+.update-review-textarea {
+  width: 250px;
+  height: 100px;
+}
+
+.update-review-update-btn-container {
+  text-align: center;
+}
+
+.update-review-update-btn {
+  cursor: pointer;
+  border-radius: 5px;
+  border: 1px solid #d32323;
+  padding: 8px 19px 9px;
+  color: white;
+  background-color: #d32323;
+  font-weight: bold;
+}
+
+.on-submit-errors {
+  color: red;
+  text-align: center;
+  font-size: 14px;
+  padding-bottom: 20px;
+}

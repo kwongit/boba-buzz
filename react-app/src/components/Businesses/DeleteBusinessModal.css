@@ -1,0 +1,26 @@
+.delete-business-modal-window {
+  width: 320px;
+  height: 140px;
+}
+
+.delete-business-modal-title,
+.delete-business-modal-confirmation {
+  text-align: center;
+}
+
+.delete-business-modal-btn-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.delete-business-modal-yes-btn,
+.delete-business-modal-no-btn {
+  cursor: pointer;
+  border-radius: 5px;
+  border: 1px solid #d32323;
+  padding: 8px 19px 9px;
+  color: white;
+  background-color: #d32323;
+  font-weight: bold;
+}

@@ -1,0 +1,16 @@
+.login-modal-btn-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.login-modal-login-btn,
+.login-modal-demo-user-btn {
+  cursor: pointer;
+  border-radius: 5px;
+  border: 1px solid #d32323;
+  padding: 8px 19px 9px;
+  color: white;
+  background-color: #d32323;
+  font-weight: bold;
+}

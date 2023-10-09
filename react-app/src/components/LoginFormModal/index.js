@@ -57,10 +57,17 @@ function LoginFormModal() {
             placeholder="Password"
           />
         </div>
-        <button type="submit">Log In</button>
-        <button className="demo-user-button" onClick={handleDemoLogin}>
-          Demo User
-        </button>
+        <div className="login-modal-btn-container">
+          <button className="login-modal-login-btn" type="submit">
+            Log In
+          </button>
+          <button
+            className="login-modal-demo-user-btn"
+            onClick={handleDemoLogin}
+          >
+            Demo User
+          </button>
+        </div>
       </form>
     </>
   );
