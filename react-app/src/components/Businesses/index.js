@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { thunkGetBusinesses } from "../../store/businesses";
 import BusinessList from "./BusinessList";
+import "./LandingPage.css";
 
 export const Businesses = () => {
   const dispatch = useDispatch();
@@ -17,17 +18,17 @@ export const Businesses = () => {
   if (!businesses.length) return null;
 
   return (
-    <>
-      <h1>BobaBuzz</h1>
-      <div className="business-details-container">
-        <ol>
-          {businesses.map((business) => (
+    <div className="landing-page-window">
+      <h1>Top Boba Shops in the Bay Area</h1>
+      <div className="landing-page-business-container">
+        <ul className="landing-page-ul">
+          {businesses.map((business, index) => (
             <li key={business.id}>
-              <BusinessList business={business} />
+              <BusinessList business={business} index={index} />
             </li>
           ))}
-        </ol>
+        </ul>
       </div>
-    </>
+    </div>
   );
 };

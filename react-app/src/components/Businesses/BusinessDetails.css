@@ -1,0 +1,46 @@
+.business-details-window {
+  /* width: 1761px; */
+  display: flex;
+  justify-content: center;
+}
+
+.business-details-container {
+  width: 1024px;
+}
+
+.business-details-sub-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 20px;
+  padding: 30px 0px;
+  /* border-top: 1px solid black; */
+  border-bottom: 1px solid black;
+}
+
+.business-details-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+}
+
+.preview-img {
+  width: 220px;
+  height: 220px;
+}
+
+.fa-solid, .fa-regular {
+  color: orangered;
+}
+
+.business-details-additional-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.business-details-featured-items, .business-details-location-hours, .business-details-about-shop {
+  border-bottom: 1px solid black;
+  padding-bottom: 30px;
+}

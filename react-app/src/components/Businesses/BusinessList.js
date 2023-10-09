@@ -1,7 +1,8 @@
 import { useHistory } from "react-router";
-import { useDispatch, useSelector } from "react-redux";
+// import { useDispatch, useSelector } from "react-redux";
+import "./BusinessList.css";
 
-const BusinessList = ({ business }) => {
+const BusinessList = ({ business, index }) => {
   // const dispatch = useDispatch();
   const history = useHistory();
 
@@ -13,6 +14,7 @@ const BusinessList = ({ business }) => {
     num_reviews,
     type,
     price,
+    open_hours,
     close_hours,
     image_url,
   } = business;
@@ -25,15 +27,11 @@ const BusinessList = ({ business }) => {
   };
 
   return (
-    <div
-      className="business-list-main-container"
-      key={id}
-      onClick={handleClick}
-    >
+    <div className="business-list-container" key={id} onClick={handleClick}>
       <div className="business-list-sub-container">
-        <div className="business-list-image">
+        <div className="business-list-main-img">
           <img
-            className="preview-image"
+            className="preview-img"
             src={image_url}
             alt={name}
             title={name}
@@ -42,7 +40,9 @@ const BusinessList = ({ business }) => {
         </div>
 
         <div className="business-list-details">
-          <div>{name}</div>
+          <h2>
+            {index + 1}. {name}
+          </h2>
 
           <div>
             {avg_rating ? (
@@ -60,7 +60,7 @@ const BusinessList = ({ business }) => {
                   .map((_, i) => (
                     <i key={i} className="fa-regular fa-star"></i>
                   ))}
-                {Number(avg_rating).toFixed(1)} ({num_reviews}{" "}
+                <span>{Number(avg_rating).toFixed(1)}</span> ({num_reviews}{" "}
                 {num_reviews > 1 ? "Buzzes" : "Buzz"})
               </div>
             ) : (
@@ -76,12 +76,12 @@ const BusinessList = ({ business }) => {
           </div>
 
           <div>
-            {type} · {price === 3 ? "$$$" : price === 2 ? "$$" : "$"} · {city}
+            <span className="business-list-span-type">{type}</span> ·{" "}
+            {price === 3 ? "$$$" : price === 2 ? "$$" : "$"} · {city}
           </div>
 
           <div>
-            <strong style={{ fontWeight: "bold" }}>Open</strong> until{" "}
-            {close_hours}
+            Hours: {open_hours} - {close_hours}
           </div>
         </div>
       </div>

@@ -1,0 +1,16 @@
+.landing-page-window {
+  /* width: 1761px; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.landing-page-business-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.landing-page-ul {
+  list-style: none;
+}
