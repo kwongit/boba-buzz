@@ -4,8 +4,8 @@
 }
 
 .footer-container {
-  border-top: 1px solid gray;
-  padding-top: 16px;
+  /* border-top: 1px solid gray; */
+  padding-top: 100px;
   display: flex;
   justify-content: space-between;
   align-items: center;

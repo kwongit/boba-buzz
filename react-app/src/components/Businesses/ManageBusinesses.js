@@ -41,7 +41,10 @@ export const ManageBusinesses = () => {
       <div className="manage-businesses-list-container">
         <ul className="manage-business-page-ul">
           {businessesList.map((business, index) => (
-            <li key={business.id}>
+            <li
+              className="manage-business-business-list-container"
+              key={business.id}
+            >
               <BusinessList manage={true} business={business} index={index} />
               <div className="manage-businesses-btn-container">
                 <button
@@ -50,10 +53,6 @@ export const ManageBusinesses = () => {
                 >
                   Update
                 </button>
-                {/* <i
-                  className="fa-solid fa-pen-to-square"
-                  onClick={() => handleUpdateClick(business.id)}
-                ></i> */}
                 <OpenModalButton
                   className="manage-businesses-delete-btn"
                   buttonText="Delete"

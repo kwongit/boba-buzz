@@ -1,9 +1,7 @@
 import { useHistory } from "react-router";
-// import { useDispatch, useSelector } from "react-redux";
 import "./BusinessList.css";
 
 const BusinessList = ({ business, index }) => {
-  // const dispatch = useDispatch();
   const history = useHistory();
 
   const {
@@ -18,9 +16,6 @@ const BusinessList = ({ business, index }) => {
     close_hours,
     image_url,
   } = business;
-
-  // const reviews = useSelector((state) => state.reviews.allReviews);
-  // const reviewsList = Object.values(reviews);
 
   const handleClick = () => {
     history.push(`/businesses/${business.id}`);
