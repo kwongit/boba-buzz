@@ -3,10 +3,11 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid gray;
   padding-right: 40px;
   padding-left: 40px;
   height: 70px;
+  /* margin: 0px 0px; */
 }
 
 .nav-logo {
@@ -49,7 +50,7 @@
 
 .greet-user {
   padding: 10px 0px;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid gray;
 }
 
 .manage-businesses-current, .manage-reviews-current {
@@ -60,7 +61,7 @@
 
 .logout-btn-container {
   padding-top: 15px;
-  border-top: 1px solid black;
+  border-top: 1px solid gray;
 }
 
 .logout-btn {

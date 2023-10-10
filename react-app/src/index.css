@@ -4,7 +4,7 @@
 }
 
 .footer-container {
-  border-top: 1px solid black;
+  border-top: 1px solid gray;
   padding-top: 16px;
   display: flex;
   justify-content: space-between;
