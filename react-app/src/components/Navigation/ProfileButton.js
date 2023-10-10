@@ -53,13 +53,13 @@ function ProfileButton({ user }) {
           ""
         )}
         <button className="user-nav-btn" onClick={openMenu}>
-          <i className="fas fa-user-circle" />
+          <i className="fa-regular fa-circle-user" />
         </button>
       </div>
       <ul className={ulClassName} ref={ulRef}>
         {user ? (
           <>
-            <li>{user.username}</li>
+            <li className="greet-user">Welcome, {user.username}</li>
             <li>
               <NavLink
                 className="manage-businesses-current"

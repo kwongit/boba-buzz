@@ -1,0 +1,46 @@
+.create-review-modal-window {
+  width: 320px;
+  height: 340px;
+}
+
+.create-review-modal-title {
+  text-align: center;
+}
+
+.create-review-rating-container,
+.create-review-review-container {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 20px;
+}
+
+.create-review-stars-container {
+  cursor: pointer;
+  padding-left: 5px;
+}
+
+.create-review-textarea {
+  width: 250px;
+  height: 100px;
+}
+
+.create-review-create-btn-container {
+  text-align: center;
+}
+
+.create-review-create-btn {
+  cursor: pointer;
+  border-radius: 5px;
+  border: 1px solid #d32323;
+  padding: 8px 19px 9px;
+  color: white;
+  background-color: #d32323;
+  font-weight: bold;
+}
+
+.on-submit-errors {
+  color: red;
+  text-align: center;
+  font-size: 14px;
+  padding-bottom: 20px;
+}

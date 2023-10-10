@@ -1,0 +1,24 @@
+.delete-review-modal-window {
+  width: 320px;
+  height: 140px;
+}
+
+.delete-review-modal-title, .delete-review-modal-confirmation {
+  text-align: center;
+}
+
+.delete-review-modal-btn-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.delete-review-modal-yes-btn, .delete-review-modal-no-btn {
+  cursor: pointer;
+  border-radius: 5px;
+  border: 1px solid #d32323;
+  padding: 8px 19px 9px;
+  color: white;
+  background-color: #d32323;
+  font-weight: bold;
+}

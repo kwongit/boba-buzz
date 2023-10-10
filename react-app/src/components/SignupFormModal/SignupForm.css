@@ -1,0 +1,42 @@
+.signup-modal-window {
+  width: 400px;
+  height: 300px;
+}
+
+.signup-modal-title {
+  text-align: center;
+}
+
+.signup-modal-form-fields-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.signup-modal-email-input, .signup-modal-username-input,
+.signup-modal-password-input, .signup-modal-confirm-password-input {
+  width: 200px;
+}
+
+.signup-modal-btn-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px 0px;
+}
+
+.signup-modal-signup-btn {
+  cursor: pointer;
+  border-radius: 5px;
+  border: 1px solid #d32323;
+  padding: 8px 19px 9px;
+  color: white;
+  background-color: #d32323;
+  font-weight: bold;
+}
+
+.on-submit-errors-signup {
+  color: red;
+  font-size: 14px;
+}

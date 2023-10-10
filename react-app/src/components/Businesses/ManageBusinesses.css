@@ -13,3 +13,24 @@
 .manage-business-page-ul {
   list-style: none;
 }
+
+.manage-businesses-btn-container {
+  display: flex;
+  gap: 20px;
+  padding-bottom: 30px;
+  padding-left: 15px;
+}
+
+.fa-pen-to-square {
+  cursor: pointer;
+}
+
+.manage-businesses-create-btn, .manage-businesses-update-btn, .open-modal-button {
+  cursor: pointer;
+  border-radius: 5px;
+  border: 1px solid #d32323;
+  padding: 8px 19px 9px;
+  color: white;
+  background-color: #d32323;
+  font-weight: bold;
+}

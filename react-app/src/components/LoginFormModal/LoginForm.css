@@ -1,0 +1,37 @@
+.login-modal-window {
+  width: 400px;
+  height: 230px;
+}
+
+.login-modal-title {
+  text-align: center;
+}
+
+.login-modal-email-password-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.login-modal-email-input, .login-modal-password-input {
+  width: 200px;
+}
+
+.login-modal-btn-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px 0px;
+}
+
+.login-modal-login-btn,
+.login-modal-demo-user-btn {
+  cursor: pointer;
+  border-radius: 5px;
+  border: 1px solid #d32323;
+  padding: 8px 19px 9px;
+  color: white;
+  background-color: #d32323;
+  font-weight: bold;
+}

@@ -50,6 +50,10 @@ export const ManageBusinesses = () => {
                 >
                   Update
                 </button>
+                {/* <i
+                  className="fa-solid fa-pen-to-square"
+                  onClick={() => handleUpdateClick(business.id)}
+                ></i> */}
                 <OpenModalButton
                   className="manage-businesses-delete-btn"
                   buttonText="Delete"

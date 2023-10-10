@@ -10,7 +10,23 @@
   align-items: center;
 }
 
+.manage-reviews-user-reviews {
+  border-top: 1px solid black;
+  padding: 30px 0px;
+}
+
 .manage-reviews-stars-date {
   display: flex;
   gap: 5px;
+}
+
+.manage-reviews-btn-container {
+  display: flex;
+  gap: 20px;
+  padding-top: 10px;
+}
+
+.manage-reviews-business-name,
+.manage-reviews-stars-date {
+  padding-bottom: 20px;
 }
