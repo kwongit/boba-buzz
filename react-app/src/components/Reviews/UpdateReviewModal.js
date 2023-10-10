@@ -50,51 +50,63 @@ export const UpdateReviewModal = ({ updateReview }) => {
         <div className="">
           <div className="update-review-rating-container">
             <div className="">Select your rating:</div>
-            <div
-              onClick={() => setStars(1)}
-              className={
-                (stars >= 1 ? "fa-solid fa-star" : "fa-regular fa-star") &&
-                (activeRating >= 1 ? "fa-solid fa-star" : "fa-regular fa-star")
-              }
-              onMouseEnter={() => setActiveRating(1)}
-              onMouseLeave={() => setActiveRating(stars)}
-            ></div>
-            <div
-              onClick={() => setStars(2)}
-              className={
-                (stars >= 2 ? "fa-solid fa-star" : "fa-regular fa-star") &&
-                (activeRating >= 2 ? "fa-solid fa-star" : "fa-regular fa-star")
-              }
-              onMouseEnter={() => setActiveRating(2)}
-              onMouseLeave={() => setActiveRating(stars)}
-            ></div>
-            <div
-              onClick={() => setStars(3)}
-              className={
-                (stars >= 3 ? "fa-solid fa-star" : "fa-regular fa-star") &&
-                (activeRating >= 3 ? "fa-solid fa-star" : "fa-regular fa-star")
-              }
-              onMouseEnter={() => setActiveRating(3)}
-              onMouseLeave={() => setActiveRating(stars)}
-            ></div>
-            <div
-              onClick={() => setStars(4)}
-              className={
-                (stars >= 4 ? "fa-solid fa-star" : "fa-regular fa-star") &&
-                (activeRating >= 4 ? "fa-solid fa-star" : "fa-regular fa-star")
-              }
-              onMouseEnter={() => setActiveRating(4)}
-              onMouseLeave={() => setActiveRating(stars)}
-            ></div>
-            <div
-              onClick={() => setStars(5)}
-              className={
-                (stars >= 5 ? "fa-solid fa-star" : "fa-regular fa-star") &&
-                (activeRating >= 5 ? "fa-solid fa-star" : "fa-regular fa-star")
-              }
-              onMouseEnter={() => setActiveRating(5)}
-              onMouseLeave={() => setActiveRating(stars)}
-            ></div>
+            <div className="update-review-stars-container">
+              <div
+                onClick={() => setStars(1)}
+                className={
+                  (stars >= 1 ? "fa-solid fa-star" : "fa-regular fa-star") &&
+                  (activeRating >= 1
+                    ? "fa-solid fa-star"
+                    : "fa-regular fa-star")
+                }
+                onMouseEnter={() => setActiveRating(1)}
+                onMouseLeave={() => setActiveRating(stars)}
+              ></div>
+              <div
+                onClick={() => setStars(2)}
+                className={
+                  (stars >= 2 ? "fa-solid fa-star" : "fa-regular fa-star") &&
+                  (activeRating >= 2
+                    ? "fa-solid fa-star"
+                    : "fa-regular fa-star")
+                }
+                onMouseEnter={() => setActiveRating(2)}
+                onMouseLeave={() => setActiveRating(stars)}
+              ></div>
+              <div
+                onClick={() => setStars(3)}
+                className={
+                  (stars >= 3 ? "fa-solid fa-star" : "fa-regular fa-star") &&
+                  (activeRating >= 3
+                    ? "fa-solid fa-star"
+                    : "fa-regular fa-star")
+                }
+                onMouseEnter={() => setActiveRating(3)}
+                onMouseLeave={() => setActiveRating(stars)}
+              ></div>
+              <div
+                onClick={() => setStars(4)}
+                className={
+                  (stars >= 4 ? "fa-solid fa-star" : "fa-regular fa-star") &&
+                  (activeRating >= 4
+                    ? "fa-solid fa-star"
+                    : "fa-regular fa-star")
+                }
+                onMouseEnter={() => setActiveRating(4)}
+                onMouseLeave={() => setActiveRating(stars)}
+              ></div>
+              <div
+                onClick={() => setStars(5)}
+                className={
+                  (stars >= 5 ? "fa-solid fa-star" : "fa-regular fa-star") &&
+                  (activeRating >= 5
+                    ? "fa-solid fa-star"
+                    : "fa-regular fa-star")
+                }
+                onMouseEnter={() => setActiveRating(5)}
+                onMouseLeave={() => setActiveRating(stars)}
+              ></div>
+            </div>
           </div>
           {errors.stars && submitted && (
             <div className="on-submit-errors">{errors.stars}</div>

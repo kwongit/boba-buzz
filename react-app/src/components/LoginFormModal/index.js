@@ -35,27 +35,31 @@ function LoginFormModal() {
   };
 
   return (
-    <>
-      <h1>Log In</h1>
+    <div className="login-modal-window">
+      <h2 className="login-modal-title">Log in to BobaBuzz</h2>
       <form onSubmit={handleSubmit}>
-        {errors}
-        <div>
-          <input
-            type="text"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-            placeholder="Email"
-          />
-        </div>
-        <div>
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-            placeholder="Password"
-          />
+        <div className="on-submit-errors">{errors}</div>
+        <div className="login-modal-email-password-container">
+          <div className="login-modal-email-container">
+            <input
+              className="login-modal-email-input"
+              type="text"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              placeholder="Email"
+            />
+          </div>
+          <div className="login-modal-password-container">
+            <input
+              className="login-modal-password-input"
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+              placeholder="Password"
+            />
+          </div>
         </div>
         <div className="login-modal-btn-container">
           <button className="login-modal-login-btn" type="submit">
@@ -69,7 +73,7 @@ function LoginFormModal() {
           </button>
         </div>
       </form>
-    </>
+    </div>
   );
 }
 
