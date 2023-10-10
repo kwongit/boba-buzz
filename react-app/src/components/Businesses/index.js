@@ -18,16 +18,23 @@ export const Businesses = () => {
   if (!businesses.length) return null;
 
   return (
-    <div className="landing-page-window">
-      <h1>Top Boba Shops in the Bay Area</h1>
-      <div className="landing-page-business-container">
-        <ul className="landing-page-ul">
-          {businesses.map((business, index) => (
-            <li key={business.id}>
-              <BusinessList business={business} index={index} />
-            </li>
-          ))}
-        </ul>
+    <div>
+      <img
+        className="landing-page-banner-img"
+        src="https://sanfran.com/get/files/image/galleries/Best_Boba_SF.jpg"
+        alt="landing-page-banner-img"
+      ></img>
+      <div className="landing-page-window">
+        <h1>Top Boba Shops in the Bay Area</h1>
+        <div className="landing-page-business-container">
+          <ul className="landing-page-ul">
+            {businesses.map((business, index) => (
+              <li key={business.id}>
+                <BusinessList business={business} index={index} />
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </div>
   );

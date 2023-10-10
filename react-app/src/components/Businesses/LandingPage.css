@@ -1,5 +1,4 @@
 .landing-page-window {
-  /* width: 1761px; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -13,4 +12,10 @@
 
 .landing-page-ul {
   list-style: none;
+}
+
+.landing-page-banner-img {
+  height: 550px;
+  width: 100%;
+  object-fit: cover;
 }

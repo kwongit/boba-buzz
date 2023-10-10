@@ -39,84 +39,91 @@ export const BusinessDetails = () => {
   } = oneBusiness;
 
   return (
-    <div className="business-details-window">
-      <div className="business-details-container">
-        <div className="business-details-sub-container">
-          <div className="business-details-main-img">
-            <img
-              className="preview-img"
-              src={image_url}
-              alt={name}
-              title={name}
-              // style={{ width: "220px", height: "220px" }}
-            ></img>
+    <div>
+      <img
+        className="business-details-banner-img"
+        src="https://sanfran.com/get/files/image/galleries/Best_Boba_SF.jpg"
+        alt="business-details-banner-img"
+      ></img>
+      <div className="business-details-window">
+        <div className="business-details-container">
+          <div className="business-details-sub-container">
+            {/* <div className="business-details-main-img">
+              <img
+                className="preview-img"
+                src={image_url}
+                alt={name}
+                title={name}
+                // style={{ width: "220px", height: "220px" }}
+              ></img>
+            </div> */}
+            <div className="business-details-details">
+              <h1>{name}</h1>
+              <div>
+                {avg_rating ? (
+                  <div className="business-details-overall-stars">
+                    <div>
+                      {Array(Math.floor(avg_rating))
+                        .fill()
+                        .map((_, i) => (
+                          <i key={i} className="fa-solid fa-star"></i>
+                        ))}
+                      {avg_rating % 1 !== 0 && (
+                        <i className="fa-solid fa-star-half-stroke"></i>
+                      )}
+                      {Array(5 - Math.ceil(avg_rating))
+                        .fill()
+                        .map((_, i) => (
+                          <i key={i} className="fa-regular fa-star"></i>
+                        ))}
+                    </div>
+                    <div>
+                      {Number(avg_rating).toFixed(1)} ({num_reviews}{" "}
+                      {num_reviews > 1 ? "Buzzes" : "Buzz"})
+                    </div>
+                  </div>
+                ) : (
+                  <div className="business-details-overall-no-stars">
+                    <div>
+                      {Array(5)
+                        .fill()
+                        .map((_, i) => (
+                          <i key={i} className="fa-regular fa-star"></i>
+                        ))}
+                    </div>
+                    <div>New (0 Buzzes)</div>
+                  </div>
+                )}
+              </div>
+              <div>
+                {price === 3 ? "$$$" : price === 2 ? "$$" : "$"} · {type}
+              </div>
+              <div>
+                Hours: {open_hours} - {close_hours}
+              </div>
+            </div>
           </div>
-          <div className="business-details-details">
-            <h1>{name}</h1>
-            <div>
-              {avg_rating ? (
-                <div className="business-details-overall-stars">
-                  <div>
-                    {Array(Math.floor(avg_rating))
-                      .fill()
-                      .map((_, i) => (
-                        <i key={i} className="fa-solid fa-star"></i>
-                      ))}
-                    {avg_rating % 1 !== 0 && (
-                      <i className="fa-solid fa-star-half-stroke"></i>
-                    )}
-                    {Array(5 - Math.ceil(avg_rating))
-                      .fill()
-                      .map((_, i) => (
-                        <i key={i} className="fa-regular fa-star"></i>
-                      ))}
-                  </div>
-                  <div>
-                    {Number(avg_rating).toFixed(1)} ({num_reviews}{" "}
-                    {num_reviews > 1 ? "Buzzes" : "Buzz"})
-                  </div>
-                </div>
-              ) : (
-                <div className="business-details-overall-no-stars">
-                  <div>
-                    {Array(5)
-                      .fill()
-                      .map((_, i) => (
-                        <i key={i} className="fa-regular fa-star"></i>
-                      ))}
-                  </div>
-                  <div>New (0 Buzzes)</div>
-                </div>
-              )}
+          <div className="business-details-additional-details">
+            <div className="business-details-featured-items">
+              <h3>Featured Items</h3>
+              <div>Coming Soon...</div>
             </div>
-            <div>
-              {price === 3 ? "$$$" : price === 2 ? "$$" : "$"} · {type}
+            <div className="business-details-location-hours">
+              <h3>Location & Hours</h3>
+              <div>
+                {address}, {city}, {state}
+              </div>
+              <div>
+                Hours: {open_hours} - {close_hours}
+              </div>
             </div>
-            <div>
-              Hours: {open_hours} - {close_hours}
+            <div className="business-details-about-shop">
+              <h3>About the Shop</h3>
+              <div>{description}</div>
             </div>
           </div>
+          <BusinessReviews />
         </div>
-        <div className="business-details-additional-details">
-          <div className="business-details-featured-items">
-            <h3>Featured Items</h3>
-            <div>Coming Soon...</div>
-          </div>
-          <div className="business-details-location-hours">
-            <h3>Location & Hours</h3>
-            <div>
-              {address}, {city}, {state}
-            </div>
-            <div>
-              Hours: {open_hours} - {close_hours}
-            </div>
-          </div>
-          <div className="business-details-about-shop">
-            <h3>About the Shop</h3>
-            <div>{description}</div>
-          </div>
-        </div>
-        <BusinessReviews />
       </div>
     </div>
   );
