@@ -15,6 +15,9 @@ function SignupFormModal() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (password.length < 6 || confirmPassword.length < 6) {
+      setErrors(["Password must be at least 6 characters in length."]);
+    }
     if (password === confirmPassword) {
       const data = await dispatch(signUp(username, email, password));
       if (data) {
@@ -27,9 +30,6 @@ function SignupFormModal() {
       }
     } else {
       setErrors(["Password and Confirm Password fields do not match."]);
-    }
-    if (password.length < 6 && confirmPassword.length < 6) {
-      setErrors(["Password must be at least 6 characters in length."]);
     }
   };
 
