@@ -31,53 +31,65 @@ function SignupFormModal() {
   };
 
   return (
-    <>
-      <h1>Sign Up</h1>
+    <div className="signup-modal-window">
+      <h2 className="signup-modal-title">Sign Up for BobaBuzz</h2>
       <form onSubmit={handleSubmit}>
-        <ul>
+        <ul className="signup-modal-errors">
           {errors.map((error, idx) => (
-            <li key={idx}>{error}</li>
+            <li className="on-submit-errors-signup" key={idx}>
+              {error}
+            </li>
           ))}
         </ul>
-        <div>
-          <input
-            type="text"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-            placeholder="Email"
-          />
+        <div className="signup-modal-form-fields-container">
+          <div className="signup-modal-email-container">
+            <input
+              className="signup-modal-email-input"
+              type="text"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              placeholder="Email"
+            />
+          </div>
+          <div className="signup-modal-username-container">
+            <input
+              className="signup-modal-username-input"
+              type="text"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              required
+              placeholder="Username"
+            />
+          </div>
+          <div className="signup-modal-password-container">
+            <input
+              className="signup-modal-password-input"
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+              placeholder="Password"
+            />
+          </div>
+          <div className="signup-modal-confirm-password-container">
+            <input
+              className="signup-modal-confirm-password-input"
+              type="password"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+              required
+              placeholder="Confirm Password"
+            />
+          </div>
         </div>
-        <div>
-          <input
-            type="text"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            required
-            placeholder="Username"
-          />
+        <div className="signup-modal-btn-container">
+          <button className="signup-modal-signup-btn" type="submit">
+            Sign Up
+          </button>
         </div>
-        <div>
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-            placeholder="Password"
-          />
-        </div>
-        <div>
-          <input
-            type="password"
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
-            required
-            placeholder="Confirm Password"
-          />
-        </div>
-        <button type="submit">Sign Up</button>
       </form>
-    </>
+    </div>
   );
 }
 

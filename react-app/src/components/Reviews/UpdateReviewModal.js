@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
 import { thunkUpdateReview } from "../../store/reviews";
+import "./UpdateReviewModal.css";
 
 export const UpdateReviewModal = ({ updateReview }) => {
   const dispatch = useDispatch();
@@ -43,63 +44,77 @@ export const UpdateReviewModal = ({ updateReview }) => {
   };
 
   return (
-    <div className="">
-      <h2>Update Your Buzz</h2>
+    <div className="update-review-modal-window">
+      <h2 className="update-review-modal-title">Update Your Buzz</h2>
       <form onSubmit={handleSubmit}>
         <div className="">
-          <div className="">
-            <div className="">Stars</div>
-            <div
-              onClick={() => setStars(1)}
-              className={
-                (stars >= 1 ? "fa-solid fa-star" : "fa-regular fa-star") &&
-                (activeRating >= 1 ? "fa-solid fa-star" : "fa-regular fa-star")
-              }
-              onMouseEnter={() => setActiveRating(1)}
-              onMouseLeave={() => setActiveRating(stars)}
-            ></div>
-            <div
-              onClick={() => setStars(2)}
-              className={
-                (stars >= 2 ? "fa-solid fa-star" : "fa-regular fa-star") &&
-                (activeRating >= 2 ? "fa-solid fa-star" : "fa-regular fa-star")
-              }
-              onMouseEnter={() => setActiveRating(2)}
-              onMouseLeave={() => setActiveRating(stars)}
-            ></div>
-            <div
-              onClick={() => setStars(3)}
-              className={
-                (stars >= 3 ? "fa-solid fa-star" : "fa-regular fa-star") &&
-                (activeRating >= 3 ? "fa-solid fa-star" : "fa-regular fa-star")
-              }
-              onMouseEnter={() => setActiveRating(3)}
-              onMouseLeave={() => setActiveRating(stars)}
-            ></div>
-            <div
-              onClick={() => setStars(4)}
-              className={
-                (stars >= 4 ? "fa-solid fa-star" : "fa-regular fa-star") &&
-                (activeRating >= 4 ? "fa-solid fa-star" : "fa-regular fa-star")
-              }
-              onMouseEnter={() => setActiveRating(4)}
-              onMouseLeave={() => setActiveRating(stars)}
-            ></div>
-            <div
-              onClick={() => setStars(5)}
-              className={
-                (stars >= 5 ? "fa-solid fa-star" : "fa-regular fa-star") &&
-                (activeRating >= 5 ? "fa-solid fa-star" : "fa-regular fa-star")
-              }
-              onMouseEnter={() => setActiveRating(5)}
-              onMouseLeave={() => setActiveRating(stars)}
-            ></div>
+          <div className="update-review-rating-container">
+            <div className="">Select your rating:</div>
+            <div className="update-review-stars-container">
+              <div
+                onClick={() => setStars(1)}
+                className={
+                  (stars >= 1 ? "fa-solid fa-star" : "fa-regular fa-star") &&
+                  (activeRating >= 1
+                    ? "fa-solid fa-star"
+                    : "fa-regular fa-star")
+                }
+                onMouseEnter={() => setActiveRating(1)}
+                onMouseLeave={() => setActiveRating(stars)}
+              ></div>
+              <div
+                onClick={() => setStars(2)}
+                className={
+                  (stars >= 2 ? "fa-solid fa-star" : "fa-regular fa-star") &&
+                  (activeRating >= 2
+                    ? "fa-solid fa-star"
+                    : "fa-regular fa-star")
+                }
+                onMouseEnter={() => setActiveRating(2)}
+                onMouseLeave={() => setActiveRating(stars)}
+              ></div>
+              <div
+                onClick={() => setStars(3)}
+                className={
+                  (stars >= 3 ? "fa-solid fa-star" : "fa-regular fa-star") &&
+                  (activeRating >= 3
+                    ? "fa-solid fa-star"
+                    : "fa-regular fa-star")
+                }
+                onMouseEnter={() => setActiveRating(3)}
+                onMouseLeave={() => setActiveRating(stars)}
+              ></div>
+              <div
+                onClick={() => setStars(4)}
+                className={
+                  (stars >= 4 ? "fa-solid fa-star" : "fa-regular fa-star") &&
+                  (activeRating >= 4
+                    ? "fa-solid fa-star"
+                    : "fa-regular fa-star")
+                }
+                onMouseEnter={() => setActiveRating(4)}
+                onMouseLeave={() => setActiveRating(stars)}
+              ></div>
+              <div
+                onClick={() => setStars(5)}
+                className={
+                  (stars >= 5 ? "fa-solid fa-star" : "fa-regular fa-star") &&
+                  (activeRating >= 5
+                    ? "fa-solid fa-star"
+                    : "fa-regular fa-star")
+                }
+                onMouseEnter={() => setActiveRating(5)}
+                onMouseLeave={() => setActiveRating(stars)}
+              ></div>
+            </div>
           </div>
-          {errors.stars && submitted && <div className="">{errors.stars}</div>}
+          {errors.stars && submitted && (
+            <div className="on-submit-errors">{errors.stars}</div>
+          )}
 
-          <div className="">
+          <div className="update-review-review-container">
             <textarea
-              className=""
+              className="update-review-textarea"
               type="text"
               placeholder={`${updateReview.review}`}
               value={review}
@@ -107,12 +122,12 @@ export const UpdateReviewModal = ({ updateReview }) => {
             ></textarea>
           </div>
           {errors.review && submitted && (
-            <div className="">{errors.review}</div>
+            <div className="on-submit-errors">{errors.review}</div>
           )}
         </div>
 
-        <div className="">
-          <button className="">Update Buzz</button>
+        <div className="update-review-update-btn-container">
+          <button className="update-review-update-btn">Update Buzz</button>
         </div>
       </form>
     </div>
