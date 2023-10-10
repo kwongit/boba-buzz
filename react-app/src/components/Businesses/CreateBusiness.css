@@ -1,0 +1,52 @@
+.create-business-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.create-business-title {
+  text-align: center;
+}
+
+.create-business-form-input-container {
+  padding-bottom: 20px;
+}
+
+.create-business-form-label {
+  padding-bottom: 10px;
+}
+
+.create-business-form-input-field {
+  width: 275px;
+}
+
+.create-business-form-textarea-field {
+  width: 275px;
+  height: 100px;
+}
+
+.create-business-add-shop-btn {
+  cursor: pointer;
+  border-radius: 5px;
+  border: 1px solid #d32323;
+  padding: 8px 19px 9px;
+  color: white;
+  background-color: #d32323;
+  font-weight: bold;
+}
+
+.create-business-form-label-container {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.create-business-btn-container {
+  text-align: center;
+}
+
+.on-submit-errors-create-business {
+  color: red;
+  font-size: 14px;
+  margin: 0px;
+}
