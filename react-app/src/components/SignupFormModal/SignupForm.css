@@ -36,6 +36,11 @@
   font-weight: bold;
 }
 
+.signup-modal-errors {
+  padding-left: 100px;
+  width: 200px;
+}
+
 .on-submit-errors-signup {
   color: red;
   font-size: 14px;

@@ -43,6 +43,8 @@
   text-decoration: none;
   position: absolute;
   right: 100px;
+  transition: background-color 0.3s;
+  color: orangered
 }
 
 .greet-user {
@@ -69,4 +71,9 @@
   color: white;
   background-color: #d32323;
   font-weight: bold;
+}
+
+.manage-businesses-current:hover,
+.manage-reviews-current:hover, .create-new-business:hover {
+  background-color: rgb(240, 240, 240);
 }

@@ -39,9 +39,9 @@ export const ManageReviews = () => {
         {reviewsList.map((review) => (
           <div className="manage-reviews-user-reviews" key={review.id}>
             <div className="">
-              <div className="manage-reviews-business-name">
+              <h3 className="manage-reviews-business-name">
                 {review.business_name}
-              </div>
+              </h3>
               <div className="">
                 {review.stars ? (
                   <div className="manage-reviews-stars-date">

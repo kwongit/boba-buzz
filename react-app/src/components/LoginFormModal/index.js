@@ -43,7 +43,7 @@ function LoginFormModal() {
           <div className="login-modal-email-container">
             <input
               className="login-modal-email-input"
-              type="text"
+              type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
