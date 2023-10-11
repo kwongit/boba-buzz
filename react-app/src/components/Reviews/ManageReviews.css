@@ -2,6 +2,7 @@
   height: 425px;
   width: 100%;
   object-fit: cover;
+  border-radius: 5px;
 }
 
 .manage-reviews-container {
@@ -24,6 +25,7 @@
   border-left: 1px solid gray;
   border-top: 1px solid gray;
   border-bottom: 1px solid gray;
+  border-radius: 5px;
 }
 
 .manage-reviews-user-reviews {

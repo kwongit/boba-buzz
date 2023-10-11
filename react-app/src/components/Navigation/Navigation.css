@@ -15,8 +15,8 @@
 
 .user-nav-btn {
   cursor: pointer;
-  transform: scale(2.5);
-  background-color: white;
+  transform: scale(3);
+  background-color: black;
   border: none;
 }
 
@@ -32,6 +32,7 @@
   flex-direction: column;
   list-style-type: none;
   gap: 10px;
+  border-radius: 5px;
 }
 
 .hidden {
@@ -43,7 +44,6 @@
   position: absolute;
   right: 100px;
   transition: background-color 0.3s;
-  /* color: orangered */
   color: white
 }
 
@@ -54,7 +54,6 @@
 
 .manage-businesses-current, .manage-reviews-current {
   text-decoration: none;
-  /* color: black; */
   color: white;
   transition: background-color 0.3s;
 }
@@ -75,13 +74,16 @@
   transition: background-color 0.3s;
 }
 
+.manage-businesses-current,
+.manage-reviews-current,
+.create-new-business {
+  transition: box-shadow 0.3s;
+}
+
 .manage-businesses-current:hover,
 .manage-reviews-current:hover, .create-new-business:hover {
-  /* background-color: rgb(240, 240, 240); */
-  /* background-color: darkslategray; */
-  background-color: #d32323;
-  /* background-color: white; */
-  border-radius: 5px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgb(255, 255, 255);
 }
 
 .logout-btn:hover {

@@ -17,6 +17,10 @@
 .signup-modal-email-input, .signup-modal-username-input,
 .signup-modal-password-input, .signup-modal-confirm-password-input {
   width: 200px;
+  background-color: black;
+  color: white;
+  border: 1px solid white;
+  border-radius: 5px;
 }
 
 .signup-modal-btn-container {

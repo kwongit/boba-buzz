@@ -2,6 +2,7 @@
   height: 425px;
   width: 100%;
   object-fit: cover;
+  border-radius: 5px;
 }
 
 .create-business-container {
@@ -20,15 +21,24 @@
   border-top: 1px solid gray;
   border-bottom: 1px solid gray;
   padding: 0px 40px;
+  border-radius: 5px;
 }
 
 .create-business-form-input-field {
   width: 365px;
+  background-color: black;
+  color: white;
+  border: 1px solid white;
+  border-radius: 5px;
 }
 
 .create-business-form-textarea-field {
   width: 365px;
   height: 100px;
+  background-color: black;
+  color: white;
+  border: 1px solid white;
+  border-radius: 5px;
 }
 
 .create-business-add-shop-btn {
