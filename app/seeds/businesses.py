@@ -12,9 +12,9 @@ def seed_businesses():
         name="Asha Tea House",
         type="Bubble Tea",
         price=2,
-        open_hours="11:00",
-        close_hours="7:00",
-        image_url="https://media-cdn.tripadvisor.com/media/photo-m/1280/14/ae/9d/fb/tea.jpg",
+        open_hours="11:00 AM",
+        close_hours="7:00 PM",
+        image_url="https://img.cdn4dd.com/cdn-cgi/image/fit=contain,width=1200,height=672,format=auto/https://doordash-static.s3.amazonaws.com/media/photos/9b2a1b1f-7229-4bd5-9804-b385801933dc-retina-large-jpeg",
         description="""
         Established in 2012.
 
@@ -33,9 +33,9 @@ def seed_businesses():
         name="Boba Guys",
         type="Bubble Tea",
         price=2,
-        open_hours="11:00",
-        close_hours="7:00",
-        image_url="https://miro.medium.com/v2/resize:fit:1200/1*MEh2RxbxZsfOrJZYx1SR6Q.png",
+        open_hours="11:00 AM",
+        close_hours="7:00 PM",
+        image_url="https://s.hdnux.com/photos/01/16/75/25/20698479/4/rawImage.jpg",
         description="""
         Established in 2011.
 
@@ -54,8 +54,8 @@ def seed_businesses():
         name="Feng Cha Teahouse",
         type="Bubble Tea",
         price=2,
-        open_hours="12:00",
-        close_hours="10:00",
+        open_hours="12:00 PM",
+        close_hours="10:00 PM",
         image_url="https://d1ralsognjng37.cloudfront.net/32eb90ea-69ae-4f6f-9e9e-b3db47dd1a47.jpeg",
         description="""
         Established in 2016.
@@ -73,8 +73,8 @@ def seed_businesses():
         name="Happy Lemon",
         type="Bubble Tea",
         price=2,
-        open_hours="12:00",
-        close_hours="9:00",
+        open_hours="12:00 PM",
+        close_hours="9:00 PM",
         image_url="https://tb-static.uber.com/prod/image-proc/processed_images/3cc94b7875942bc24e9f909029f0725b/c73ecc27d2a9eaa735b1ee95304ba588.jpeg",
         description="""
         Established in 2006.
@@ -94,9 +94,9 @@ def seed_businesses():
         name="Sunright Tea Studio",
         type="Bubble Tea",
         price=2,
-        open_hours="11:00",
-        close_hours="9:00",
-        image_url="https://images.squarespace-cdn.com/content/v1/5e8840afd65f745da4030ca8/1586873103209-YBWA6FN7D8NKQB842A0B/home-new-banner.jpg",
+        open_hours="11:00 AM",
+        close_hours="9:00 PM",
+        image_url="https://tb-static.uber.com/prod/image-proc/processed_images/2e71f7e6439a8935e733f9f01b22757f/445a4b2618e10f7db95d4f17a85b117d.jpeg",
         description="""
         Established in 2021.
 
@@ -113,8 +113,8 @@ def seed_businesses():
         name="Teaspoon",
         type="Bubble Tea",
         price=1,
-        open_hours="11:00",
-        close_hours="11:00",
+        open_hours="11:00 AM",
+        close_hours="11:00 PM",
         image_url="https://images.squarespace-cdn.com/content/v1/646e5e529e016e3613d15a03/5c87c63c-ca02-413f-9cf2-94bdd250b3ad/Pre-Sealed1.jpg",
         description="""
         Established in 2023.
@@ -134,8 +134,8 @@ def seed_businesses():
         name="TeaTop",
         type="Bubble Tea",
         price=1,
-        open_hours="12:00",
-        close_hours="8:00",
+        open_hours="12:00 PM",
+        close_hours="8:00 PM",
         image_url="https://d1ralsognjng37.cloudfront.net/b62a431b-5058-4932-8de6-f2f7617f26e1.jpeg",
         description="""
         Established in 2006.
@@ -155,8 +155,8 @@ def seed_businesses():
         name="Tiger Tea & Juice",
         type="Bubble Tea",
         price=2,
-        open_hours="11:00",
-        close_hours="8:00",
+        open_hours="11:00 AM",
+        close_hours="8:00 PM",
         image_url="https://img.cdn4dd.com/cdn-cgi/image/fit=contain,width=1200,height=672,format=auto/https://doordash-static.s3.amazonaws.com/media/photos/415293d3-60a0-4981-b1bf-f8d9bb74854c-retina-large.jpg",
         description="""
         Established in 2015.
@@ -180,8 +180,8 @@ def seed_businesses():
         name="TP Tea",
         type="Bubble Tea",
         price=2,
-        open_hours="12:00",
-        close_hours="10:00",
+        open_hours="12:00 PM",
+        close_hours="10:00 PM",
         image_url="https://img.cdn4dd.com/cdn-cgi/image/fit=contain,width=1200,height=672,format=auto/https://doordash-static.s3.amazonaws.com/media/store/header/9d9c0b0b-0edb-41fa-aa7b-538137b91e3f.jpg",
         description="""
         Established in 2005.
@@ -203,8 +203,8 @@ def seed_businesses():
         name="Yi Fang Taiwan Fruit Tea",
         type="Bubble Tea",
         price=2,
-        open_hours="12:00",
-        close_hours="8:00",
+        open_hours="12:00 PM",
+        close_hours="8:00 PM",
         image_url="https://d1ralsognjng37.cloudfront.net/4984edbb-53ac-4e84-8944-98a4c609cb3e.jpeg",
         description="""
         Established in 2018.
