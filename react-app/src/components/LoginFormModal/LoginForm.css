@@ -34,4 +34,11 @@
   color: white;
   background-color: #d32323;
   font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.login-modal-login-btn:hover,
+.login-modal-demo-user-btn:hover {
+  background-color: white;
+  color: #d32323;
 }

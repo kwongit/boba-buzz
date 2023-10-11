@@ -7,7 +7,6 @@
   padding-right: 40px;
   padding-left: 40px;
   height: 70px;
-  /* margin: 0px 0px; */
 }
 
 .nav-logo {
@@ -16,7 +15,6 @@
 
 .user-nav-btn {
   cursor: pointer;
-  /* transform: scale(1.5); */
   transform: scale(2.5);
   background-color: white;
   border: none;
@@ -72,9 +70,16 @@
   color: white;
   background-color: #d32323;
   font-weight: bold;
+  transition: background-color 0.3s;
 }
 
 .manage-businesses-current:hover,
 .manage-reviews-current:hover, .create-new-business:hover {
   background-color: rgb(240, 240, 240);
+  border-radius: 5px;
+}
+
+.logout-btn:hover {
+  background-color: white;
+  color: #d32323;
 }

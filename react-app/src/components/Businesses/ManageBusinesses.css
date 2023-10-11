@@ -44,6 +44,7 @@
   color: white;
   background-color: #d32323;
   font-weight: bold;
+  transition: background-color 0.3s;
 }
 
 .manage-business-business-list-container {
@@ -53,4 +54,10 @@
 
 .manage-business-business-list-container:hover {
   background-color: rgb(240, 240, 240);
+}
+
+.manage-businesses-create-btn:hover,
+.manage-businesses-update-btn:hover, .open-modal-button:hover {
+  background-color: white;
+  color:#d32323;
 }

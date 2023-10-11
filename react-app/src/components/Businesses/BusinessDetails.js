@@ -40,7 +40,6 @@ export const BusinessDetails = () => {
 
   return (
     <div>
-      {/* TODO: need to render images dynamically... */}
       <img
         className="business-details-banner-img"
         src={image_url}
@@ -50,15 +49,6 @@ export const BusinessDetails = () => {
       <div className="business-details-window">
         <div className="business-details-container">
           <div className="business-details-sub-container">
-            {/* <div className="business-details-main-img">
-              <img
-                className="preview-img"
-                src={image_url}
-                alt={name}
-                title={name}
-                // style={{ width: "220px", height: "220px" }}
-              ></img>
-            </div> */}
             <div className="business-details-details">
               <h1>{name}</h1>
               <div>
@@ -108,20 +98,20 @@ export const BusinessDetails = () => {
           <div className="business-details-additional-details">
             <div className="business-details-featured-items">
               <h3>Featured Items</h3>
-              <div>Coming Soon...</div>
+              <div className="additional-details-p">Coming Soon...</div>
             </div>
             <div className="business-details-location-hours">
               <h3>Location & Hours</h3>
-              <div>
+              <div className="additional-details-p">
                 {address}, {city}, {state}
               </div>
-              <div>
+              <div className="additional-details-p">
                 Hours: {open_hours} - {close_hours}
               </div>
             </div>
             <div className="business-details-about-shop">
               <h3>About the Shop</h3>
-              <div>{description}</div>
+              <div className="additional-details-p">{description}</div>
             </div>
           </div>
           <BusinessReviews />

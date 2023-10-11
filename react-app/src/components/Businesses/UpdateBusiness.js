@@ -123,7 +123,7 @@ export const UpdateBusiness = ({ business }) => {
           <div className="create-business-form-container">
             <div className="create-business-form-input-container">
               <div className="create-business-form-label-container">
-                <div className="create-business-form-label">Shop Name</div>
+                <h4 className="create-business-form-label">Shop Name</h4>
                 {errors.name && submitted && (
                   <p className="on-submit-errors-create-business">
                     {errors.name}
@@ -140,7 +140,7 @@ export const UpdateBusiness = ({ business }) => {
             </div>
             <div className="create-business-form-input-container">
               <div className="create-business-form-label-container">
-                <div className="create-business-form-label">Address</div>
+                <h4 className="create-business-form-label">Address</h4>
                 {errors.address && submitted && (
                   <p className="on-submit-errors-create-business">
                     {errors.address}
@@ -157,7 +157,7 @@ export const UpdateBusiness = ({ business }) => {
             </div>
             <div className="create-business-form-input-container">
               <div className="create-business-form-label-container">
-                <div className="create-business-form-label">City</div>
+                <h4 className="create-business-form-label">City</h4>
                 {errors.city && submitted && (
                   <p className="on-submit-errors-create-business">
                     {errors.city}
@@ -174,7 +174,7 @@ export const UpdateBusiness = ({ business }) => {
             </div>
             <div className="create-business-form-input-container">
               <div className="create-business-form-label-container">
-                <div className="create-business-form-label">State</div>
+                <h4 className="create-business-form-label">State</h4>
                 {errors.state && submitted && (
                   <p className="on-submit-errors-create-business">
                     {errors.state}
@@ -191,7 +191,7 @@ export const UpdateBusiness = ({ business }) => {
             </div>
             <div className="create-business-form-input-container">
               <div className="create-business-form-label-container">
-                <div className="create-business-form-label">Type</div>
+                <h4 className="create-business-form-label">Type</h4>
                 {errors.type && submitted && (
                   <p className="on-submit-errors-create-business">
                     {errors.type}
@@ -208,7 +208,7 @@ export const UpdateBusiness = ({ business }) => {
             </div>
             <div className="create-business-form-input-container">
               <div className="create-business-form-label-container">
-                <div className="create-business-form-label">Price Range</div>
+                <h4 className="create-business-form-label">Price Range</h4>
                 {errors.price && submitted && (
                   <p className="on-submit-errors-create-business">
                     {errors.price}
@@ -228,7 +228,7 @@ export const UpdateBusiness = ({ business }) => {
             </div>
             <div className="create-business-form-input-container">
               <div className="create-business-form-label-container">
-                <div className="create-business-form-label">Open Hours</div>
+                <h4 className="create-business-form-label">Open Hours</h4>
                 {errors.open_hours && submitted && (
                   <p className="on-submit-errors-create-business">
                     {errors.open_hours}
@@ -251,7 +251,7 @@ export const UpdateBusiness = ({ business }) => {
             </div>
             <div className="create-business-form-input-container">
               <div className="create-business-form-label-container">
-                <div className="create-business-form-label">Close Hours</div>
+                <h4 className="create-business-form-label">Close Hours</h4>
                 {errors.close_hours && submitted && (
                   <p className="on-submit-errors-create-business">
                     {errors.close_hours}
@@ -291,7 +291,7 @@ export const UpdateBusiness = ({ business }) => {
             </div>
             <div className="create-business-form-input-container">
               <div className="create-business-form-label-container">
-                <div className="create-business-form-label">Main Image</div>
+                <h4 className="create-business-form-label">Main Image</h4>
                 {errors.image_url && submitted && (
                   <p className="on-submit-errors-create-business">
                     {errors.image_url}
@@ -308,7 +308,7 @@ export const UpdateBusiness = ({ business }) => {
             </div>
             <div className="create-business-form-input-container">
               <div className="create-business-form-label-container">
-                <div className="create-business-form-label">Description</div>
+                <h4 className="create-business-form-label">Description</h4>
                 {errors.description && submitted && (
                   <p className="on-submit-errors-create-business">
                     {errors.description}
