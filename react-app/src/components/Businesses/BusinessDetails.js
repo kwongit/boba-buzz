@@ -40,10 +40,12 @@ export const BusinessDetails = () => {
 
   return (
     <div>
+      {/* TODO: need to render images dynamically... */}
       <img
         className="business-details-banner-img"
-        src="https://sanfran.com/get/files/image/galleries/Best_Boba_SF.jpg"
-        alt="business-details-banner-img"
+        src={image_url}
+        alt={name}
+        title={name}
       ></img>
       <div className="business-details-window">
         <div className="business-details-container">

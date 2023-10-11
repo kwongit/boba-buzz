@@ -29,7 +29,10 @@ export const Businesses = () => {
         <div className="landing-page-business-container">
           <ul className="landing-page-ul">
             {businesses.map((business, index) => (
-              <li key={business.id}>
+              <li
+                className="landing-page-business-list-container"
+                key={business.id}
+              >
                 <BusinessList business={business} index={index} />
               </li>
             ))}
