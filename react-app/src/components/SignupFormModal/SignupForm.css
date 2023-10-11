@@ -34,6 +34,7 @@
   color: white;
   background-color: #d32323;
   font-weight: bold;
+  transition: background-color 0.3s;
 }
 
 .signup-modal-errors {
@@ -44,4 +45,9 @@
 .on-submit-errors-signup {
   color: red;
   font-size: 14px;
+}
+
+.signup-modal-signup-btn:hover {
+  background-color: white;
+  color: #d32323;
 }

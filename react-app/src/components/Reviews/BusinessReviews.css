@@ -17,13 +17,21 @@
   padding: 30px 0px;
 }
 
-.business-reviews-username, .business-reviews-stars-date {
+.business-reviews-username {
+  margin-top: 0px;
+}
+
+.business-reviews-stars-date {
   padding-bottom: 20px;
 }
 
 .business-reviews-stars-date {
   display: flex;
   gap: 5px;
+}
+
+.business-review-p {
+  font-size: 14px;
 }
 
 .business-reviews-btn-container {
