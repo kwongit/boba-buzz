@@ -1,6 +1,6 @@
 .signup-modal-window {
   width: 400px;
-  height: 300px;
+  height: 320px;
 }
 
 .signup-modal-title {
@@ -17,6 +17,10 @@
 .signup-modal-email-input, .signup-modal-username-input,
 .signup-modal-password-input, .signup-modal-confirm-password-input {
   width: 200px;
+  background-color: black;
+  color: white;
+  border: 1px solid white;
+  border-radius: 5px;
 }
 
 .signup-modal-btn-container {
@@ -34,9 +38,20 @@
   color: white;
   background-color: #d32323;
   font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.signup-modal-errors {
+  padding-left: 100px;
+  width: 200px;
 }
 
 .on-submit-errors-signup {
   color: red;
   font-size: 14px;
+}
+
+.signup-modal-signup-btn:hover {
+  background-color: white;
+  color: #d32323;
 }

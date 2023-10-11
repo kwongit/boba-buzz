@@ -16,6 +16,10 @@
 
 .login-modal-email-input, .login-modal-password-input {
   width: 200px;
+  background-color: black;
+  color: white;
+  border: 1px solid white;
+  border-radius: 5px;
 }
 
 .login-modal-btn-container {
@@ -34,4 +38,11 @@
   color: white;
   background-color: #d32323;
   font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.login-modal-login-btn:hover,
+.login-modal-demo-user-btn:hover {
+  background-color: white;
+  color: #d32323;
 }

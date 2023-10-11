@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
 import { signUp } from "../../store/session";
@@ -15,6 +15,9 @@ function SignupFormModal() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (password.length < 6 || confirmPassword.length < 6) {
+      setErrors(["Password must be at least 6 characters in length."]);
+    }
     if (password === confirmPassword) {
       const data = await dispatch(signUp(username, email, password));
       if (data) {
@@ -26,7 +29,7 @@ function SignupFormModal() {
         closeModal();
       }
     } else {
-      setErrors(["Password and Confirm Password fields do not match!"]);
+      setErrors(["Password and Confirm Password fields do not match."]);
     }
   };
 
@@ -45,7 +48,7 @@ function SignupFormModal() {
           <div className="signup-modal-email-container">
             <input
               className="signup-modal-email-input"
-              type="text"
+              type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required

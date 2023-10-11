@@ -3,28 +3,27 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid gray;
   padding-right: 40px;
   padding-left: 40px;
   height: 70px;
 }
 
-.nav-logo {
-  text-decoration: none;
+.nav-container-img {
+  height: 50px;
 }
 
 .user-nav-btn {
   cursor: pointer;
-  /* transform: scale(1.5); */
-  transform: scale(2.5);
-  background-color: white;
+  transform: scale(3);
+  background-color: black;
   border: none;
 }
 
 .profile-dropdown {
   position: absolute;
-  border: 1px solid black;
-  background-color: white;
+  border: 1px solid gray;
+  background-color: black;
   margin-top: 15px;
   padding: 15px;
   right: 40px;
@@ -33,6 +32,7 @@
   flex-direction: column;
   list-style-type: none;
   gap: 10px;
+  border-radius: 5px;
 }
 
 .hidden {
@@ -43,22 +43,24 @@
   text-decoration: none;
   position: absolute;
   right: 100px;
+  transition: background-color 0.3s;
+  color: white
 }
 
 .greet-user {
   padding: 10px 0px;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid gray;
 }
 
 .manage-businesses-current, .manage-reviews-current {
   text-decoration: none;
-  color: black;
+  color: white;
   transition: background-color 0.3s;
 }
 
 .logout-btn-container {
   padding-top: 15px;
-  border-top: 1px solid black;
+  border-top: 1px solid gray;
 }
 
 .logout-btn {
@@ -69,4 +71,22 @@
   color: white;
   background-color: #d32323;
   font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.manage-businesses-current,
+.manage-reviews-current,
+.create-new-business {
+  transition: box-shadow 0.3s;
+}
+
+.manage-businesses-current:hover,
+.manage-reviews-current:hover, .create-new-business:hover {
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgb(255, 255, 255);
+}
+
+.logout-btn:hover {
+  background-color: white;
+  color: #d32323;
 }

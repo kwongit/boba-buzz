@@ -21,6 +21,10 @@
 .update-review-textarea {
   width: 250px;
   height: 100px;
+  background-color: black;
+  color: white;
+  border: 1px solid white;
+  border-radius: 5px;
 }
 
 .update-review-update-btn-container {
@@ -35,6 +39,7 @@
   color: white;
   background-color: #d32323;
   font-weight: bold;
+  transition: background-color 0.3s;
 }
 
 .on-submit-errors {
@@ -42,4 +47,9 @@
   text-align: center;
   font-size: 14px;
   padding-bottom: 20px;
+}
+
+.update-review-update-btn:hover {
+  background-color: white;
+  color: #d32323;
 }

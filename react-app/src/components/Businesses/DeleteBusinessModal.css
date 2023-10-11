@@ -1,6 +1,7 @@
 .delete-business-modal-window {
-  width: 320px;
+  width: 350px;
   height: 140px;
+  /* border: 1px solid white; */
 }
 
 .delete-business-modal-title,
@@ -23,4 +24,11 @@
   color: white;
   background-color: #d32323;
   font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.delete-business-modal-yes-btn:hover,
+.delete-business-modal-no-btn:hover {
+  background-color: white;
+  color: #d32323;
 }

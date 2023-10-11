@@ -1,21 +1,31 @@
+.business-details-banner-img {
+  height: 425px;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
 .business-details-window {
-  /* width: 1761px; */
   display: flex;
   justify-content: center;
 }
 
 .business-details-container {
   width: 1024px;
+  padding: 0px 20px;
+  border-right: 1px solid gray;
+  border-left: 1px solid gray;
+  border-top: 1px solid gray;
+  border-bottom: 1px solid gray;
+  border-radius: 5px;
 }
 
 .business-details-sub-container {
   display: flex;
   flex-direction: row;
-  justify-content: center;
   gap: 20px;
   padding: 30px 0px;
-  /* border-top: 1px solid black; */
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid gray;
 }
 
 .business-details-details {
@@ -28,10 +38,15 @@
 .preview-img {
   width: 220px;
   height: 220px;
+  border-radius: 5px;
 }
 
 .fa-solid, .fa-regular {
   color: orangered;
+}
+
+.fa-circle-user {
+  color: white;
 }
 
 .business-details-overall-stars,
@@ -47,7 +62,11 @@
   justify-content: center;
 }
 
+.additional-details-p {
+  font-size: 14px;
+}
+
 .business-details-featured-items, .business-details-location-hours, .business-details-about-shop {
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid gray;
   padding-bottom: 30px;
 }

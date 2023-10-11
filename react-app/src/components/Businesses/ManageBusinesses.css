@@ -1,3 +1,10 @@
+.manage-business-banner-img {
+  height: 425px;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
 .manage-businesses-container {
   display: flex;
   flex-direction: column;
@@ -12,13 +19,19 @@
 
 .manage-business-page-ul {
   list-style: none;
+  padding-right: 40px;
+  border-right: 1px solid gray;
+  border-left: 1px solid gray;
+  border-top: 1px solid gray;
+  border-bottom: 1px solid gray;
+  border-radius: 5px;
 }
 
 .manage-businesses-btn-container {
   display: flex;
   gap: 20px;
   padding-bottom: 30px;
-  padding-left: 15px;
+  padding-left: 45px;
 }
 
 .fa-pen-to-square {
@@ -33,4 +46,22 @@
   color: white;
   background-color: #d32323;
   font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.manage-business-business-list-container {
+  border-bottom: 1px solid gray;
+  transition: box-shadow 0.3s;
+  margin: 16px 0px;
+  border-radius: 5px;
+}
+
+.manage-business-business-list-container:hover {
+  box-shadow: 0 0 10px rgb(255, 255, 255);
+}
+
+.manage-businesses-create-btn:hover,
+.manage-businesses-update-btn:hover, .open-modal-button:hover {
+  background-color: white;
+  color:#d32323;
 }

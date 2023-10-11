@@ -9,7 +9,6 @@ import { DeleteReviewModal } from "./DeleteReviewModal";
 import OpenModalButton from "../OpenModalButton";
 import "./BusinessReviews.css";
 
-// export const BusinessReviews = ({ businessId }) => {
 export const BusinessReviews = () => {
   const dispatch = useDispatch();
   const { businessId } = useParams();
@@ -49,7 +48,7 @@ export const BusinessReviews = () => {
         {reviewsList.length ? (
           <div>
             <div className="business-reviews-overall-rating-container">
-              <h3>Overall Buzz Rating:</h3>
+              <h4>Overall Buzz Rating:</h4>
 
               <div>
                 {avg_rating ? (
@@ -103,7 +102,7 @@ export const BusinessReviews = () => {
             {reviewsList.map((review) => (
               <div className="business-reviews-user-reviews" key={review.id}>
                 <div className="">
-                  <div className="business-reviews-username">{review.user}</div>
+                  <h4 className="business-reviews-username">{review.user}</h4>
 
                   <div className="business-reviews-stars-date">
                     <div>
@@ -121,7 +120,7 @@ export const BusinessReviews = () => {
                     <div>{createDate(review.created_at)}</div>
                   </div>
 
-                  <div className="">{review.review}</div>
+                  <div className="business-review-p">{review.review}</div>
 
                   <div className="">
                     {review.user_id === user.id && (
@@ -154,7 +153,7 @@ export const BusinessReviews = () => {
         ) : (
           <div>
             <div className="business-reviews-overall-rating-container">
-              <h3>Overall Buzz Rating:</h3>
+              <h4>Overall Buzz Rating:</h4>
 
               <div className="business-reviews-overall-no-stars">
                 <div>
