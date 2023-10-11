@@ -22,5 +22,13 @@
 }
 
 .business-list-sub-container:hover {
-  background-color: rgb(240, 240, 240);
+  /* background-color: rgb(240, 240, 240); */
+  /* background-color: #d32323; */
+  /* background-color: darkslategray; */
+}
+
+.business-list-container:hover {
+  /* background-color: rgb(240, 240, 240); */
+  background-color: #d32323;
+  /* background-color: darkslategray; */
 }

@@ -12,6 +12,10 @@
 .business-details-container {
   width: 1024px;
   padding: 0px 20px;
+  border-right: 1px solid gray;
+  border-left: 1px solid gray;
+  border-top: 1px solid gray;
+  border-bottom: 1px solid gray;
 }
 
 .business-details-sub-container {

@@ -1,6 +1,7 @@
 .delete-business-modal-window {
   width: 350px;
   height: 140px;
+  /* border: 1px solid white; */
 }
 
 .delete-business-modal-title,
