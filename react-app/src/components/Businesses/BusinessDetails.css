@@ -2,6 +2,7 @@
   height: 425px;
   width: 100%;
   object-fit: cover;
+  border-radius: 5px;
 }
 
 .business-details-window {
@@ -12,6 +13,11 @@
 .business-details-container {
   width: 1024px;
   padding: 0px 20px;
+  border-right: 1px solid gray;
+  border-left: 1px solid gray;
+  border-top: 1px solid gray;
+  border-bottom: 1px solid gray;
+  border-radius: 5px;
 }
 
 .business-details-sub-container {
@@ -32,10 +38,15 @@
 .preview-img {
   width: 220px;
   height: 220px;
+  border-radius: 5px;
 }
 
 .fa-solid, .fa-regular {
   color: orangered;
+}
+
+.fa-circle-user {
+  color: white;
 }
 
 .business-details-overall-stars,

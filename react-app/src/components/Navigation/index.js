@@ -10,8 +10,12 @@ function Navigation({ isLoaded }) {
   return (
     <ul className="nav-container">
       <li>
-        <NavLink className="nav-logo" exact to="/">
-          <h2>BobaBuzz</h2>
+        <NavLink exact to="/">
+          <img
+            className="nav-container-img"
+            src="../bobabuzz-logo.png"
+            alt="nav-logo"
+          ></img>
         </NavLink>
       </li>
       {isLoaded && (
