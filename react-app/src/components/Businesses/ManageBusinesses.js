@@ -32,6 +32,11 @@ export const ManageBusinesses = () => {
 
   return (
     <div>
+      <img
+        className="manage-business-banner-img"
+        src="https://images.squarespace-cdn.com/content/v1/50ce46ece4b01020c34fd52b/1635443661260-5Y9P00ALIETP439JZ9CX/Boba+Guys+Los+Altos+storefront"
+        alt="manage-business-banner-img"
+      ></img>
       <div className="manage-businesses-container">
         <h1>Manage Your Shops</h1>
         <button className="manage-businesses-create-btn" onClick={handleClick}>

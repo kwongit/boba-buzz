@@ -1,3 +1,9 @@
+.create-business-banner-img {
+  height: 425px;
+  width: 100%;
+  object-fit: cover;
+}
+
 .create-business-container {
   display: flex;
   flex-direction: column;
@@ -6,6 +12,15 @@
 
 .create-business-title {
   text-align: center;
+}
+
+.create-business-form-window {
+  border-right: 1px solid gray;
+  border-left: 1px solid gray;
+  border-top: 1px solid gray;
+  border-bottom: 1px solid gray;
+  padding: 0px 20px;
+  padding-top: 20px;
 }
 
 .create-business-form-input-container {

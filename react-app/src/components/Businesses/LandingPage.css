@@ -24,3 +24,7 @@
   width: 100%;
   object-fit: cover;
 }
+
+.landing-page-business-list-container {
+  border-bottom: 1px solid gray;
+}

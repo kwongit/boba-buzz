@@ -95,218 +95,223 @@ export const CreateBusiness = ({ user }) => {
   };
 
   return (
-    <div className="create-business-container">
-      <form onSubmit={handleSubmit}>
+    <div>
+      <img
+        className="create-business-banner-img"
+        src="https://images.squarespace-cdn.com/content/v1/50ce46ece4b01020c34fd52b/12b658bb-b357-41bd-be32-8d486005bdb9/IMG_4587+Edited.jpeg"
+        alt="create-business-banner-img"
+      ></img>
+      <div className="create-business-container">
         <h1 className="create-business-title">Add Your Shop</h1>
-
-        <div className="create-business-form-container">
-          <div className="create-business-form-input-container">
-            <div className="create-business-form-label-container">
-              <div className="create-business-form-label">Shop Name</div>
-              {errors.name && submitted && (
-                <p className="on-submit-errors-create-business">
-                  {errors.name}
-                </p>
-              )}
+        <form className="create-business-form-window" onSubmit={handleSubmit}>
+          <div className="create-business-form-container">
+            <div className="create-business-form-input-container">
+              <div className="create-business-form-label-container">
+                <div className="create-business-form-label">Shop Name</div>
+                {errors.name && submitted && (
+                  <p className="on-submit-errors-create-business">
+                    {errors.name}
+                  </p>
+                )}
+              </div>
+              <input
+                className="create-business-form-input-field"
+                type="text"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                placeholder="Shop Name"
+              />
             </div>
-            <input
-              className="create-business-form-input-field"
-              type="text"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              placeholder="Shop Name"
-            />
-          </div>
-          <div className="create-business-form-input-container">
-            <div className="create-business-form-label-container">
-              <div className="create-business-form-label">Address</div>
-              {errors.address && submitted && (
-                <p className="on-submit-errors-create-business">
-                  {errors.address}
-                </p>
-              )}
+            <div className="create-business-form-input-container">
+              <div className="create-business-form-label-container">
+                <div className="create-business-form-label">Address</div>
+                {errors.address && submitted && (
+                  <p className="on-submit-errors-create-business">
+                    {errors.address}
+                  </p>
+                )}
+              </div>
+              <input
+                className="create-business-form-input-field"
+                type="text"
+                value={address}
+                onChange={(e) => setAddress(e.target.value)}
+                placeholder="Address"
+              />
             </div>
-            <input
-              className="create-business-form-input-field"
-              type="text"
-              value={address}
-              onChange={(e) => setAddress(e.target.value)}
-              placeholder="Address"
-            />
-          </div>
-          <div className="create-business-form-input-container">
-            <div className="create-business-form-label-container">
-              <div className="create-business-form-label">City</div>
-              {errors.city && submitted && (
-                <p className="on-submit-errors-create-business">
-                  {errors.city}
-                </p>
-              )}
+            <div className="create-business-form-input-container">
+              <div className="create-business-form-label-container">
+                <div className="create-business-form-label">City</div>
+                {errors.city && submitted && (
+                  <p className="on-submit-errors-create-business">
+                    {errors.city}
+                  </p>
+                )}
+              </div>
+              <input
+                className="create-business-form-input-field"
+                type="text"
+                value={city}
+                onChange={(e) => setCity(e.target.value)}
+                placeholder="City"
+              />
             </div>
-            <input
-              className="create-business-form-input-field"
-              type="text"
-              value={city}
-              onChange={(e) => setCity(e.target.value)}
-              placeholder="City"
-            />
-          </div>
-          <div className="create-business-form-input-container">
-            <div className="create-business-form-label-container">
-              <div className="create-business-form-label">State</div>
-              {errors.state && submitted && (
-                <p className="on-submit-errors-create-business">
-                  {errors.state}
-                </p>
-              )}
+            <div className="create-business-form-input-container">
+              <div className="create-business-form-label-container">
+                <div className="create-business-form-label">State</div>
+                {errors.state && submitted && (
+                  <p className="on-submit-errors-create-business">
+                    {errors.state}
+                  </p>
+                )}
+              </div>
+              <input
+                className="create-business-form-input-field"
+                type="text"
+                value={state}
+                onChange={(e) => setState(e.target.value)}
+                placeholder="State"
+              />
             </div>
-            <input
-              className="create-business-form-input-field"
-              type="text"
-              value={state}
-              onChange={(e) => setState(e.target.value)}
-              placeholder="State"
-            />
-          </div>
-          <div className="create-business-form-input-container">
-            <div className="create-business-form-label-container">
-              <div className="create-business-form-label">Type</div>
-              {errors.type && submitted && (
-                <p className="on-submit-errors-create-business">
-                  {errors.type}
-                </p>
-              )}
+            <div className="create-business-form-input-container">
+              <div className="create-business-form-label-container">
+                <div className="create-business-form-label">Type</div>
+                {errors.type && submitted && (
+                  <p className="on-submit-errors-create-business">
+                    {errors.type}
+                  </p>
+                )}
+              </div>
+              <input
+                className="create-business-form-input-field"
+                type="text"
+                value={type}
+                onChange={(e) => setType(e.target.value)}
+                placeholder="Type"
+              />
             </div>
-            <input
-              className="create-business-form-input-field"
-              type="text"
-              value={type}
-              onChange={(e) => setType(e.target.value)}
-              placeholder="Type"
-            />
-          </div>
-          <div className="create-business-form-input-container">
-            <div className="create-business-form-label-container">
-              <div className="create-business-form-label">Price Range</div>
-              {errors.price && submitted && (
-                <p className="on-submit-errors-create-business">
-                  {errors.price}
-                </p>
-              )}
+            <div className="create-business-form-input-container">
+              <div className="create-business-form-label-container">
+                <div className="create-business-form-label">Price Range</div>
+                {errors.price && submitted && (
+                  <p className="on-submit-errors-create-business">
+                    {errors.price}
+                  </p>
+                )}
+              </div>
+              <select
+                className="create-business-form-input-field"
+                onChange={(e) => setPrice(e.target.value)}
+              >
+                <option value="0">Select Price Range</option>
+                <option value="1">$</option>
+                <option value="2">$$</option>
+                <option value="3">$$$</option>
+              </select>
             </div>
-            <select
-              className="create-business-form-input-field"
-              onChange={(e) => setPrice(e.target.value)}
-            >
-              <option value="0">Select Price Range</option>
-              <option value="1">$</option>
-              <option value="2">$$</option>
-              <option value="3">$$$</option>
-            </select>
-          </div>
-          <div className="create-business-form-input-container">
-            <div className="create-business-form-label-container">
-              <div className="create-business-form-label">Open Hours</div>
-              {errors.open_hours && submitted && (
-                <p className="on-submit-errors-create-business">
-                  {errors.open_hours}
-                </p>
-              )}
+            <div className="create-business-form-input-container">
+              <div className="create-business-form-label-container">
+                <div className="create-business-form-label">Open Hours</div>
+                {errors.open_hours && submitted && (
+                  <p className="on-submit-errors-create-business">
+                    {errors.open_hours}
+                  </p>
+                )}
+              </div>
+              <select
+                className="create-business-form-input-field"
+                onChange={(e) => setOpenHours(e.target.value)}
+              >
+                <option value="0">Select Open Hours</option>
+                <option value="10:00 AM">10:00 AM</option>
+                <option value="10:30 AM">10:30 AM</option>
+                <option value="11:00 AM">11:00 AM</option>
+                <option value="11:30 AM">11:30 AM</option>
+                <option value="12:00 PM">12:00 PM</option>
+                <option value="12:30 PM">12:30 PM</option>
+              </select>
             </div>
-            <select
-              className="create-business-form-input-field"
-              onChange={(e) => setOpenHours(e.target.value)}
-            >
-              <option value="0">Select Open Hours</option>
-              <option value="10:00 AM">10:00 AM</option>
-              <option value="10:30 AM">10:30 AM</option>
-              <option value="11:00 AM">11:00 AM</option>
-              <option value="11:30 AM">11:30 AM</option>
-              <option value="12:00 PM">12:00 PM</option>
-              <option value="12:30 PM">12:30 PM</option>
-            </select>
-          </div>
-          <div className="create-business-form-input-container">
-            <div className="create-business-form-label-container">
-              <div className="create-business-form-label">Close Hours</div>
-              {errors.close_hours && submitted && (
-                <p className="on-submit-errors-create-business">
-                  {errors.close_hours}
-                </p>
-              )}
+            <div className="create-business-form-input-container">
+              <div className="create-business-form-label-container">
+                <div className="create-business-form-label">Close Hours</div>
+                {errors.close_hours && submitted && (
+                  <p className="on-submit-errors-create-business">
+                    {errors.close_hours}
+                  </p>
+                )}
+              </div>
+              <select
+                className="create-business-form-input-field"
+                onChange={(e) => setCloseHours(e.target.value)}
+              >
+                <option value="0">Select Close Hours</option>
+                <option value="1:00 PM">1:00 PM</option>
+                <option value="1:30 PM">1:30 PM</option>
+                <option value="2:00 PM">2:00 PM</option>
+                <option value="2:30 PM">2:30 PM</option>
+                <option value="3:00 PM">3:00 PM</option>
+                <option value="3:30 PM">3:30 PM</option>
+                <option value="4:00 PM">4:00 PM</option>
+                <option value="4:30 PM">4:30 PM</option>
+                <option value="5:00 PM">5:00 PM</option>
+                <option value="5:30 PM">5:30 PM</option>
+                <option value="6:00 PM">6:00 PM</option>
+                <option value="6:30 PM">6:30 PM</option>
+                <option value="7:00 PM">7:00 PM</option>
+                <option value="7:30 PM">7:30 PM</option>
+                <option value="8:00 PM">8:00 PM</option>
+                <option value="8:30 PM">8:30 PM</option>
+                <option value="9:00 PM">9:00 PM</option>
+                <option value="9:30 PM">9:30 PM</option>
+                <option value="10:00 PM">10:00 PM</option>
+                <option value="10:30 PM">10:30 PM</option>
+                <option value="11:00 PM">11:00 PM</option>
+                <option value="11:30 PM">11:30 PM</option>
+                <option value="12:00 AM">12:00 AM</option>
+              </select>
             </div>
-            <select
-              className="create-business-form-input-field"
-              onChange={(e) => setCloseHours(e.target.value)}
-            >
-              <option value="0">Select Close Hours</option>
-              <option value="1:00 PM">1:00 PM</option>
-              <option value="1:30 PM">1:30 PM</option>
-              <option value="2:00 PM">2:00 PM</option>
-              <option value="2:30 PM">2:30 PM</option>
-              <option value="3:00 PM">3:00 PM</option>
-              <option value="3:30 PM">3:30 PM</option>
-              <option value="4:00 PM">4:00 PM</option>
-              <option value="4:30 PM">4:30 PM</option>
-              <option value="5:00 PM">5:00 PM</option>
-              <option value="5:30 PM">5:30 PM</option>
-              <option value="6:00 PM">6:00 PM</option>
-              <option value="6:30 PM">6:30 PM</option>
-              <option value="7:00 PM">7:00 PM</option>
-              <option value="7:30 PM">7:30 PM</option>
-              <option value="8:00 PM">8:00 PM</option>
-              <option value="8:30 PM">8:30 PM</option>
-              <option value="9:00 PM">9:00 PM</option>
-              <option value="9:30 PM">9:30 PM</option>
-              <option value="10:00 PM">10:00 PM</option>
-              <option value="10:30 PM">10:30 PM</option>
-              <option value="11:00 PM">11:00 PM</option>
-              <option value="11:30 PM">11:30 PM</option>
-              <option value="12:00 AM">12:00 AM</option>
-            </select>
-          </div>
-          <div className="create-business-form-input-container">
-            <div className="create-business-form-label-container">
-              <div className="create-business-form-label">Main Image</div>
-              {errors.image_url && submitted && (
-                <p className="on-submit-errors-create-business">
-                  {errors.image_url}
-                </p>
-              )}
+            <div className="create-business-form-input-container">
+              <div className="create-business-form-label-container">
+                <div className="create-business-form-label">Main Image</div>
+                {errors.image_url && submitted && (
+                  <p className="on-submit-errors-create-business">
+                    {errors.image_url}
+                  </p>
+                )}
+              </div>
+              <input
+                className="create-business-form-input-field"
+                type="url"
+                value={image_url}
+                onChange={(e) => setImageUrl(e.target.value)}
+                placeholder="Main Image URL"
+              />
             </div>
-            <input
-              className="create-business-form-input-field"
-              type="url"
-              value={image_url}
-              onChange={(e) => setImageUrl(e.target.value)}
-              placeholder="Main Image URL"
-            />
-          </div>
-          <div className="create-business-form-input-container">
-            <div className="create-business-form-label-container">
-              <div className="create-business-form-label">Description</div>
-              {errors.description && submitted && (
-                <p className="on-submit-errors-create-business">
-                  {errors.description}
-                </p>
-              )}
+            <div className="create-business-form-input-container">
+              <div className="create-business-form-label-container">
+                <div className="create-business-form-label">Description</div>
+                {errors.description && submitted && (
+                  <p className="on-submit-errors-create-business">
+                    {errors.description}
+                  </p>
+                )}
+              </div>
+              <textarea
+                className="create-business-form-textarea-field"
+                type="text"
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+                placeholder="Description"
+              ></textarea>
             </div>
-            <textarea
-              className="create-business-form-textarea-field"
-              type="text"
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
-              placeholder="Description"
-            ></textarea>
           </div>
-        </div>
-
-        <div className="create-business-btn-container">
-          <button className="create-business-add-shop-btn" type="submit">
-            Add Shop
-          </button>
-        </div>
-      </form>
+          <div className="create-business-btn-container">
+            <button className="create-business-add-shop-btn" type="submit">
+              Add Shop
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 };
