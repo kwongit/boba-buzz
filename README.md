@@ -1,6 +1,45 @@
-# Flask React Project
+# Welcome to BobaBuzz!
 
-This is the starter for the Flask React project.
+Introducing "BobaBuzz" – Your All-in-One Boba Shop and Buzz Management App
+
+BobaBuzz is the ultimate solution for both shop owners and consumers, providing a seamless platform for managing shops and sharing valuable insights through buzzes (reviews). With a user-friendly interface and robust features, BobaBuzz is the go-to app for all your shop-related needs, making it easier for shops to showcase their services and for consumers to make informed choices based on authentic, real-time reviews. Join our growing community today and experience the power of BobaBuzz.
+
+You can check out the live site [BobaBuzz]([https://boba-buzz.onrender.com/])!
+
+## Tools and Frameworks
+
+PYTHON
+JAVASCRIPT
+HTML5
+CSS3
+REACT
+REDUX
+FLASK
+POSTGRES
+SQLALCHEMY
+
+## Features
+
+### Businesses
+
+1. Users should be able to view all businesses.
+1. Users should be able to add their own business.
+1. Users should be able to update their business information.
+1. Users should be able to delete their business.
+
+### Reviews
+
+1. Users should be able to view all reviews on a business.
+1. Users should be able to add a review to a business
+1. Users should be able to update their review on a business.
+1. Users should be able to delete their review from a business.
+
+### Menu Items (Coming soon...)
+
+1. Users should be able to view all menu items for a business.
+1. Users should be able to add menu items to their business.
+1. Users should be able to update menu items on their business.
+1. Users should be able to delete menu items from their business.
 
 ## Getting started
 
