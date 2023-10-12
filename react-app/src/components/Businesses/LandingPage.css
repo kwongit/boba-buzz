@@ -15,6 +15,18 @@
   border-radius: 5px;
 }
 
+@media screen and (max-width: 649px) {
+  .landing-page-window > h1 {
+    text-align: center;
+  }
+  .business-list-sub-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
 .landing-page-ul {
   list-style: none;
   padding-right: 40px;

@@ -74,19 +74,33 @@
   transition: background-color 0.3s;
 }
 
-.manage-businesses-current,
-.manage-reviews-current,
-.create-new-business {
-  transition: box-shadow 0.3s;
-}
-
 .manage-businesses-current:hover,
 .manage-reviews-current:hover, .create-new-business:hover {
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgb(255, 255, 255);
+  text-decoration: underline;
+  background-color: #d32323;
 }
 
 .logout-btn:hover {
   background-color: white;
   color: #d32323;
+}
+
+@media screen and (max-width: 449px) {
+  .nav-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 200px;
+  }
+  .user-nav-container {
+    display: flex;
+    flex-direction: column;
+  }
+  .create-new-business {
+    top: 120px;
+    position: absolute;
+    right: 50%;
+    transform: translateX(50%);
+  }
 }
