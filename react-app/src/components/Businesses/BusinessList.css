@@ -15,6 +15,21 @@
   gap: 10px;
 }
 
+@media screen and (max-width: 649px) {
+  .business-list-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .business-list-details > h2 {
+    text-align: center;
+  }
+  .business-list-type-price-city-container {
+    text-align: center;
+  }
+}
+
 .business-list-overall-stars,
 .business-list-overall-no-stars {
   display: flex;

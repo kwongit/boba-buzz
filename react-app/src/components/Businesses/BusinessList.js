@@ -76,7 +76,7 @@ const BusinessList = ({ business, index }) => {
             )}
           </div>
 
-          <div>
+          <div className="business-list-type-price-city-container">
             <span className="business-list-span-type">{type}</span> ·{" "}
             {price === 3 ? "$$$" : price === 2 ? "$$" : "$"} · {city}
           </div>
