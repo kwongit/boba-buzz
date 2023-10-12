@@ -1,6 +1,12 @@
-# Flask React Project
+# Welcome to BobaBuzz!
 
-This is the starter for the Flask React project.
+A Yelp! clone allowing users to post their boba shops and leave reviews (buzzes) of other boba shops on the platform!
+
+You can check out the live site [here]([url](https://boba-buzz.onrender.com/))!
+
+## Tools and Frameworks
+
+## Features
 
 ## Getting started
 
