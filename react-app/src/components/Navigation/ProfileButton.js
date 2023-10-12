@@ -44,6 +44,11 @@ function ProfileButton({ user }) {
     <>
       <div className="user-nav-container">
         {user ? (
+          // <span>
+          //   <NavLink className="create-new-business" to="/businesses/new">
+          //     Add a New Shop
+          //   </NavLink>
+          // </span>
           <span>
             <NavLink className="create-new-business" to="/businesses/new">
               Add a New Shop

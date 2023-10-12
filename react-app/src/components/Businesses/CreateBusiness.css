@@ -25,7 +25,7 @@
 }
 
 .create-business-form-input-field {
-  width: 365px;
+  width: 240px;
   background-color: black;
   color: white;
   border: 1px solid white;
@@ -33,7 +33,7 @@
 }
 
 .create-business-form-textarea-field {
-  width: 365px;
+  width: 240px;
   height: 100px;
   background-color: black;
   color: white;

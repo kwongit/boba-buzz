@@ -50,6 +50,10 @@
   color: white;
 }
 
+.fa-circle-user:hover {
+  color: #d32323 ;
+}
+
 .business-details-overall-stars,
 .business-details-overall-no-stars {
   display: flex;

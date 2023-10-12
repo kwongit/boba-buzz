@@ -11,6 +11,10 @@
   align-items: center;
 }
 
+.manage-businesses-container > h1 {
+  text-align: center;
+}
+
 .manage-businesses-list-container {
   display: flex;
   flex-direction: column;
