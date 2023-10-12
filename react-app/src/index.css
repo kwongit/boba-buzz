@@ -38,3 +38,7 @@ body {
   color: white;
   margin: 0px;
 }
+
+#root {
+  min-height: 100vh;
+}
