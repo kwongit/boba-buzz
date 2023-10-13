@@ -1,187 +1,93 @@
 # Welcome to BobaBuzz!
 
-Introducing "BobaBuzz" – Your All-in-One Boba Shop and Buzz Management App
+Introducing "BobaBuzz" – Your All-in-One Boba Shop and Buzz Management App!
 
-BobaBuzz is the ultimate solution for both shop owners and consumers, providing a seamless platform for managing shops and sharing valuable insights through buzzes (reviews). With a user-friendly interface and robust features, BobaBuzz is the go-to app for all your shop-related needs, making it easier for shops to showcase their services and for consumers to make informed choices based on authentic, real-time buzzes. Join our growing community today and experience the power of BobaBuzz.
+BobaBuzz is the ultimate solution for both shop owners and consumers, providing
+a seamless platform for managing shops and sharing valuable insights through
+buzzes (reviews). With a user-friendly interface and robust features, BobaBuzz
+is the go-to app for all your shop-related needs, making it easier for shops to
+showcase their services and for consumers to make informed choices based on
+authentic, real-time buzzes. Join our growing community today and experience
+the power of BobaBuzz!
 
-You can check out the live site [BobaBuzz]([https://boba-buzz.onrender.com/])!
+You can check out the [live site here](https://boba-buzz.onrender.com)!
 
 ## Tools and Frameworks
 
-PYTHON
-JAVASCRIPT
-HTML5
-CSS3
-REACT
-REDUX
-FLASK
-POSTGRES
-SQLALCHEMY
+![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
+![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
+![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+![Redux](https://img.shields.io/badge/redux-%23593d88.svg?style=for-the-badge&logo=redux&logoColor=white)
+![Flask](https://img.shields.io/badge/flask-%23000.svg?style=for-the-badge&logo=flask&logoColor=white)
+![Postgres](https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white)
+![SQLAlchemy](https://img.shields.io/badge/SQLAlchemy-%23FCA121.svg?style=for-the-badge&logo=sqlalchemy&logoColor=white)
 
-## Features
+## Wiki Pages
 
-### Boba shops
+- [Home](https://github.com/kwongit/boba-buzz/wiki)
+- [API routes](https://github.com/kwongit/boba-buzz/wiki/API-routes)
+- [DB Schema](https://github.com/kwongit/boba-buzz/wiki/DB-Schema)
+- [Feature List](https://github.com/kwongit/boba-buzz/wiki/Feature-List)
+- [Frontend routes](https://github.com/kwongit/boba-buzz/wiki/Frontend-routes)
+- [Getting Started (Installation)](<https://github.com/kwongit/boba-buzz/wiki/Getting-Started-(Installation)>)
+- [React Components List](https://github.com/kwongit/boba-buzz/wiki/React-Components-List)
+- [Render (Deployment)](<https://github.com/kwongit/boba-buzz/wiki/Render-(Deployment)>)
+- [Screenshots](https://github.com/kwongit/boba-buzz/wiki/Screenshots)
+- [User Stories](https://github.com/kwongit/boba-buzz/wiki/User-Stories)
+- [Wireframes](https://github.com/kwongit/boba-buzz/wiki/Wireframes)
 
-1. Users should be able to view all boba shops.
-1. Users should be able to add their own boba shop.
-1. Users should be able to update their boba shop information.
-1. Users should be able to delete their boba shop.
+## Screenshots
 
-### Buzzes
+### Landing Page
 
-1. Users should be able to view all buzzes on a boba shop.
-1. Users should be able to add a buzz to a boba shop
-1. Users should be able to update their buzz on a boba shop.
-1. Users should be able to delete their buzz from a boba shop.
+<img width="952" alt="landing_page" src="https://github.com/kwongit/boba-buzz/assets/26725594/82b937d5-4440-4c12-9fbc-4c273832d5d0">
 
-### Menu Items (Coming soon...)
+### Sign Up Modal
 
-1. Users should be able to view all menu items for a boba shop.
-1. Users should be able to add menu items to their boba shop.
-1. Users should be able to update menu items on their boba shop.
-1. Users should be able to delete menu items from their boba shop.
+<img width="952" alt="signup_modal" src="https://github.com/kwongit/boba-buzz/assets/26725594/db47e464-ee63-4674-b2a1-e6b0eb4b4843">
 
-## Getting started
+### Login Modal
 
-1. Clone this repository (only this branch)
+<img width="952" alt="login_modal" src="https://github.com/kwongit/boba-buzz/assets/26725594/569e577b-8b7c-413c-991e-66bccd5b0d4d">
 
-2. Install dependencies
+### Boba Shop Details Page
 
-   ```bash
-   pipenv install -r requirements.txt
-   ```
+<img width="952" alt="shop_details" src="https://github.com/kwongit/boba-buzz/assets/26725594/f0002aed-c8df-4c65-87ef-756678de2344">
 
-3. Create a **.env** file based on the example with proper settings for your
-   development environment
+### Add Your Shop Page
 
-4. Make sure the SQLite3 database connection URL is in the **.env** file
+<img width="952" alt="add_shop" src="https://github.com/kwongit/boba-buzz/assets/26725594/4bca5f8a-db48-41d2-b9e7-e1921e0f9b0d">
 
-5. This starter organizes all tables inside the `flask_schema` schema, defined
-   by the `SCHEMA` environment variable. Replace the value for
-   `SCHEMA` with a unique name, **making sure you use the snake_case
-   convention**.
+### Mange Your Shops Page
 
-6. Get into your pipenv, migrate your database, seed your database, and run your Flask app
+<img width="952" alt="manage_shops" src="https://github.com/kwongit/boba-buzz/assets/26725594/83789a9c-e99e-4640-8919-0536414c7f8f">
 
-   ```bash
-   pipenv shell
-   ```
+### Update Your Shop Page
 
-   ```bash
-   flask db upgrade
-   ```
+<img width="952" alt="update_shop" src="https://github.com/kwongit/boba-buzz/assets/26725594/ff75af07-42f7-4933-a0ae-c631a35b83b2">
 
-   ```bash
-   flask seed all
-   ```
+### Delete Your Shop Modal
 
-   ```bash
-   flask run
-   ```
+<img width="952" alt="delete_shop_modal" src="https://github.com/kwongit/boba-buzz/assets/26725594/f767a675-b5aa-4579-a2ed-4ccb776dffa7">
 
-7. To run the React App in development, checkout the [README](./react-app/README.md) inside the `react-app` directory.
+### Post Your Buzz Modal
 
-## Deployment through Render.com
+<img width="952" alt="post_buzz_modal" src="https://github.com/kwongit/boba-buzz/assets/26725594/d202d2f5-1694-4d9a-bc19-8fa87b205d44">
 
-First, refer to your Render.com deployment articles for more detailed
-instructions about getting started with [Render.com], creating a production
-database, and deployment debugging tips.
+### Manage Your Buzzes Page
 
-From the [Dashboard], click on the "New +" button in the navigation bar, and
-click on "Web Service" to create the application that will be deployed.
+<img width="952" alt="manage_buzzes" src="https://github.com/kwongit/boba-buzz/assets/26725594/66da9371-b724-4f0d-b404-ca3c60116cf0">
 
-Look for the name of the application you want to deploy, and click the "Connect"
-button to the right of the name.
+### Update Your Buzz Modal
 
-Now, fill out the form to configure the build and start commands, as well as add
-the environment variables to properly deploy the application.
+<img width="952" alt="update_buzz_modal" src="https://github.com/kwongit/boba-buzz/assets/26725594/501c039e-3eb7-47fc-b872-167b0bf12f60">
 
-### Part A: Configure the Start and Build Commands
+### Delete Your Buzz Modal
 
-Start by giving your application a name.
+<img width="952" alt="delete_buzz_modal" src="https://github.com/kwongit/boba-buzz/assets/26725594/a24508e0-f603-46d6-810c-28e6418a37f7">
 
-Leave the root directory field blank. By default, Render will run commands from
-the root directory.
+## Get in Touch:
 
-Make sure the Environment field is set set to "Python 3", the Region is set to
-the location closest to you, and the Branch is set to "main".
-
-Next, add your Build command. This is a script that should include everything
-that needs to happen _before_ starting the server.
-
-For your Flask project, enter the following command into the Build field, all in
-one line:
-
-```shell
-# build command - enter all in one line
-npm install --prefix react-app &&
-npm run build --prefix react-app &&
-pip install -r requirements.txt &&
-pip install psycopg2 &&
-flask db upgrade &&
-flask seed all
-```
-
-This script will install dependencies for the frontend, and run the build
-command in the **package.json** file for the frontend, which builds the React
-application. Then, it will install the dependencies needed for the Python
-backend, and run the migration and seed files.
-
-Now, add your start command in the Start field:
-
-```shell
-# start script
-gunicorn app:app
-```
-
-_If you are using websockets, use the following start command instead for increased performance:_
-
-`gunicorn --worker-class eventlet -w 1 app:app`
-
-### Part B: Add the Environment Variables
-
-Click on the "Advanced" button at the bottom of the form to configure the
-environment variables your application needs to access to run properly. In the
-development environment, you have been securing these variables in the **.env**
-file, which has been removed from source control. In this step, you will need to
-input the keys and values for the environment variables you need for production
-into the Render GUI.
-
-Click on "Add Environment Variable" to start adding all of the variables you
-need for the production environment.
-
-Add the following keys and values in the Render GUI form:
-
-- SECRET_KEY (click "Generate" to generate a secure secret for production)
-- FLASK_ENV production
-- FLASK_APP app
-- SCHEMA (your unique schema name, in snake_case)
-- REACT_APP_BASE_URL (use render.com url, located at top of page, similar to
-  https://this-application-name.onrender.com)
-
-In a new tab, navigate to your dashboard and click on your Postgres database
-instance.
-
-Add the following keys and values:
-
-- DATABASE_URL (copy value from Internal Database URL field)
-
-_Note: Add any other keys and values that may be present in your local **.env**
-file. As you work to further develop your project, you may need to add more
-environment variables to your local **.env** file. Make sure you add these
-environment variables to the Render GUI as well for the next deployment._
-
-Next, choose "Yes" for the Auto-Deploy field. This will re-deploy your
-application every time you push to main.
-
-Now, you are finally ready to deploy! Click "Create Web Service" to deploy your
-project. The deployment process will likely take about 10-15 minutes if
-everything works as expected. You can monitor the logs to see your build and
-start commands being executed, and see any errors in the build process.
-
-When deployment is complete, open your deployed site and check to see if you
-successfully deployed your Flask application to Render! You can find the URL for
-your site just below the name of the Web Service at the top of the page.
-
-[Render.com]: https://render.com/
-[Dashboard]: https://dashboard.render.com/
+- Kevin Won: https://www.linkedin.com/in/kevinwon30/
