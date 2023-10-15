@@ -75,8 +75,6 @@ export const CreateBusiness = ({ user }) => {
     formData.append("image_url", image_url);
     formData.append("description", description);
 
-    console.log("FORM DATA: ", formData);
-
     if (!Object.values(errors).length) {
       const addBusiness = await dispatch(thunkCreateBusiness(formData, user));
 
@@ -101,9 +99,9 @@ export const CreateBusiness = ({ user }) => {
       <div className="create-business-container">
         <h1 className="create-business-title">Add Your Shop</h1>
         <form
-          encType="multipart/form-data"
           className="create-business-form-window"
           onSubmit={handleSubmit}
+          encType="multipart/form-data"
         >
           <div className="create-business-form-container">
             <div className="create-business-form-input-container">

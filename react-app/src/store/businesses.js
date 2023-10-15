@@ -67,13 +67,10 @@ export const thunkGetBusinessInfo = (businessId) => async (dispatch) => {
 };
 
 export const thunkCreateBusiness = (business, user) => async (dispatch) => {
-  console.log("BUSINESS: ", business);
   const res = await fetch("/api/businesses/", {
     method: "POST",
     body: business,
   });
-
-  console.log("RES: ", res);
 
   if (res.ok) {
     const data = await res.json();

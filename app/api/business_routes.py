@@ -1,4 +1,4 @@
-from flask import Blueprint, request, jsonify
+from flask import Blueprint, request
 from flask_login import current_user, login_required
 from app.models import Business, Review
 from app.models.db import db
@@ -96,6 +96,9 @@ def get_owned_businesses():
 @business_routes.route('/', methods=["POST"])
 @login_required
 def create_business():
+    """
+    Route to create a new business
+    """
     form = BusinessForm()
     form["csrf_token"].data = request.cookies["csrf_token"]
 
@@ -107,10 +110,6 @@ def create_business():
 
             # Upload the image to S3
             upload = upload_file_to_s3(image)
-
-            print("image", image)
-            print("image.filename", image.filename)
-            print("upload", upload)
 
             if 'url' not in upload:
                 return { "errors": "Error uploading image to S3" }, 400
@@ -138,6 +137,7 @@ def create_business():
         else:
             return { "errors": "No image file provided" }, 400
     else:
+        print(form.errors)
         return { "errors": form.errors }, 400
 
 
