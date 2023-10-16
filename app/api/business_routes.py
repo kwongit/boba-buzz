@@ -4,7 +4,7 @@ from app.models import Business, Review
 from app.models.db import db
 from app.forms.business_form import BusinessForm
 from app.forms.review_form import ReviewForm
-from app.api.aws_helpers import get_unique_filename, upload_file_to_s3, remove_file_from_s3
+from app.api.aws_helpers import get_unique_filename, upload_file_to_s3
 
 business_routes = Blueprint('business', __name__)
 
@@ -103,43 +103,41 @@ def create_business():
     form["csrf_token"].data = request.cookies["csrf_token"]
 
     if form.validate_on_submit():
-        # Check if an image file was uploaded
-        if 'image_url' in request.files:
-            image = request.files['image_url']
-            image.filename = get_unique_filename(image.filename)
+        image = form.data["image_url"]
+        image.filename = get_unique_filename(image.filename)
 
-            # Upload the image to S3
-            upload = upload_file_to_s3(image)
+        # Upload the image to S3
+        upload = upload_file_to_s3(image)
+        print(upload)
 
-            if 'url' not in upload:
-                return { "errors": "Error uploading image to S3" }, 400
+        if 'url' not in upload:
+            return { "errors": "Error uploading image to S3" }, 400
 
-            image_url = upload['url']  # Use the S3 URL
+        # Use the S3 URL
+        image_url = upload['url']
 
-            new_business = Business(
-                owner_id=current_user.id,
-                address=form.data["address"],
-                city=form.data["city"],
-                state=form.data["state"],
-                name=form.data["name"],
-                type=form.data["type"],
-                price=form.data["price"],
-                open_hours=form.data["open_hours"],
-                close_hours=form.data["close_hours"],
-                image_url=image_url,  # Use the S3 URL
-                description=form.data["description"]
-            )
+        new_business = Business(
+            owner_id=current_user.id,
+            address=form.data["address"],
+            city=form.data["city"],
+            state=form.data["state"],
+            name=form.data["name"],
+            type=form.data["type"],
+            price=form.data["price"],
+            open_hours=form.data["open_hours"],
+            close_hours=form.data["close_hours"],
+            # Use the S3 URL
+            image_url=image_url,
+            description=form.data["description"]
+        )
 
-            db.session.add(new_business)
-            db.session.commit()
+        db.session.add(new_business)
+        db.session.commit()
+        return new_business.to_dict(), 201
 
-            return new_business.to_dict(), 201
-        else:
-            return { "errors": "No image file provided" }, 400
-    else:
+    if form.errors:
         print(form.errors)
         return { "errors": form.errors }, 400
-
 
 
 @business_routes.route("/<int:businessId>", methods=["PUT"])
