@@ -4,7 +4,7 @@ from app.models import Business, Review
 from app.models.db import db
 from app.forms.business_form import BusinessForm
 from app.forms.review_form import ReviewForm
-from app.api.aws_helpers import get_unique_filename, upload_file_to_s3
+from app.api.aws_helpers import get_unique_filename, upload_file_to_s3, remove_file_from_s3
 
 business_routes = Blueprint('business', __name__)
 
@@ -153,6 +153,19 @@ def update_business(businessId):
 
     if business_to_update.owner_id == current_user.id:
         if form.validate_on_submit():
+            image = form.data["image_url"]
+            image.filename = get_unique_filename(image.filename)
+
+            # Upload the image to S3
+            upload = upload_file_to_s3(image)
+            print(upload)
+
+            if 'url' not in upload:
+                return { "errors": "Error uploading image to S3" }, 400
+
+            # Use the S3 URL
+            image_url = upload['url']
+
             business_to_update.address = form.data["address"]
             business_to_update.city = form.data["city"]
             business_to_update.state = form.data["state"]
@@ -161,8 +174,9 @@ def update_business(businessId):
             business_to_update.price = form.data["price"]
             business_to_update.open_hours = form.data["open_hours"]
             business_to_update.close_hours = form.data["close_hours"]
-            business_to_update.image_url = form.data["image_url"]
+            business_to_update.image_url = image_url
             business_to_update.description = form.data["description"]
+
             db.session.commit()
             return business_to_update.to_dict()
         else:
@@ -182,6 +196,9 @@ def delete_business(businessId):
 
     if business_to_delete:
         if business_to_delete.owner_id == current_user.id:
+            # Delete associated S3 files
+            remove_file_from_s3(business_to_delete.image_url)
+
             db.session.delete(business_to_delete)
             db.session.commit()
             return { "message": "Delete successful!" }

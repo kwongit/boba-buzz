@@ -1,5 +1,3 @@
-import { csrfFetch } from "./csrf";
-
 // TYPE CONSTANTS
 
 const GET_BUSINESSES = "businesses/getBusinesses";
@@ -98,8 +96,7 @@ export const thunkUpdateBusiness =
   (business, businessId) => async (dispatch) => {
     const res = await fetch(`/api/businesses/${businessId}`, {
       method: "PUT",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(business),
+      body: business,
     });
 
     if (res.ok) {
