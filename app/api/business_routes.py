@@ -152,6 +152,9 @@ def update_business(businessId):
     business_to_update = Business.query.get(businessId)
 
     if business_to_update.owner_id == current_user.id:
+        # Delete associated S3 files
+        remove_file_from_s3(business_to_update.image_url)
+
         if form.validate_on_submit():
             image = form.data["image_url"]
             image.filename = get_unique_filename(image.filename)
