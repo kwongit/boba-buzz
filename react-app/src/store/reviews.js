@@ -1,5 +1,3 @@
-import { csrfFetch } from "./csrf";
-
 // TYPE CONSTANTS
 
 const GET_REVIEWS = "reviews/getReviews";
@@ -34,7 +32,7 @@ const deleteReview = (reviewId) => {
 // THUNK ACTION CREATORS
 
 export const thunkGetReviews = () => async (dispatch) => {
-  const res = await csrfFetch("/api/reviews");
+  const res = await fetch("/api/reviews");
 
   if (res.ok) {
     const reviews = await res.json();
@@ -47,7 +45,7 @@ export const thunkGetReviews = () => async (dispatch) => {
 };
 
 export const thunkGetUserReviews = () => async (dispatch) => {
-  const res = await csrfFetch("/api/reviews/current");
+  const res = await fetch("/api/reviews/current");
 
   if (res.ok) {
     const reviews = await res.json();
@@ -60,7 +58,7 @@ export const thunkGetUserReviews = () => async (dispatch) => {
 };
 
 export const thunkGetBusinessReviews = (businessId) => async (dispatch) => {
-  const res = await csrfFetch(`/api/businesses/${businessId}/reviews`);
+  const res = await fetch(`/api/businesses/${businessId}/reviews`);
 
   if (res.ok) {
     const reviews = await res.json();
@@ -73,7 +71,7 @@ export const thunkGetBusinessReviews = (businessId) => async (dispatch) => {
 };
 
 export const thunkCreateReview = (review, businessId) => async (dispatch) => {
-  const res = await csrfFetch(`/api/businesses/${businessId}`, {
+  const res = await fetch(`/api/businesses/${businessId}`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(review),
@@ -90,7 +88,7 @@ export const thunkCreateReview = (review, businessId) => async (dispatch) => {
 };
 
 export const thunkUpdateReview = (review, reviewId) => async (dispatch) => {
-  const res = await csrfFetch(`/api/reviews/${reviewId}`, {
+  const res = await fetch(`/api/reviews/${reviewId}`, {
     method: "PUT",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(review),
@@ -107,7 +105,7 @@ export const thunkUpdateReview = (review, reviewId) => async (dispatch) => {
 };
 
 export const thunkDeleteReview = (reviewId) => async (dispatch) => {
-  const res = await csrfFetch(`/api/reviews/${reviewId}`, {
+  const res = await fetch(`/api/reviews/${reviewId}`, {
     method: "DELETE",
   });
 
