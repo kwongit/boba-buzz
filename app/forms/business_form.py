@@ -1,6 +1,8 @@
 from flask_wtf import FlaskForm
-from wtforms import SelectField, StringField, SubmitField, URLField, IntegerField
+from wtforms import SelectField, StringField, SubmitField, IntegerField, FileField
 from wtforms.validators import DataRequired
+from flask_wtf.file import FileField, FileAllowed, FileRequired
+from app.api.aws_helpers import ALLOWED_EXTENSIONS
 
 
 hours = [
@@ -31,6 +33,6 @@ class BusinessForm(FlaskForm):
     price = IntegerField("Business Price Range", validators=[DataRequired()])
     open_hours = SelectField("Business Open Hours", choices=hours, validators=[DataRequired()])
     close_hours = SelectField("Business Closing Hour", choices=hours, validators=[DataRequired()])
-    image_url = URLField("Business Main Image", validators=[DataRequired()])
+    image_url = FileField("Business Main Image", validators=[FileRequired(), FileAllowed(list(ALLOWED_EXTENSIONS))])
     description = StringField("Business Description", validators=[DataRequired()])
     submit = SubmitField("Create Business")
