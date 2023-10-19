@@ -215,7 +215,178 @@ def seed_businesses():
         """
         )
 
-    businesses = [asha, bobaguys, fengcha, happylemon, sunright, teaspoon, teatop, tiger, tptea, yifang]
+    # tongsui business_id=11
+    tongsui = Business(
+        owner_id=1,
+        address="927 E Arques Ave Ste 151 ",
+        city="Sunnyvale",
+        state="CA",
+        name="Tong Sui",
+        type="Bubble Tea",
+        price=3,
+        open_hours="11:00 AM",
+        close_hours="9:00 PM",
+        image_url="https://tb-static.uber.com/prod/image-proc/processed_images/94c381dd22fc0470343b0b6227bdf1ef/c73ecc27d2a9eaa735b1ee95304ba588.jpeg",
+        description="""
+        Specialties
+        coconut pudding, organic, made of fresh coconut water, low sugary, Asian dessert, seasonal, frushie, fresh, real fruit, smoothies
+        """
+        )
+
+    # pinkpink business_id=12
+    pinkpink = Business(
+        owner_id=1,
+        address="2855 Stevens Creek Blvd Ste 2299",
+        city="Santa Clara",
+        state="CA",
+        name="Pink Pink Tea Shoppe",
+        type="Bubble Tea",
+        price=3,
+        open_hours="11:00 AM",
+        close_hours="9:00 PM",
+        image_url="https://doordash-static.s3.amazonaws.com/media/store/header/ab1576dd-35aa-4c8d-b0dc-2003feeff62d.jpg",
+        description="""
+        We're a local woman-owned small business with a passion for creating fresh and healthy tea drinks. We use organic ingredients and less sugar than most boba tea shops. Our team tests hundreds of recipes to make sure we offer only the best-looking, best-tasting, and best-for-you drinks possible! We're just getting started and would appreciate your review and feedback on any platform. Thanks for your support and we hope you enjoy it!
+        """
+        )
+
+    #  business_id=13
+    x = Business(
+        owner_id=1,
+        address="",
+        city="",
+        state="CA",
+        name="",
+        type="Bubble Tea",
+        price=2,
+        open_hours="11:00 AM",
+        close_hours="8:00 PM",
+        image_url="",
+        description="""
+
+        """
+        )
+
+    #  business_id=14
+    x = Business(
+        owner_id=1,
+        address="",
+        city="",
+        state="CA",
+        name="",
+        type="Bubble Tea",
+        price=2,
+        open_hours="11:00 AM",
+        close_hours="8:00 PM",
+        image_url="",
+        description="""
+
+        """
+        )
+
+    #  business_id=15
+    x = Business(
+        owner_id=1,
+        address="",
+        city="",
+        state="CA",
+        name="",
+        type="Bubble Tea",
+        price=2,
+        open_hours="11:00 AM",
+        close_hours="8:00 PM",
+        image_url="",
+        description="""
+
+        """
+        )
+
+    #  business_id=16
+    x = Business(
+        owner_id=1,
+        address="",
+        city="",
+        state="CA",
+        name="",
+        type="Bubble Tea",
+        price=2,
+        open_hours="11:00 AM",
+        close_hours="8:00 PM",
+        image_url="",
+        description="""
+
+        """
+        )
+
+    #  business_id=17
+    x = Business(
+        owner_id=1,
+        address="",
+        city="",
+        state="CA",
+        name="",
+        type="Bubble Tea",
+        price=2,
+        open_hours="11:00 AM",
+        close_hours="8:00 PM",
+        image_url="",
+        description="""
+
+        """
+        )
+
+    #  business_id=18
+    x = Business(
+        owner_id=1,
+        address="",
+        city="",
+        state="CA",
+        name="",
+        type="Bubble Tea",
+        price=2,
+        open_hours="11:00 AM",
+        close_hours="8:00 PM",
+        image_url="",
+        description="""
+
+        """
+        )
+
+    #  business_id=19
+    x = Business(
+        owner_id=1,
+        address="",
+        city="",
+        state="CA",
+        name="",
+        type="Bubble Tea",
+        price=2,
+        open_hours="11:00 AM",
+        close_hours="8:00 PM",
+        image_url="",
+        description="""
+
+        """
+        )
+
+    #  business_id=20
+    x = Business(
+        owner_id=1,
+        address="",
+        city="",
+        state="CA",
+        name="",
+        type="Bubble Tea",
+        price=2,
+        open_hours="11:00 AM",
+        close_hours="8:00 PM",
+        image_url="",
+        description="""
+
+        """
+        )
+
+    businesses = [asha, bobaguys, fengcha, happylemon, sunright, teaspoon, teatop, tiger, tptea, yifang, tongsui, pinkpink]
     add_business = [db.session.add(business) for business in businesses]
     db.session.commit()
 
