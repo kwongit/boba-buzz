@@ -56,7 +56,7 @@ You can check out the [live site here](https://boba-buzz.onrender.com)!
 
 <img width="952" alt="login_modal" src="https://github.com/kwongit/boba-buzz/assets/26725594/569e577b-8b7c-413c-991e-66bccd5b0d4d">
 
-### Boba Shop Details Page
+### Shop Details Page
 
 <img width="952" alt="shop_details" src="https://github.com/kwongit/boba-buzz/assets/26725594/f0002aed-c8df-4c65-87ef-756678de2344">
 
