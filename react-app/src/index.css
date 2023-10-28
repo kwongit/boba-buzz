@@ -39,6 +39,10 @@ body {
   margin: 0px;
 }
 
+.fa-linkedin {
+  transform: scale(2);
+}
+
 #root {
   min-height: 100vh;
 }

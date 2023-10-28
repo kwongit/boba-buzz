@@ -36,13 +36,6 @@ export const CreateBusiness = ({ user }) => {
     if (!close_hours || close_hours < 1)
       errors.close_hours = "Close hours is required";
     if (!image_url) errors.image_url = "Preview image is required";
-    if (
-      image_url &&
-      !image_url.endsWith("jpg") &&
-      !image_url.endsWith("jpeg") &&
-      !image_url.endsWith("png")
-    )
-      errors.image_url = "Image URL must end in .png, .jpg, or .jpeg";
     if (!description) errors.description = "Description is required";
 
     setErrors(errors);
@@ -59,29 +52,31 @@ export const CreateBusiness = ({ user }) => {
     description,
   ]);
 
+  const handleImageChange = (e) => {
+    const selectedImage = e.target.files[0];
+    setImageUrl(selectedImage);
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (isSubmitting) return;
     setIsSubmitting(true);
     setSubmitted(true);
 
-    const newBusiness = {
-      address,
-      city,
-      state,
-      name,
-      type,
-      price,
-      open_hours,
-      close_hours,
-      image_url,
-      description,
-    };
+    const formData = new FormData();
+    formData.append("address", address);
+    formData.append("city", city);
+    formData.append("state", state);
+    formData.append("name", name);
+    formData.append("type", type);
+    formData.append("price", price);
+    formData.append("open_hours", open_hours);
+    formData.append("close_hours", close_hours);
+    formData.append("image_url", image_url);
+    formData.append("description", description);
 
     if (!Object.values(errors).length) {
-      const addBusiness = await dispatch(
-        thunkCreateBusiness(newBusiness, user)
-      );
+      const addBusiness = await dispatch(thunkCreateBusiness(formData, user));
 
       const combinedErrors = { ...errors, Errors: addBusiness.errors };
 
@@ -103,7 +98,11 @@ export const CreateBusiness = ({ user }) => {
       ></img>
       <div className="create-business-container">
         <h1 className="create-business-title">Add Your Shop</h1>
-        <form className="create-business-form-window" onSubmit={handleSubmit}>
+        <form
+          className="create-business-form-window"
+          onSubmit={handleSubmit}
+          encType="multipart/form-data"
+        >
           <div className="create-business-form-container">
             <div className="create-business-form-input-container">
               <div className="create-business-form-label-container">
@@ -281,9 +280,9 @@ export const CreateBusiness = ({ user }) => {
               </div>
               <input
                 className="create-business-form-input-field"
-                type="url"
-                value={image_url}
-                onChange={(e) => setImageUrl(e.target.value)}
+                type="file"
+                accept="image/*"
+                onChange={handleImageChange}
                 placeholder="Main Image URL"
               />
             </div>

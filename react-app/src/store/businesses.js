@@ -1,5 +1,3 @@
-import { csrfFetch } from "./csrf";
-
 // TYPE CONSTANTS
 
 const GET_BUSINESSES = "businesses/getBusinesses";
@@ -41,7 +39,7 @@ const deleteBusiness = (businessId) => {
 // THUNK ACTION CREATORS
 
 export const thunkGetBusinesses = () => async (dispatch) => {
-  const res = await csrfFetch("/api/businesses");
+  const res = await fetch("/api/businesses");
 
   if (res.ok) {
     const businesses = await res.json();
@@ -54,7 +52,7 @@ export const thunkGetBusinesses = () => async (dispatch) => {
 };
 
 export const thunkGetBusinessInfo = (businessId) => async (dispatch) => {
-  const res = await csrfFetch(`/api/businesses/${businessId}`);
+  const res = await fetch(`/api/businesses/${businessId}`);
 
   if (res.ok) {
     const business = await res.json();
@@ -67,10 +65,9 @@ export const thunkGetBusinessInfo = (businessId) => async (dispatch) => {
 };
 
 export const thunkCreateBusiness = (business, user) => async (dispatch) => {
-  const res = await csrfFetch("/api/businesses/", {
+  const res = await fetch("/api/businesses/", {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(business),
+    body: business,
   });
 
   if (res.ok) {
@@ -83,7 +80,7 @@ export const thunkCreateBusiness = (business, user) => async (dispatch) => {
 };
 
 export const thunkGetUserBusinesses = () => async (dispatch) => {
-  const res = await csrfFetch("/api/businesses/current");
+  const res = await fetch("/api/businesses/current");
 
   if (res.ok) {
     const businesses = await res.json();
@@ -97,10 +94,9 @@ export const thunkGetUserBusinesses = () => async (dispatch) => {
 
 export const thunkUpdateBusiness =
   (business, businessId) => async (dispatch) => {
-    const res = await csrfFetch(`/api/businesses/${businessId}`, {
+    const res = await fetch(`/api/businesses/${businessId}`, {
       method: "PUT",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(business),
+      body: business,
     });
 
     if (res.ok) {
@@ -114,7 +110,7 @@ export const thunkUpdateBusiness =
   };
 
 export const thunkDeleteBusiness = (businessId) => async (dispatch) => {
-  const res = await csrfFetch(`/api/businesses/${businessId}`, {
+  const res = await fetch(`/api/businesses/${businessId}`, {
     method: "DELETE",
   });
 
