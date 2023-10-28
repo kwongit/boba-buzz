@@ -193,7 +193,7 @@ def update_business(businessId):
 @login_required
 def delete_business(businessId):
     """
-    Route to delete a business
+    Route to delete a business and associated S3 files
     """
     business_to_delete = Business.query.get(businessId)
 
@@ -202,6 +202,7 @@ def delete_business(businessId):
             # Delete associated S3 files
             remove_file_from_s3(business_to_delete.image_url)
 
+            # Delete the restaurant from the database
             db.session.delete(business_to_delete)
             db.session.commit()
             return { "message": "Delete successful!" }
