@@ -1,8 +1,9 @@
 from flask import Blueprint, request
 from flask_login import current_user, login_required
-from app.models import Business, Review
+from app.models import Business, FeaturedItem, Review
 from app.models.db import db
 from app.forms.business_form import BusinessForm
+from app.forms.featured_item_form import FeaturedItemForm
 from app.forms.review_form import ReviewForm
 from app.api.aws_helpers import get_unique_filename, upload_file_to_s3, remove_file_from_s3
 
@@ -117,18 +118,18 @@ def create_business():
         image_url = upload['url']
 
         new_business = Business(
-            owner_id=current_user.id,
-            address=form.data["address"],
-            city=form.data["city"],
-            state=form.data["state"],
-            name=form.data["name"],
-            type=form.data["type"],
-            price=form.data["price"],
-            open_hours=form.data["open_hours"],
-            close_hours=form.data["close_hours"],
+            owner_id = current_user.id,
+            address = form.data["address"],
+            city = form.data["city"],
+            state = form.data["state"],
+            name = form.data["name"],
+            type = form.data["type"],
+            price = form.data["price"],
+            open_hours = form.data["open_hours"],
+            close_hours = form.data["close_hours"],
             # Use the S3 URL
-            image_url=image_url,
-            description=form.data["description"]
+            image_url = image_url,
+            description = form.data["description"]
         )
 
         db.session.add(new_business)
@@ -212,6 +213,101 @@ def delete_business(businessId):
         return { "message": "Business not found!" }, 404
 
 
+# /api/businesses/:businessId/featuredItems
+@business_routes.route('/<int:businessId>/featuredItems')
+def get_business_featured_items(businessId):
+  """
+  Gets all featured items for a specific business
+  """
+  featured_items = FeaturedItem.query.all()
+
+  featured_items_list = [featured_item.to_dict() for featured_item in featured_items if featured_item.business_id == businessId]
+
+  return featured_items_list
+
+
+# /api/businesses/:businessId
+@business_routes.route('/<int:businessId>', methods=['POST'])
+@login_required
+def create_featured_item(businessId):
+  """
+  Route to create a featured item
+  """
+  form = FeaturedItemForm()
+  form["csrf_token"].data = request.cookies["csrf_token"]
+
+  if form.validate_on_submit():
+    image = form.data["image_url"]
+    image.filename = get_unique_filename(image.filename)
+
+    # Upload the image to S3
+    upload = upload_file_to_s3(image)
+    print(upload)
+
+    if 'url' not in upload:
+        return { "errors": "Error uploading image to S3" }, 400
+
+    # Use the S3 URL
+    image_url = upload['url']
+
+    new_featured_item = FeaturedItem(
+      business_id = businessId,
+      name = form.data["name"],
+      # Use the S3 URL
+      image_url = image_url,
+    )
+
+    db.session.add(new_featured_item)
+    db.session.commit()
+    return form.to_dict(), 201
+
+  else:
+    print(form.errors)
+    return { "errors": form.errors }, 400
+
+
+# /api/businesses/:businessId/:featuredItemId
+@business_routes.route('/<int:businessId>/<int:featuredItemId>', methods=['PUT']) # TODO: not sure if route is correct!
+@login_required
+def update_featured_item(featuredItemId):
+  """
+  Route to update a featured item
+  """
+  form = FeaturedItemForm()
+  form["csrf_token"].data = request.cookies["csrf_token"]
+
+  featured_item_to_update = FeaturedItem.query.get(featuredItemId)
+
+  if featured_item_to_update.owner_id == current_user.id:
+    # Delete associated S3 files
+    remove_file_from_s3(featured_item_to_update.image_url)
+
+    if form.validate_on_submit():
+      image = form.data["image_url"]
+      image.filename = get_unique_filename(image.filename)
+
+      # Upload the image to S3
+      upload = upload_file_to_s3(image)
+      print(upload)
+
+      if 'url' not in upload:
+          return { "errors": "Error uploading image to S3" }, 400
+
+      # Use the S3 URL
+      image_url = upload['url']
+
+      featured_item_to_update.name = form.data["name"]
+      featured_item_to_update.image_url = image_url
+
+      db.session.commit()
+      return featured_item_to_update.to_dict()
+    else:
+      print(form.errors)
+      return { "errors": form.errors }, 400
+  else:
+    return { "message": "FORBIDDEN"}, 403
+
+
 @business_routes.route('/<int:businessId>/reviews')
 def get_business_reviews(businessId):
     """
@@ -234,10 +330,10 @@ def create_review(businessId):
 
     if form.validate_on_submit():
         new_review = Review(
-            business_id=businessId,
-            user_id=current_user.id,
-            review=form.data["review"],
-            stars=form.data["stars"]
+            business_id = businessId,
+            user_id = current_user.id,
+            review = form.data["review"],
+            stars = form.data["stars"]
         )
         db.session.add(new_review)
         db.session.commit()
