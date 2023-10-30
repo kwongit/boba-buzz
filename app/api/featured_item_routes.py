@@ -13,7 +13,7 @@ def get_featured_item_by_id(featuredItemId):
   """
   Get featured item by featuredItemId
   """
-  featured_item = FeaturedItem.get(featuredItemId)
+  featured_item = FeaturedItem.query.get(featuredItemId)
 
   if not featured_item:
     return { "message": "Featured item was not found!"}, 404

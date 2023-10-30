@@ -221,13 +221,13 @@ def get_business_featured_items(businessId):
   """
   featured_items = FeaturedItem.query.all()
 
-  featured_items_list = [featured_item.to_dict() for featured_item in featured_items if featured_item.businessId == businessId]
+  featured_items_list = [featured_item.to_dict() for featured_item in featured_items if featured_item.business_id == businessId]
 
   return featured_items_list
 
 
-# /api/businesses/:businessId/
-@business_routes.route('/<int:businessId>/', methods=['POST']) # TODO: not sure if route is correct!
+# /api/businesses/:businessId
+@business_routes.route('/<int:businessId>', methods=['POST'])
 @login_required
 def create_featured_item(businessId):
   """
@@ -251,7 +251,7 @@ def create_featured_item(businessId):
     image_url = upload['url']
 
     new_featured_item = FeaturedItem(
-      businessId = businessId,
+      business_id = businessId,
       name = form.data["name"],
       # Use the S3 URL
       image_url = image_url,

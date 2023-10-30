@@ -11,7 +11,7 @@ class FeaturedItem(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     business_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("businesses.id"), ondelete="CASCADE"), nullable=False)
     name = db.Column(db.String(255), nullable=False)
-    image_url = db.Column(db.String, nullable=False)
+    image_url = db.Column(db.String)
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
     updated_at = db.Column(db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
 
