@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux";
 import OpenModalButton from "../OpenModalButton";
+import "./FeaturedItems.css";
 
 const FeaturedItemsTile = ({ featuredItem, businessId }) => {
   const { id, name, image_url } = featuredItem;
@@ -10,12 +11,8 @@ const FeaturedItemsTile = ({ featuredItem, businessId }) => {
   return (
     <div className="">
       <div className="" key={id}>
-        <img
-          className="featured-items-tile-image"
-          src={image_url}
-          alt={name}
-        ></img>
-        <div className="">{name}</div>
+        <img className="featured-item-image" src={image_url} alt={name}></img>
+        <div className="featured-item-name">{name}</div>
       </div>
       {/* <div className="">
         {currentUser && businesses.owner_id === currentUser.id && (

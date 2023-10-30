@@ -4,7 +4,19 @@ import { thunkGetFeaturedItems } from "../../store/featuredItems";
 import FeaturedItemsTile from "./FeaturedItemsTile";
 import "./FeaturedItems.css";
 
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
 export const FeaturedItems = ({ businessId }) => {
+  const settings = {
+    dots: true,
+    infinite: false,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+  };
+
   const dispatch = useDispatch();
 
   const getFeaturedItems = useSelector(
@@ -20,14 +32,14 @@ export const FeaturedItems = ({ businessId }) => {
 
   return (
     <>
-      <div className="featured-items-tile-container">
+      <Slider className="featured-items-tile-container" {...settings}>
         {featuredItems.map((featuredItem) => (
           <FeaturedItemsTile
             key={featuredItem.id}
             featuredItem={featuredItem}
           />
         ))}
-      </div>
+      </Slider>
     </>
   );
 };

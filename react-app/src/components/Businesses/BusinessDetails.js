@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router";
 import { useParams } from "react-router-dom";
 import { thunkGetBusinessInfo } from "../../store/businesses";
 import { thunkGetBusinessReviews } from "../../store/reviews";
@@ -9,9 +10,11 @@ import "./BusinessDetails.css";
 
 export const BusinessDetails = () => {
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const { businessId } = useParams();
 
+  const currentUser = useSelector((state) => state.session.user);
   const reviews = useSelector((state) => state.reviews.allReviews);
   const reviewsList = Object.values(reviews);
 
@@ -38,6 +41,10 @@ export const BusinessDetails = () => {
     image_url,
     description,
   } = oneBusiness;
+
+  const handleClick = () => {
+    history.push(`/businesses/${businessId}`);
+  };
 
   return (
     <div>
@@ -99,6 +106,16 @@ export const BusinessDetails = () => {
           <div className="business-details-additional-details">
             <div className="business-details-featured-items">
               <h3>Featured Items</h3>
+              <div className="">
+                {currentUser && oneBusiness.owner_id === currentUser.id && (
+                  <button
+                    className="create-featured-item-button"
+                    onClick={handleClick}
+                  >
+                    Add a Featured Item
+                  </button>
+                )}
+              </div>
               <div className="">
                 <FeaturedItems businessId={businessId} />
               </div>
