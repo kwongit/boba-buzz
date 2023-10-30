@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { thunkGetBusinessInfo } from "../../store/businesses";
 import { thunkGetBusinessReviews } from "../../store/reviews";
+import { FeaturedItems } from "../FeaturedItems";
 import { BusinessReviews } from "../Reviews";
 import "./BusinessDetails.css";
 
@@ -98,7 +99,9 @@ export const BusinessDetails = () => {
           <div className="business-details-additional-details">
             <div className="business-details-featured-items">
               <h3>Featured Items</h3>
-              <div className="additional-details-p">Coming Soon...</div>
+              <div className="">
+                <FeaturedItems businessId={businessId} />
+              </div>
             </div>
             <div className="business-details-location-hours">
               <h3>Location & Hours</h3>

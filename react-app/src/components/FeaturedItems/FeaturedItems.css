@@ -1,0 +1,10 @@
+.featured-items-tile-container {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+.featured-items-tile-image {
+  width: 185px;
+  height: 150px;
+}

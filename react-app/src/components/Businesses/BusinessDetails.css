@@ -67,10 +67,6 @@
   justify-content: center;
 }
 
-.additional-details-p {
-  font-size: 14px;
-}
-
 .business-details-featured-items, .business-details-location-hours, .business-details-about-shop {
   border-bottom: 1px solid gray;
   padding-bottom: 30px;
