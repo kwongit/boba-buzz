@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { useParams, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { useModal } from "../../context/Modal";
 import { thunkCreateFeaturedItem } from "../../store/featuredItems";
 
@@ -14,8 +14,6 @@ export const CreateFeaturedItemModal = ({ user, businessId }) => {
   const dispatch = useDispatch();
   const { closeModal } = useModal();
 
-  // const { businessId } = useParams();
-
   useEffect(() => {
     const errors = {};
 
@@ -25,7 +23,7 @@ export const CreateFeaturedItemModal = ({ user, businessId }) => {
     if (!image_url) errors.image_url = "Preview image is required";
 
     setErrors(errors);
-  }, [name, image_url]);
+  }, [dispatch, name, image_url]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -45,12 +43,10 @@ export const CreateFeaturedItemModal = ({ user, businessId }) => {
       if (addFeaturedItem.errors) {
         setErrors(combinedErrors);
       } else {
-        // history.push(`/menuitems/${addFeaturedItem.id}`);
         closeModal();
+        // history.push(`/businesses/${businessId}`);
       }
     }
-
-    // return dispatch(thunkCreateFeaturedItem(businessId)).then(closeModal);
   };
 
   return (

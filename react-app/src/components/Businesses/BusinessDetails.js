@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 // import { useHistory } from "react-router";
 import { useParams } from "react-router-dom";
 import { thunkGetBusinessInfo } from "../../store/businesses";
+import { thunkGetFeaturedItems } from "../../store/featuredItems";
 import { thunkGetBusinessReviews } from "../../store/reviews";
 import { FeaturedItems } from "../FeaturedItems";
 import { BusinessReviews } from "../Reviews";
@@ -17,15 +18,21 @@ export const BusinessDetails = () => {
   const { businessId } = useParams();
 
   const currentUser = useSelector((state) => state.session.user);
-  const reviews = useSelector((state) => state.reviews.allReviews);
-  const reviewsList = Object.values(reviews);
-
   const oneBusiness = useSelector((state) => state.businesses.singleBusiness);
+  const featuredItems = useSelector(
+    (state) => state.featuredItems.allFeaturedItems
+  );
+  const reviews = useSelector((state) => state.reviews.allReviews);
+
+  const reviewsList = Object.values(reviews);
+  const featuredItemsList = Object.values(featuredItems);
 
   useEffect(() => {
+    console.log("BusinessDetails component re-rendered");
     dispatch(thunkGetBusinessInfo(businessId));
     dispatch(thunkGetBusinessReviews(businessId));
-  }, [dispatch, businessId, reviewsList.length]);
+    dispatch(thunkGetFeaturedItems(businessId));
+  }, [dispatch, businessId, featuredItemsList.length, reviewsList.length]);
 
   if (!oneBusiness.id) return null;
 
@@ -119,7 +126,6 @@ export const BusinessDetails = () => {
                   <OpenModalButton
                     buttonText="Add a New Featured Item"
                     modalComponent={
-                      // <CreateFeaturedItemModal menuItemId={menuItem.id} />
                       <CreateFeaturedItemModal businessId={businessId} />
                     }
                   />

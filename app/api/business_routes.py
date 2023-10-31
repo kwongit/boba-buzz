@@ -259,7 +259,7 @@ def create_featured_item(businessId):
 
     db.session.add(new_featured_item)
     db.session.commit()
-    return form.to_dict(), 201
+    return new_featured_item.to_dict(), 201
 
   else:
     print(form.errors)
