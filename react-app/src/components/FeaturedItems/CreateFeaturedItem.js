@@ -1,10 +1,9 @@
 import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { useHistory } from "react-router-dom";
-import { useModal } from "../../context/Modal";
+import { useHistory, useParams } from "react-router-dom";
 import { thunkCreateFeaturedItem } from "../../store/featuredItems";
 
-export const CreateFeaturedItemModal = ({ user, businessId }) => {
+export const CreateFeaturedItem = ({ user }) => {
   const [name, setName] = useState("");
   const [image_url, setImageUrl] = useState("");
   const [submitted, setSubmitted] = useState(false);
@@ -12,7 +11,8 @@ export const CreateFeaturedItemModal = ({ user, businessId }) => {
 
   const history = useHistory();
   const dispatch = useDispatch();
-  const { closeModal } = useModal();
+
+  const { businessId } = useParams();
 
   useEffect(() => {
     const errors = {};
@@ -43,8 +43,7 @@ export const CreateFeaturedItemModal = ({ user, businessId }) => {
       if (addFeaturedItem.errors) {
         setErrors(combinedErrors);
       } else {
-        closeModal();
-        // history.push(`/businesses/${businessId}`);
+        history.push(`/businesses/${businessId}`);
       }
     }
   };
@@ -52,7 +51,7 @@ export const CreateFeaturedItemModal = ({ user, businessId }) => {
   return (
     <div className="create-featured-item-modal-content">
       <div className="create-featured-item-container">
-        <h3>Add a Featured Item</h3>
+        <h3>Add a New Featured Item</h3>
 
         <form onSubmit={handleSubmit} id="create-form-container">
           <div className="name-container">
@@ -72,7 +71,7 @@ export const CreateFeaturedItemModal = ({ user, businessId }) => {
           </div>
 
           <div className="images-container ">
-            <p>Upload a photo to feature the item</p>
+            <p>Item Photo</p>
             <div className="image-url-container">
               <input
                 type="file"

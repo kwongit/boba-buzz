@@ -1,19 +1,17 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-// import { useHistory } from "react-router";
+import { useHistory } from "react-router";
 import { useParams } from "react-router-dom";
 import { thunkGetBusinessInfo } from "../../store/businesses";
 import { thunkGetFeaturedItems } from "../../store/featuredItems";
 import { thunkGetBusinessReviews } from "../../store/reviews";
 import { FeaturedItems } from "../FeaturedItems";
 import { BusinessReviews } from "../Reviews";
-import OpenModalButton from "../OpenModalButton";
-import { CreateFeaturedItemModal } from "../FeaturedItems/CreateFeaturedItemModal";
 import "./BusinessDetails.css";
 
 export const BusinessDetails = () => {
   const dispatch = useDispatch();
-  // const history = useHistory();
+  const history = useHistory();
 
   const { businessId } = useParams();
 
@@ -28,7 +26,6 @@ export const BusinessDetails = () => {
   const featuredItemsList = Object.values(featuredItems);
 
   useEffect(() => {
-    console.log("BusinessDetails component re-rendered");
     dispatch(thunkGetBusinessInfo(businessId));
     dispatch(thunkGetBusinessReviews(businessId));
     dispatch(thunkGetFeaturedItems(businessId));
@@ -51,9 +48,9 @@ export const BusinessDetails = () => {
     description,
   } = oneBusiness;
 
-  // const handleClick = () => {
-  //   history.push(`/businesses/${businessId}`);
-  // };
+  const handleClick = () => {
+    history.push(`/businesses/${businessId}/createFeaturedItem`);
+  };
 
   return (
     <div>
@@ -117,18 +114,12 @@ export const BusinessDetails = () => {
               <h3>Featured Items</h3>
               <div className="">
                 {currentUser && oneBusiness.owner_id === currentUser.id && (
-                  // <button
-                  //   className="create-featured-item-button"
-                  //   onClick={handleClick}
-                  // >
-                  //   Add a New Featured Item
-                  // </button>
-                  <OpenModalButton
-                    buttonText="Add a New Featured Item"
-                    modalComponent={
-                      <CreateFeaturedItemModal businessId={businessId} />
-                    }
-                  />
+                  <button
+                    className="create-featured-item-button"
+                    onClick={handleClick}
+                  >
+                    Add Featured Item
+                  </button>
                 )}
               </div>
               <div className="">

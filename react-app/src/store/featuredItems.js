@@ -56,10 +56,13 @@ export const thunkGetFeaturedItemInfo =
 
 export const thunkCreateFeaturedItem =
   (featuredItem, businessId) => async (dispatch) => {
-    const res = await fetch(`/api/businesses/${businessId}`, {
-      method: "POST",
-      body: featuredItem,
-    });
+    const res = await fetch(
+      `/api/businesses/${businessId}/createFeaturedItem`,
+      {
+        method: "POST",
+        body: featuredItem,
+      }
+    );
     if (res.ok) {
       const data = await res.json();
       return data;
