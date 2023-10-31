@@ -266,8 +266,8 @@ def create_featured_item(businessId):
     return { "errors": form.errors }, 400
 
 
-# /api/businesses/:businessId/:featuredItemId
-# @business_routes.route('/<int:businessId>/<int:featuredItemId>', methods=['PUT'])
+# # /api/featuredItems/:featuredItemId
+# @business_routes.route('/featuredItems/<int:featuredItemId>', methods=['PUT'])
 # @login_required
 # def update_featured_item(featuredItemId):
 #   """

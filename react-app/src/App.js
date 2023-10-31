@@ -12,6 +12,7 @@ import { BusinessDetails } from "./components/Businesses/BusinessDetails";
 import { CreateBusiness } from "./components/Businesses/CreateBusiness";
 import { GetBusinessToUpdate } from "./components/Businesses/GetBusinessToUpdate";
 import { CreateFeaturedItem } from "./components/FeaturedItems/CreateFeaturedItem";
+import { GetFeaturedItemToUpdate } from "./components/FeaturedItems/GetFeaturedItemToUpdate";
 
 function App() {
   const dispatch = useDispatch();
@@ -51,6 +52,9 @@ function App() {
           </Route>
           <Route exact path="/businesses/:businessId/createFeaturedItem">
             <CreateFeaturedItem />
+          </Route>
+          <Route exact path="/featuredItems/:featuredItemId/edit">
+            <GetFeaturedItemToUpdate />
           </Route>
         </Switch>
       )}

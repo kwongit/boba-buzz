@@ -1,13 +1,20 @@
 import { useSelector } from "react-redux";
+import { useHistory } from "react-router";
 import OpenModalButton from "../OpenModalButton";
 import { DeleteFeaturedItemModal } from "./DeleteFeaturedItemModal";
 import "./FeaturedItems.css";
 
-const FeaturedItemsTile = ({ featuredItem, businessId }) => {
+const FeaturedItemsTile = ({ featuredItem }) => {
   const { id, name, image_url } = featuredItem;
+
+  const history = useHistory();
 
   const businesses = useSelector((state) => state.businesses.singleBusiness);
   const currentUser = useSelector((state) => state.session.user);
+
+  const handleClick = () => {
+    history.push(`/featuredItems/${featuredItem.id}/edit`);
+  };
 
   return (
     <div className="">
@@ -17,12 +24,20 @@ const FeaturedItemsTile = ({ featuredItem, businessId }) => {
       </div>
       <div className="">
         {currentUser && businesses.owner_id === currentUser.id && (
-          <OpenModalButton
-            buttonText="Delete"
-            modalComponent={
-              <DeleteFeaturedItemModal featuredItemId={featuredItem.id} />
-            }
-          />
+          <div>
+            <button
+              className="update-featured-item-button"
+              onClick={handleClick}
+            >
+              Update
+            </button>
+            <OpenModalButton
+              buttonText="Delete"
+              modalComponent={
+                <DeleteFeaturedItemModal featuredItemId={featuredItem.id} />
+              }
+            />
+          </div>
         )}
       </div>
     </div>

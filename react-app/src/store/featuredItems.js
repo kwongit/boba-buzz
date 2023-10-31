@@ -2,6 +2,7 @@
 
 const GET_FEATURED_ITEMS = "featuredItems/getFeaturedItems";
 const GET_FEATURED_ITEM = "featuredItems/getFeaturedItem";
+const UPDATE_FEATURED_ITEM = "featuredItems/updateFeaturedItem";
 const DELETE_FEATURED_ITEM = "featuredItems/deleteFeaturedItem";
 
 // ACTION CREATORS
@@ -16,6 +17,13 @@ const getFeaturedItems = (featuredItems) => {
 const getFeaturedItem = (featuredItem) => {
   return {
     type: GET_FEATURED_ITEM,
+    featuredItem,
+  };
+};
+
+const updateFeaturedItem = (featuredItem) => {
+  return {
+    type: UPDATE_FEATURED_ITEM,
     featuredItem,
   };
 };
@@ -72,6 +80,38 @@ export const thunkCreateFeaturedItem =
     }
   };
 
+// export const thunkUpdateFeaturedItem =
+//   (featuredItem, featuredItemId) => async (dispatch) => {
+//     const res = await fetch(`/api/featuredItems/${featuredItemId}`, {
+//       method: "PUT",
+//       body: featuredItem,
+//     });
+//     if (res.ok) {
+//       const data = await res.json();
+//       return data;
+//     } else {
+//       const errors = await res.json();
+//       return errors;
+//     }
+//   };
+
+export const thunkUpdateFeaturedItem =
+  (featuredItem, featuredItemId) => async (dispatch) => {
+    const res = await fetch(`/api/featuredItems/${featuredItemId}/edit`, {
+      method: "PUT",
+      body: featuredItem,
+    });
+
+    if (res.ok) {
+      const data = await res.json();
+      dispatch(updateFeaturedItem(data));
+      return data;
+    } else {
+      const errors = await res.json();
+      return errors;
+    }
+  };
+
 export const thunkDeleteFeaturedItem = (featuredItemId) => async (dispatch) => {
   const res = await fetch(`/api/featuredItems/${featuredItemId}`, {
     method: "DELETE",
@@ -99,6 +139,18 @@ const featuredItemsReducer = (state = initialState, action) => {
     case GET_FEATURED_ITEM:
       newState = { ...state, singleFeaturedItem: {} };
       newState.singleFeaturedItem = action.featuredItem;
+      return newState;
+
+    case UPDATE_FEATURED_ITEM:
+      newState = {
+        ...state,
+        allFeaturedItems: {},
+        singleFeaturedItem: { ...state.singleFeaturedItem },
+      };
+      newState.singleFeaturedItem = {
+        ...newState.singleFeaturedItem,
+        ...action.featuredItem,
+      };
       return newState;
 
     case DELETE_FEATURED_ITEM:
