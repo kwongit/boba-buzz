@@ -1,6 +1,6 @@
 from flask import Blueprint
 from flask_login import login_required, current_user
-from app.models import FeaturedItem
+from app.models import FeaturedItem, Business
 from app.models.db import db
 from app.api.aws_helpers import get_unique_filename, upload_file_to_s3, remove_file_from_s3
 
@@ -31,7 +31,8 @@ def delete_featured_item(featuredItemId):
   featured_item_to_delete = FeaturedItem.query.get(featuredItemId)
 
   if featured_item_to_delete:
-    if featured_item_to_delete.owner_id == current_user.id:
+    target_business = Business.query.get(featured_item_to_delete.business_id)
+    if target_business.owner_id == current_user.id:
       # Delete associated S3 files
       remove_file_from_s3(featured_item_to_delete.image_url)
 

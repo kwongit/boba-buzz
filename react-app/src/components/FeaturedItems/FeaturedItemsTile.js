@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux";
 import OpenModalButton from "../OpenModalButton";
+import { DeleteFeaturedItemModal } from "./DeleteFeaturedItemModal";
 import "./FeaturedItems.css";
 
 const FeaturedItemsTile = ({ featuredItem, businessId }) => {
@@ -14,16 +15,16 @@ const FeaturedItemsTile = ({ featuredItem, businessId }) => {
         <img className="featured-item-image" src={image_url} alt={name}></img>
         <div className="featured-item-name">{name}</div>
       </div>
-      {/* <div className="">
+      <div className="">
         {currentUser && businesses.owner_id === currentUser.id && (
           <OpenModalButton
             buttonText="Delete"
-            // modalComponent={
-            //   <DeleteFeaturedItemModal featuredItemId={featuredItem.id} />
-            // }
+            modalComponent={
+              <DeleteFeaturedItemModal featuredItemId={featuredItem.id} />
+            }
           />
         )}
-      </div> */}
+      </div>
     </div>
   );
 };

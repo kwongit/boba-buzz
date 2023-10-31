@@ -31,15 +31,10 @@ export const FeaturedItems = ({ businessId }) => {
   if (!featuredItems.length) return null;
 
   return (
-    <>
-      <Slider className="featured-items-tile-container" {...settings}>
-        {featuredItems.map((featuredItem) => (
-          <FeaturedItemsTile
-            key={featuredItem.id}
-            featuredItem={featuredItem}
-          />
-        ))}
-      </Slider>
-    </>
+    <Slider className="featured-items-tile-container" {...settings}>
+      {featuredItems.map((featuredItem) => (
+        <FeaturedItemsTile key={featuredItem.id} featuredItem={featuredItem} />
+      ))}
+    </Slider>
   );
 };

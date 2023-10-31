@@ -1,16 +1,18 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router";
+// import { useHistory } from "react-router";
 import { useParams } from "react-router-dom";
 import { thunkGetBusinessInfo } from "../../store/businesses";
 import { thunkGetBusinessReviews } from "../../store/reviews";
 import { FeaturedItems } from "../FeaturedItems";
 import { BusinessReviews } from "../Reviews";
+import OpenModalButton from "../OpenModalButton";
+import { CreateFeaturedItemModal } from "../FeaturedItems/CreateFeaturedItemModal";
 import "./BusinessDetails.css";
 
 export const BusinessDetails = () => {
   const dispatch = useDispatch();
-  const history = useHistory();
+  // const history = useHistory();
 
   const { businessId } = useParams();
 
@@ -42,9 +44,9 @@ export const BusinessDetails = () => {
     description,
   } = oneBusiness;
 
-  const handleClick = () => {
-    history.push(`/businesses/${businessId}`);
-  };
+  // const handleClick = () => {
+  //   history.push(`/businesses/${businessId}`);
+  // };
 
   return (
     <div>
@@ -108,12 +110,19 @@ export const BusinessDetails = () => {
               <h3>Featured Items</h3>
               <div className="">
                 {currentUser && oneBusiness.owner_id === currentUser.id && (
-                  <button
-                    className="create-featured-item-button"
-                    onClick={handleClick}
-                  >
-                    Add a Featured Item
-                  </button>
+                  // <button
+                  //   className="create-featured-item-button"
+                  //   onClick={handleClick}
+                  // >
+                  //   Add a New Featured Item
+                  // </button>
+                  <OpenModalButton
+                    buttonText="Add a New Featured Item"
+                    modalComponent={
+                      // <CreateFeaturedItemModal menuItemId={menuItem.id} />
+                      <CreateFeaturedItemModal businessId={businessId} />
+                    }
+                  />
                 )}
               </div>
               <div className="">
