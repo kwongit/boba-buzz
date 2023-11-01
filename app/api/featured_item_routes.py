@@ -8,7 +8,6 @@ from app.api.aws_helpers import get_unique_filename, upload_file_to_s3, remove_f
 featured_item_routes = Blueprint('featured_item', __name__)
 
 
-# /api/featuredItems/featuredItemId
 @featured_item_routes.route('/<int:featuredItemId>')
 def get_featured_item_by_id(featuredItemId):
   """
@@ -22,7 +21,6 @@ def get_featured_item_by_id(featuredItemId):
   return featured_item.to_dict()
 
 
-# /api/featuredItems/featuredItemId/edit
 @featured_item_routes.route('/<int:featuredItemId>/edit', methods=['PUT'])
 @login_required
 def update_featured_item(featuredItemId):
@@ -66,7 +64,6 @@ def update_featured_item(featuredItemId):
       return { "message": "FORBIDDEN"}, 403
 
 
-# /api/featuredItems/featuredItemId
 @featured_item_routes.route('/<int:featuredItemId>', methods=['DELETE'])
 @login_required
 def delete_featured_item(featuredItemId):

@@ -8,9 +8,6 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./FeaturedItems.css";
 
-// import { Carousel } from "react-responsive-carousel";
-// import "react-responsive-carousel/lib/styles/carousel.min.css";
-
 export const FeaturedItems = ({ businessId }) => {
   const settings = {
     dots: true,
@@ -39,11 +36,5 @@ export const FeaturedItems = ({ businessId }) => {
         <FeaturedItemsTile key={featuredItem.id} featuredItem={featuredItem} />
       ))}
     </Slider>
-
-    // <Carousel className="featured-items-tile-container">
-    //   {featuredItems.map((featuredItem) => (
-    //     <FeaturedItemsTile key={featuredItem.id} featuredItem={featuredItem} />
-    //   ))}
-    // </Carousel>
   );
 };

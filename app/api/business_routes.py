@@ -213,7 +213,6 @@ def delete_business(businessId):
         return { "message": "Business not found!" }, 404
 
 
-# /api/businesses/:businessId/featuredItems
 @business_routes.route('/<int:businessId>/featuredItems')
 def get_business_featured_items(businessId):
   """
@@ -226,7 +225,6 @@ def get_business_featured_items(businessId):
   return featured_items_list
 
 
-# /api/businesses/:businessId/createFeaturedItem
 @business_routes.route('/<int:businessId>/createFeaturedItem', methods=['POST'])
 @login_required
 def create_featured_item(businessId):
@@ -264,48 +262,6 @@ def create_featured_item(businessId):
   else:
     print(form.errors)
     return { "errors": form.errors }, 400
-
-
-# # /api/featuredItems/:featuredItemId
-# @business_routes.route('/featuredItems/<int:featuredItemId>', methods=['PUT'])
-# @login_required
-# def update_featured_item(featuredItemId):
-#   """
-#   Route to update a featured item
-#   """
-#   form = FeaturedItemForm()
-#   form["csrf_token"].data = request.cookies["csrf_token"]
-
-#   featured_item_to_update = FeaturedItem.query.get(featuredItemId)
-
-#   if featured_item_to_update.owner_id == current_user.id:
-#     # Delete associated S3 files
-#     remove_file_from_s3(featured_item_to_update.image_url)
-
-#     if form.validate_on_submit():
-#       image = form.data["image_url"]
-#       image.filename = get_unique_filename(image.filename)
-
-#       # Upload the image to S3
-#       upload = upload_file_to_s3(image)
-#       print(upload)
-
-#       if 'url' not in upload:
-#           return { "errors": "Error uploading image to S3" }, 400
-
-#       # Use the S3 URL
-#       image_url = upload['url']
-
-#       featured_item_to_update.name = form.data["name"]
-#       featured_item_to_update.image_url = image_url
-
-#       db.session.commit()
-#       return featured_item_to_update.to_dict()
-#     else:
-#       print(form.errors)
-#       return { "errors": form.errors }, 400
-#   else:
-#     return { "message": "FORBIDDEN"}, 403
 
 
 @business_routes.route('/<int:businessId>/reviews')
