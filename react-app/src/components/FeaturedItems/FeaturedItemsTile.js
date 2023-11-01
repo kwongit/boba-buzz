@@ -24,7 +24,7 @@ const FeaturedItemsTile = ({ featuredItem }) => {
       </div>
       <div className="">
         {currentUser && businesses.owner_id === currentUser.id && (
-          <div>
+          <div className="featured-items-btn-container">
             <button
               className="update-featured-item-button"
               onClick={handleClick}

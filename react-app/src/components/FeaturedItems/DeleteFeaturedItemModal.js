@@ -13,15 +13,25 @@ export const DeleteFeaturedItemModal = ({ featuredItemId }) => {
   };
 
   return (
-    <div className="delete-modal-content">
-      <div className="delete-menu_item-container">
-        <h3>Confirm Delete</h3>
-        <p>Are you sure you want to remove this featured item?</p>
-        <div className="yes-no-container">
-          <button className="yes-button" type="button" onClick={handleClick}>
+    <div className="delete-featured-item-modal-window">
+      <div className="delete-featured-item-modal-container">
+        <h2 className="delete-featured-item-modal-title">Confirm Delete</h2>
+        <p className="delete-featured-item-modal-confirmation">
+          Are you sure you want to remove this item?
+        </p>
+        <div className="delete-featured-item-modal-btn-container">
+          <button
+            className="delete-featured-item-modal-yes-btn"
+            type="button"
+            onClick={handleClick}
+          >
             Yes
           </button>
-          <button className="no-button" type="button" onClick={closeModal}>
+          <button
+            className="delete-featured-item-modal-no-btn"
+            type="button"
+            onClick={closeModal}
+          >
             No
           </button>
         </div>

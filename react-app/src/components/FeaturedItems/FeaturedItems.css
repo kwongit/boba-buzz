@@ -1,4 +1,62 @@
 .featured-item-image {
   border-radius: 5px;
   object-fit: cover;
+  width: 258px;
+  height: 258px;
+}
+
+.update-featured-item-button, .create-menu-item-button {
+  cursor: pointer;
+  border-radius: 5px;
+  border: 1px solid #d32323;
+  padding: 8px 19px 9px;
+  color: white;
+  background-color: #d32323;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.update-featured-item-button:hover, .create-menu-item-button:hover {
+  background-color: white;
+  color: #d32323;
+}
+
+.featured-items-btn-container {
+  display: flex;
+  gap: 20px;
+  padding-top: 10px;
+}
+
+.delete-featured-item-modal-window {
+  width: 300px;
+  height: 150px;
+}
+
+.delete-featured-item-modal-title,
+.delete-featured-item-modal-confirmation {
+  text-align: center;
+}
+
+.delete-featured-item-modal-btn-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.delete-featured-item-modal-yes-btn,
+.delete-featured-item-modal-no-btn {
+  cursor: pointer;
+  border-radius: 5px;
+  border: 1px solid #d32323;
+  padding: 8px 19px 9px;
+  color: white;
+  background-color: #d32323;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.delete-featured-item-modal-yes-btn:hover,
+.delete-featured-item-modal-no-btn:hover {
+  background-color: white;
+  color: #d32323;
 }

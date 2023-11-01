@@ -112,7 +112,7 @@ export const BusinessDetails = () => {
           <div className="business-details-additional-details">
             <div className="business-details-featured-items">
               <h3>Featured Items</h3>
-              <div className="">
+              <div className="business-details-add-featured-item-btn-container">
                 {currentUser && oneBusiness.owner_id === currentUser.id && (
                   <button
                     className="create-featured-item-button"
@@ -122,7 +122,7 @@ export const BusinessDetails = () => {
                   </button>
                 )}
               </div>
-              <div className="">
+              <div className="business-details-featured-items-carousel">
                 <FeaturedItems businessId={businessId} />
               </div>
             </div>
