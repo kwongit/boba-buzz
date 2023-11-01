@@ -119,6 +119,7 @@ export const CreateBusiness = ({ user }) => {
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 placeholder="Shop Name"
+                required={true}
               />
             </div>
             <div className="create-business-form-input-container">
@@ -136,6 +137,7 @@ export const CreateBusiness = ({ user }) => {
                 value={address}
                 onChange={(e) => setAddress(e.target.value)}
                 placeholder="Address"
+                required={true}
               />
             </div>
             <div className="create-business-form-input-container">
@@ -153,6 +155,7 @@ export const CreateBusiness = ({ user }) => {
                 value={city}
                 onChange={(e) => setCity(e.target.value)}
                 placeholder="City"
+                required={true}
               />
             </div>
             <div className="create-business-form-input-container">
@@ -170,6 +173,7 @@ export const CreateBusiness = ({ user }) => {
                 value={state}
                 onChange={(e) => setState(e.target.value)}
                 placeholder="State"
+                required={true}
               />
             </div>
             <div className="create-business-form-input-container">
@@ -187,6 +191,7 @@ export const CreateBusiness = ({ user }) => {
                 value={type}
                 onChange={(e) => setType(e.target.value)}
                 placeholder="Type"
+                required={true}
               />
             </div>
             <div className="create-business-form-input-container">
@@ -284,6 +289,7 @@ export const CreateBusiness = ({ user }) => {
                 accept="image/*"
                 onChange={handleImageChange}
                 placeholder="Main Image URL"
+                required={true}
               />
             </div>
             <div className="create-business-form-input-container">
@@ -301,6 +307,7 @@ export const CreateBusiness = ({ user }) => {
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
                 placeholder="Description"
+                required={true}
               ></textarea>
             </div>
           </div>

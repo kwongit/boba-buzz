@@ -67,11 +67,27 @@
   justify-content: center;
 }
 
-.additional-details-p {
-  font-size: 14px;
-}
-
 .business-details-featured-items, .business-details-location-hours, .business-details-about-shop {
   border-bottom: 1px solid gray;
   padding-bottom: 30px;
+}
+
+.create-featured-item-button {
+  cursor: pointer;
+  border-radius: 5px;
+  border: 1px solid #d32323;
+  padding: 8px 19px 9px;
+  color: white;
+  background-color: #d32323;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.create-featured-item-button:hover {
+  background-color: white;
+  color: #d32323;
+}
+
+.business-details-add-featured-item-btn-container {
+  padding-bottom: 20px;
 }
