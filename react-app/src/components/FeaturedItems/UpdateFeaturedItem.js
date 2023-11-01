@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { useHistory, useParams } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { thunkUpdateFeaturedItem } from "../../store/featuredItems";
 
 export const UpdateFeaturedItem = ({ featuredItem }) => {
@@ -11,8 +11,6 @@ export const UpdateFeaturedItem = ({ featuredItem }) => {
 
   const history = useHistory();
   const dispatch = useDispatch();
-
-  const { businessId } = useParams();
 
   if (!featuredItem) {
     history.push("/");
@@ -51,7 +49,7 @@ export const UpdateFeaturedItem = ({ featuredItem }) => {
       if (updateFeaturedItem.errors) {
         setErrors(combinedErrors);
       } else {
-        history.push(`/businesses/${businessId}`);
+        history.goBack();
       }
     }
   };

@@ -80,21 +80,6 @@ export const thunkCreateFeaturedItem =
     }
   };
 
-// export const thunkUpdateFeaturedItem =
-//   (featuredItem, featuredItemId) => async (dispatch) => {
-//     const res = await fetch(`/api/featuredItems/${featuredItemId}`, {
-//       method: "PUT",
-//       body: featuredItem,
-//     });
-//     if (res.ok) {
-//       const data = await res.json();
-//       return data;
-//     } else {
-//       const errors = await res.json();
-//       return errors;
-//     }
-//   };
-
 export const thunkUpdateFeaturedItem =
   (featuredItem, featuredItemId) => async (dispatch) => {
     const res = await fetch(`/api/featuredItems/${featuredItemId}/edit`, {

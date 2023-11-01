@@ -34,34 +34,36 @@ def update_featured_item(featuredItemId):
 
   featured_item_to_update = FeaturedItem.query.get(featuredItemId)
 
-  if featured_item_to_update.owner_id == current_user.id:
-    # Delete associated S3 files
-    remove_file_from_s3(featured_item_to_update.image_url)
+  if featured_item_to_update:
+    target_business = Business.query.get(featured_item_to_update.business_id)
+    if target_business.owner_id == current_user.id:
+      # Delete associated S3 files
+      remove_file_from_s3(featured_item_to_update.image_url)
 
-    if form.validate_on_submit():
-      image = form.data["image_url"]
-      image.filename = get_unique_filename(image.filename)
+      if form.validate_on_submit():
+        image = form.data["image_url"]
+        image.filename = get_unique_filename(image.filename)
 
-      # Upload the image to S3
-      upload = upload_file_to_s3(image)
-      print(upload)
+        # Upload the image to S3
+        upload = upload_file_to_s3(image)
+        print(upload)
 
-      if 'url' not in upload:
-          return { "errors": "Error uploading image to S3" }, 400
+        if 'url' not in upload:
+            return { "errors": "Error uploading image to S3" }, 400
 
-      # Use the S3 URL
-      image_url = upload['url']
+        # Use the S3 URL
+        image_url = upload['url']
 
-      featured_item_to_update.name = form.data["name"]
-      featured_item_to_update.image_url = image_url
+        featured_item_to_update.name = form.data["name"]
+        featured_item_to_update.image_url = image_url
 
-      db.session.commit()
-      return featured_item_to_update.to_dict()
+        db.session.commit()
+        return featured_item_to_update.to_dict()
+      else:
+        print(form.errors)
+        return { "errors": form.errors }, 400
     else:
-      print(form.errors)
-      return { "errors": form.errors }, 400
-  else:
-    return { "message": "FORBIDDEN"}, 403
+      return { "message": "FORBIDDEN"}, 403
 
 
 # /api/featuredItems/featuredItemId
