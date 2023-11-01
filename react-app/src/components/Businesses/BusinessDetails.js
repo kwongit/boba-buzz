@@ -121,14 +121,11 @@ export const BusinessDetails = () => {
                     Add Featured Item
                   </button>
                 )}
-                {(!currentUser && !featuredItemsList.length) ||
-                  (currentUser &&
-                    !featuredItemsList.length &&
-                    oneBusiness.owner_id !== currentUser.id && (
-                      <h4 className="featured-items-coming-soon">
-                        Coming soon...
-                      </h4>
-                    ))}
+                {((!featuredItemsList.length && !currentUser) ||
+                  (!featuredItemsList.length &&
+                    oneBusiness.owner_id !== currentUser)) && (
+                  <h4 className="featured-items-coming-soon">Coming soon...</h4>
+                )}
               </div>
               <div className="business-details-featured-items-carousel">
                 <FeaturedItems businessId={businessId} />
