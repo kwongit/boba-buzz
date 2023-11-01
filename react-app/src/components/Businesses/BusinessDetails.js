@@ -1,25 +1,35 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router";
 import { useParams } from "react-router-dom";
 import { thunkGetBusinessInfo } from "../../store/businesses";
+import { thunkGetFeaturedItems } from "../../store/featuredItems";
 import { thunkGetBusinessReviews } from "../../store/reviews";
+import { FeaturedItems } from "../FeaturedItems";
 import { BusinessReviews } from "../Reviews";
 import "./BusinessDetails.css";
 
 export const BusinessDetails = () => {
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const { businessId } = useParams();
 
-  const reviews = useSelector((state) => state.reviews.allReviews);
-  const reviewsList = Object.values(reviews);
-
+  const currentUser = useSelector((state) => state.session.user);
   const oneBusiness = useSelector((state) => state.businesses.singleBusiness);
+  const featuredItems = useSelector(
+    (state) => state.featuredItems.allFeaturedItems
+  );
+  const reviews = useSelector((state) => state.reviews.allReviews);
+
+  const reviewsList = Object.values(reviews);
+  const featuredItemsList = Object.values(featuredItems);
 
   useEffect(() => {
     dispatch(thunkGetBusinessInfo(businessId));
     dispatch(thunkGetBusinessReviews(businessId));
-  }, [dispatch, businessId, reviewsList.length]);
+    dispatch(thunkGetFeaturedItems(businessId));
+  }, [dispatch, businessId, featuredItemsList.length, reviewsList.length]);
 
   if (!oneBusiness.id) return null;
 
@@ -37,6 +47,10 @@ export const BusinessDetails = () => {
     image_url,
     description,
   } = oneBusiness;
+
+  const handleClick = () => {
+    history.push(`/businesses/${businessId}/createFeaturedItem`);
+  };
 
   return (
     <div>
@@ -98,7 +112,19 @@ export const BusinessDetails = () => {
           <div className="business-details-additional-details">
             <div className="business-details-featured-items">
               <h3>Featured Items</h3>
-              <div className="additional-details-p">Coming Soon...</div>
+              <div className="business-details-add-featured-item-btn-container">
+                {currentUser && oneBusiness.owner_id === currentUser.id && (
+                  <button
+                    className="create-featured-item-button"
+                    onClick={handleClick}
+                  >
+                    Add Featured Item
+                  </button>
+                )}
+              </div>
+              <div className="business-details-featured-items-carousel">
+                <FeaturedItems businessId={businessId} />
+              </div>
             </div>
             <div className="business-details-location-hours">
               <h3>Location & Hours</h3>

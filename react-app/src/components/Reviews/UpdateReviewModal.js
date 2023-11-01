@@ -119,6 +119,7 @@ export const UpdateReviewModal = ({ updateReview }) => {
               placeholder={`${updateReview.review}`}
               value={review}
               onChange={(e) => setReview(e.target.value)}
+              required={true}
             ></textarea>
           </div>
           {errors.review && submitted && (

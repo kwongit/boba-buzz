@@ -126,6 +126,7 @@ export const CreateReviewModal = ({ business }) => {
               placeholder={`Leave a buzz for ${business.name}`}
               value={review}
               onChange={(e) => setReview(e.target.value)}
+              required={true}
             ></textarea>
           </div>
           {errors.review && submitted && (
