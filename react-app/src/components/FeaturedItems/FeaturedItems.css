@@ -5,6 +5,10 @@
   height: 258px;
 }
 
+.featured-item-name {
+  padding-top: 10px;
+}
+
 .update-featured-item-button, .create-menu-item-button {
   cursor: pointer;
   border-radius: 5px;
