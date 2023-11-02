@@ -45,52 +45,49 @@ You can check out the [live site here](https://boba-buzz.onrender.com)!
 ## Screenshots
 
 ### Landing Page
-
-<img width="952" alt="landing_page" src="https://github.com/kwongit/boba-buzz/assets/26725594/82b937d5-4440-4c12-9fbc-4c273832d5d0">
+![landing](https://github.com/kwongit/boba-buzz/assets/26725594/9b3d97ec-f3cb-4c96-981b-afa82c3d4fce)
 
 ### Sign Up Modal
-
-<img width="952" alt="signup_modal" src="https://github.com/kwongit/boba-buzz/assets/26725594/db47e464-ee63-4674-b2a1-e6b0eb4b4843">
+![signup](https://github.com/kwongit/boba-buzz/assets/26725594/ff8d1bdd-429a-43b9-8d58-96b1fe867aba)
 
 ### Login Modal
+![login](https://github.com/kwongit/boba-buzz/assets/26725594/cea3ec5e-2748-4089-ad14-fbb14eb78f87)
 
-<img width="952" alt="login_modal" src="https://github.com/kwongit/boba-buzz/assets/26725594/569e577b-8b7c-413c-991e-66bccd5b0d4d">
-
-### Shop Details Page
-
-<img width="952" alt="shop_details" src="https://github.com/kwongit/boba-buzz/assets/26725594/f0002aed-c8df-4c65-87ef-756678de2344">
+### Boba Shop Details Page
+![shop-details](https://github.com/kwongit/boba-buzz/assets/26725594/a1682df7-c097-430b-8861-f01a83b259be)
 
 ### Add Your Shop Page
-
-<img width="952" alt="add_shop" src="https://github.com/kwongit/boba-buzz/assets/26725594/4bca5f8a-db48-41d2-b9e7-e1921e0f9b0d">
+![create-shop](https://github.com/kwongit/boba-buzz/assets/26725594/e8c9f5e4-ab75-4bbd-b360-2421e5789769)
 
 ### Mange Your Shops Page
-
-<img width="952" alt="manage_shops" src="https://github.com/kwongit/boba-buzz/assets/26725594/83789a9c-e99e-4640-8919-0536414c7f8f">
+![manage-shop](https://github.com/kwongit/boba-buzz/assets/26725594/d0d03a53-2fb1-4f1e-a683-7e222536a891)
 
 ### Update Your Shop Page
-
-<img width="952" alt="update_shop" src="https://github.com/kwongit/boba-buzz/assets/26725594/ff75af07-42f7-4933-a0ae-c631a35b83b2">
+![update-shop](https://github.com/kwongit/boba-buzz/assets/26725594/fc9ebafb-f8d4-47ae-863c-207c5d74d57f)
 
 ### Delete Your Shop Modal
-
-<img width="952" alt="delete_shop_modal" src="https://github.com/kwongit/boba-buzz/assets/26725594/f767a675-b5aa-4579-a2ed-4ccb776dffa7">
+![delete-shop](https://github.com/kwongit/boba-buzz/assets/26725594/bbc7c1dc-5d2b-4fbd-aa59-63ea83328bc6)
 
 ### Post Your Buzz Modal
-
-<img width="952" alt="post_buzz_modal" src="https://github.com/kwongit/boba-buzz/assets/26725594/d202d2f5-1694-4d9a-bc19-8fa87b205d44">
+![create-buzz](https://github.com/kwongit/boba-buzz/assets/26725594/b113e777-4e66-4916-9c57-b59ad7d8702c)
 
 ### Manage Your Buzzes Page
-
-<img width="952" alt="manage_buzzes" src="https://github.com/kwongit/boba-buzz/assets/26725594/66da9371-b724-4f0d-b404-ca3c60116cf0">
+![manage-buzz](https://github.com/kwongit/boba-buzz/assets/26725594/a9dde05f-c42b-40a6-8a4a-7531af4984b9)
 
 ### Update Your Buzz Modal
-
-<img width="952" alt="update_buzz_modal" src="https://github.com/kwongit/boba-buzz/assets/26725594/501c039e-3eb7-47fc-b872-167b0bf12f60">
+![update-buzz](https://github.com/kwongit/boba-buzz/assets/26725594/c895d4a7-b374-4fa5-890b-e3238244b4fe)
 
 ### Delete Your Buzz Modal
+![delete-buzz](https://github.com/kwongit/boba-buzz/assets/26725594/2bd4fa75-ee9e-477b-9aa2-5c23afc413a7)
 
-<img width="952" alt="delete_buzz_modal" src="https://github.com/kwongit/boba-buzz/assets/26725594/a24508e0-f603-46d6-810c-28e6418a37f7">
+### Add Featured Item Page
+![create-featured](https://github.com/kwongit/boba-buzz/assets/26725594/e1e33bef-4023-48ad-9850-2553d3f4bab0)
+
+### Update Featured Item Page
+![update-featured](https://github.com/kwongit/boba-buzz/assets/26725594/b4236b32-cfc0-4e6a-af19-e56fd361fe51)
+
+### Delete Featured Item Modal
+![delete-featured](https://github.com/kwongit/boba-buzz/assets/26725594/660104e1-df1a-4edd-9ee7-f557becf30bc)
 
 ## Get in Touch:
 
