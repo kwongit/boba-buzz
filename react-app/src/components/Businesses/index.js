@@ -25,7 +25,7 @@ export const Businesses = () => {
         alt="landing-page-banner-img"
       ></img>
       <div className="landing-page-window">
-        <h1>Top Boba Shops in the Bay Area</h1>
+        <h1>Discover, Manage & Buzz Your Next Boba Shop!</h1>
         <div className="landing-page-business-container">
           <ul className="landing-page-ul">
             {businesses.map((business, index) => (
