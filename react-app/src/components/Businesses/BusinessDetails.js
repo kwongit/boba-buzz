@@ -7,6 +7,7 @@ import { thunkGetFeaturedItems } from "../../store/featuredItems";
 import { thunkGetBusinessReviews } from "../../store/reviews";
 import { FeaturedItems } from "../FeaturedItems";
 import { BusinessReviews } from "../Reviews";
+import { GoogleEmbeddedMaps } from "./GoogleEmbeddedMaps";
 import "./BusinessDetails.css";
 
 export const BusinessDetails = () => {
@@ -134,6 +135,11 @@ export const BusinessDetails = () => {
             <div className="business-details-location-hours">
               <h3>Location & Hours</h3>
               <div className="additional-details-p">
+                <GoogleEmbeddedMaps
+                  address={address}
+                  city={city}
+                  state={state}
+                />
                 {address}, {city}, {state}
               </div>
               <div className="additional-details-p">

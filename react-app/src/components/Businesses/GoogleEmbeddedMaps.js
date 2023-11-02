@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import Iframe from "react-iframe";
 import axios from "axios";
 
-const Map = () => {
+export const GoogleEmbeddedMaps = ({ address, city, state }) => {
   const [apiKey, setApiKey] = useState("");
-  const location = "YOUR_LOCATION";
+  const location = `${address}, ${city}, ${state}`;
 
   useEffect(() => {
     axios
@@ -31,5 +31,3 @@ const Map = () => {
     </div>
   );
 };
-
-export default Map;

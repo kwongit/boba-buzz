@@ -107,5 +107,5 @@ def get_api_key():
     """
     Route to serve the API key to the frontend
     """
-    api_key = 'YOUR_GOOGLE_MAPS_API_KEY'
+    api_key = os.environ.get('REACT_APP_GOOGLE_MAPS_API')
     return jsonify({'api_key': api_key})
