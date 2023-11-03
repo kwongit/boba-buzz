@@ -1,4 +1,4 @@
-from flask import Blueprint, request
+from flask import Blueprint, request, jsonify
 from flask_login import current_user, login_required
 from app.models import Business, FeaturedItem, Review
 from app.models.db import db
@@ -297,3 +297,26 @@ def create_review(businessId):
     else:
         print(form.errors)
         return { "errors": form.errors }, 400
+
+
+@business_routes.route('/search', methods=['GET'])
+def search_businesses():
+    """
+    Route to search for business based on search query
+    """
+    query = request.args.get('query')
+
+    if not query:
+        return jsonify({"error": "No search query provided"}), 400
+
+    businesses = Business.query.filter(
+        Business.name.ilike(f"%{query}%")
+    ).all()
+
+    if not businesses:
+        return jsonify({ "message": "No shops found for the given query!" })
+
+    # Convert businesses to a list of dictionaries
+    business_list = [business.to_dict() for business in businesses]
+
+    return jsonify(business_list)
