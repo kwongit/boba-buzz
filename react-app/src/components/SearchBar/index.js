@@ -1,72 +1,86 @@
-// import React, { useState } from "react";
+import React, { useState } from "react";
+import { useHistory } from "react-router";
+import "./SearchBar.css";
 
-// export const SearchBar = ({ onSearch }) => {
-//   const [query, setQuery] = useState("");
-
-//   const handleSearch = () => {
-//     onSearch(query);
-//   };
-
-//   return (
-//     <div>
-//       <input
-//         type="text"
-//         placeholder="Search for boba shops..."
-//         value={query}
-//         onChange={(e) => setQuery(e.target.value)}
-//       />
-//       <button onClick={handleSearch}>Search</button>
-//     </div>
-//   );
-// };
-
-import React, { useState, useEffect } from "react";
-
-export const SearchBar = ({ onSearch }) => {
+export const SearchBar = ({ data }) => {
+  const history = useHistory();
   const [query, setQuery] = useState("");
-  const [suggestions, setSuggestions] = useState([]);
+  const [filteredData, setFilteredData] = useState([]);
 
-  // Use useEffect to trigger the autocomplete suggestions when the query changes
-  useEffect(() => {
-    if (query.trim() !== "") {
-      fetch(`/api/businesses/search?query=${query}`)
-        .then((response) => response.json())
-        .then((data) => {
-          setSuggestions(data);
-        })
-        .catch((error) => console.error(error));
+  const handleResults = (e) => {
+    const searchQuery = e.target.value.toLowerCase();
+    setQuery(searchQuery);
+
+    const newData = data.filter((value) => {
+      return value.name.toLowerCase().includes(searchQuery);
+    });
+
+    if (!searchQuery) {
+      setFilteredData([]);
     } else {
-      setSuggestions([]); // Clear suggestions when the input is empty
+      setFilteredData(newData);
     }
-  }, [query]);
+  };
 
-  // Handle selecting a suggestion
-  const handleSuggestionClick = (suggestion) => {
-    setQuery(suggestion.name); // Set the query to the selected suggestion
-    setSuggestions([]); // Clear suggestions
-    onSearch(suggestion.name); // Trigger the search
+  const clearInput = () => {
+    setFilteredData([]);
+    setQuery("");
+  };
+
+  const handleClick = (id) => {
+    history.push(`/businesses/${id}`);
   };
 
   return (
     <div>
-      <input
-        type="text"
-        placeholder="Search for boba shops..."
-        value={query}
-        onChange={(e) => setQuery(e.target.value)}
-      />
-      {/* <button onClick={() => onSearch(query)}>Search</button> */}
-      {suggestions.length > 0 && (
-        <ul>
-          {suggestions.map((suggestion) => (
-            <div
-              key={suggestion.id}
-              onClick={() => handleSuggestionClick(suggestion)}
-            >
-              {suggestion.name} · {suggestion.city}
-            </div>
-          ))}
-        </ul>
+      <div className="search-bar-container">
+        <div className="search-bar-icon">
+          <i className="fa-solid fa-magnifying-glass"></i>
+        </div>
+
+        <input
+          className="search-bar"
+          type="text"
+          value={query}
+          onChange={handleResults}
+          placeholder="search for your next boba shop by name"
+        ></input>
+
+        <div className="search-bar-icon">
+          {query.length !== 0 && (
+            <i
+              id="search-clear-button"
+              className="fa-solid fa-x"
+              onClick={clearInput}
+            ></i>
+          )}
+        </div>
+      </div>
+
+      {filteredData.length !== 0 && (
+        <div className="search-bar-results">
+          {filteredData.map((data) => {
+            return (
+              <div>
+                <div
+                  className="search-bar-result"
+                  onClick={() => handleClick(data.id)}
+                >
+                  <div className="search-bar-result-img-container">
+                    <img
+                      className="search-bar-result-img"
+                      src={data.image_url}
+                      alt={data.name}
+                    ></img>
+                  </div>
+                  <div className="search-bar-result-name-city">
+                    {data.name} · {data.city}
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
       )}
     </div>
   );

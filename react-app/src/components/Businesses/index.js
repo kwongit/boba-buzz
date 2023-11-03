@@ -1,19 +1,14 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router";
 import { thunkGetBusinesses } from "../../store/businesses";
 import BusinessList from "./BusinessList";
 import { SearchBar } from "../SearchBar";
 import "./LandingPage.css";
 
 export const Businesses = () => {
-  const [results, setResults] = useState([]);
-
   const dispatch = useDispatch();
-  const history = useHistory();
 
   const getBusinesses = useSelector((state) => state.businesses.allBusinesses);
-
   const businesses = Object.values(getBusinesses);
 
   useEffect(() => {
@@ -21,19 +16,6 @@ export const Businesses = () => {
   }, [dispatch]);
 
   if (!businesses.length) return null;
-
-  const searchShop = (query) => {
-    fetch(`/api/businesses/search?query=${query}`)
-      .then((response) => response.json())
-      .then((data) => {
-        setResults(data);
-      })
-      .catch((error) => console.error(error));
-  };
-
-  const handleClick = (id) => {
-    history.push(`/businesses/${id}`);
-  };
 
   return (
     <div>
@@ -44,17 +26,8 @@ export const Businesses = () => {
       ></img>
       <div className="landing-page-window">
         <h1>Discover, Manage & Buzz Your Next Boba Shop!</h1>
-        <div>
-          <SearchBar onSearch={searchShop} />
-          <div className="results">
-            {results.map((business) => (
-              <div key={business.id}>
-                <div onClick={() => handleClick(business.id)}>
-                  {business.name} · {business.city}
-                </div>
-              </div>
-            ))}
-          </div>
+        <div className="landing-page-searchbar">
+          <SearchBar data={businesses} />
         </div>
         <div className="landing-page-business-container">
           <ul className="landing-page-ul">
