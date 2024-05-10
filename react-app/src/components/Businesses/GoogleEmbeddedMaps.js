@@ -23,8 +23,10 @@ export const GoogleEmbeddedMaps = ({ address, city, state }) => {
     <div>
       <Iframe
         url={mapURL}
-        width="600px"
-        height="450px"
+        // width="600px"
+        // height="450px"
+        width="100%"
+        height="100%"
         display="initial"
         position="relative"
       />
