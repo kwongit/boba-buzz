@@ -43,7 +43,7 @@ export const SearchBar = ({ data }) => {
           type="text"
           value={query}
           onChange={handleResults}
-          placeholder="search for your next boba shop by name"
+          placeholder="Search for a boba shop"
         ></input>
 
         <div className="search-bar-icon">
