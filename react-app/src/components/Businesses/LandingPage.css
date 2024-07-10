@@ -33,10 +33,10 @@
 }
 
 .landing-page-banner-img {
-  height: 550px;
+  height: 25em;
   width: 100%;
   object-fit: cover;
-  border-radius: 5px;
+  /* border-radius: 5px; */
 }
 
 .landing-page-business-list-container {
